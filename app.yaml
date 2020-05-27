@@ -1,0 +1,22 @@
+runtime: php72
+
+env_variables:
+  ## Put production environment variables here.
+  APP_KEY: base64:YdimFmSlD03dJzfvverHGvPc8UU6KHA55UPVHF1WrbI=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  APP_NAME: Laravel
+  APP_DEBUG: true
+
+  APP_URL: https://final-year-project-276916.uc.r.appspot.com/
+
+  DB_DATABASE: blocktrade
+  DB_USERNAME: syedumerhasan
+  DB_PASSWORD: syedumerhasan
+  
+  ## for MYSQL, use DB_SOCKET:
+  DB_SOCKET: "/cloudsql/practice-project-269707:asia-south1:syedumerhasan"
+  ## for PostgreSQL, use DB_HOST:
+  # DB_HOST: "/cloudsql/YOUR_CONNECTION_NAME"
