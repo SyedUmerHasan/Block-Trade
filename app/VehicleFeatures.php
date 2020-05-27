@@ -13,4 +13,7 @@ class VehicleFeatures extends Model
         'vehicledetail_id',
         'feature_name'
     ];
+    public function getvehicleDetail(){
+        return $this->belongsTo('VehicleDetail', 'id', 'vehicledetail_id');
+    }
 }

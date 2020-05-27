@@ -130,6 +130,22 @@
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
                 <div class="b-submit__main">
+                    @if (Session::has('message'))
+                        <div class="alert alert-info">{{ Session::get('message') }}</div>
+                    @endif
+                    @if (Session::has('error'))
+                        <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('webapp.vehicleimage.add', $vehicleDetail->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $vehicleDetail->id }}" name="vehicledetail_id" />
@@ -139,6 +155,16 @@
                                     <h2>Upload Your Vehicle Photos</h2>
                                 </header>
                                 <p class=" wow zoomInUp" data-wow-delay="0.3s">You can upload upto 10 photos of your vehicle here.</p>
+                                <div>
+
+                                    @foreach ($vehicleimages as $item)
+                                    <span style="height: 150px; margin: 8px">
+                                        <img src="{{ $item->image_path }}" alt="" style="height: 150px; margin: 4px ">
+                                    </span>
+                                    @endforeach
+                                    
+                                </div>
+
                                 <label class="b-submit__main-file-label btn m-btn wow zoomInUp" data-wow-delay="0.3s">
                                         <input type="file" class="" name="vehicle_images[]"  multiple />
                                         <span>CHOOSE A  PHOTO</span>

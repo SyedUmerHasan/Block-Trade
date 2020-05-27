@@ -24,11 +24,13 @@ use Illuminate\Support\Facades\Route;
      * Pages
      */
     Route::get('/home','ClassifiedAdController@index')->name("webapp.home");
-    Route::get('/vehicle/detail/','ClassifiedAdController@submit1')->name("webapp.submit1");
-    Route::get('/vehicle/features/{id}','ClassifiedAdController@submit2')->name("webapp.submit2");
-    Route::get('/vehicle/images/{id}','ClassifiedAdController@submit3')->name("webapp.submit3");
-    Route::get('/vehicle/contact/{id}','ClassifiedAdController@submit4')->name("webapp.submit4");
-    Route::get('/vehicle/publish/{id}','ClassifiedAdController@submit5')->name("webapp.submit5");
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/vehicle/detail/','ClassifiedAdController@submit1')->name("webapp.submit1");
+        Route::get('/vehicle/features/{id}','ClassifiedAdController@submit2')->name("webapp.submit2");
+        Route::get('/vehicle/images/{id}','ClassifiedAdController@submit3')->name("webapp.submit3");
+        Route::get('/vehicle/contact/{id}','ClassifiedAdController@submit4')->name("webapp.submit4");
+        Route::get('/vehicle/publish/{id}','ClassifiedAdController@submit5')->name("webapp.submit5");
+    });
     /***
      * APIS
      */
@@ -46,10 +48,13 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
 
-    Route::get('login', 'AdminController@login')->name('loginpage');
-    Route::get('register', 'AdminController@register')->name('register');
-    Route::get('password/reset', 'AdminController@resetpassword')->name('password.request');
-    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('login', 'AdminController@login')->name('loginpage');
+        Route::get('register', 'AdminController@register')->name('register');
+        Route::get('password/reset', 'AdminController@resetpassword')->name('password.request');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    });
+
     // Login Routes
     Route::post('login', 'Auth\LoginController@login')->name('login');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -62,10 +67,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
     // Home Redirect Controller
-    Route::get('', function () {return redirect()->route("admin.home");});
+    Route::get('', function () {return redirect()->route("home");});
 
     //  Authenticated Routes
-    Route::group([], function () {
+    Route::group(['middleware' => 'auth'], function () {
         Route::get('home', 'AdminController@home')->name('home');
         Route::get('courses/dashboard', 'AdminController@coursesDashboard')->name('courses.dashboard');
         Route::get('support', 'SupportController@getList')->name('support');

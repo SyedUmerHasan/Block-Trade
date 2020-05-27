@@ -146,8 +146,17 @@
                                 @csrf
                                 <div class="b-submit__main-plan wow zoomInUp" data-wow-delay="0.3s">
 									<header class="s-headerSubmit s-lineDownLeft">
-										<h2>Upload Your Vehicle Photos</h2>
+										<h2>Publish you Car Advertisement</h2>
 									</header>
+									<div class="b-submit__main-element">
+										<label>Enter Your AD Title <span>*</span></label>
+										<div class="row m-smallPadding">
+											<div class="col-sm-6 col-xs-12">
+												<input type="text" name="car_title" required/>
+											</div>
+										</div>
+									</div>
+
 									<p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 									<div class="b-submit__main-contacts-price">
 										<div class="b-submit__main-contacts-price-plan">Your current plan: <span>FREE PLAN</span><a href="#">CHANGE</a></div>
