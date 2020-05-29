@@ -42,43 +42,50 @@ use Illuminate\Support\Facades\Route;
     
 });
 
+
+
 /***
  * Admin Portal Routes
  */
-Route::group(['prefix' => 'admin'], function () {
-    Auth::routes();
-
-    Route::group(['middleware' => 'guest'], function () {
-        Route::get('login', 'AdminController@login')->name('loginpage');
-        Route::get('register', 'AdminController@register')->name('register');
-        Route::get('password/reset', 'AdminController@resetpassword')->name('password.request');
-        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-    });
-
+Auth::routes();
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login', 'AdminController@login')->name('loginpage');
+    Route::get('register', 'AdminController@register')->name('register');
+    Route::get('password/reset', 'AdminController@resetpassword')->name('password.request');
+    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     // Login Routes
-    Route::post('login', 'Auth\LoginController@login')->name('login');
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+});
 
-    // Registration Routes...
-    Route::post('register', 'Auth\RegisterController@register'); 
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-    // Password Reset Routes...
-    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+// Registration Routes...
+Route::post('register', 'Auth\RegisterController@register'); 
+
+// Password Reset Routes...
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+Route::group(['prefix' => 'admin'], function () {
+
+
+    Route::get('changeAccountType', 'AdminController@changeAccountType')->name('changeAccountType');
 
     // Home Redirect Controller
     Route::get('', function () {return redirect()->route("home");});
 
+    Route::get('profile/view/{id}', 'ProfileController@view')->name('profile.view');
+    Route::get('profile/edit/{id}', 'ProfileController@edit')->name('profile.edit');
+    Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
+    Route::post('profile/resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
+
+
     //  Authenticated Routes
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'is_admin'], function () {
         Route::get('home', 'AdminController@home')->name('home');
         Route::get('courses/dashboard', 'AdminController@coursesDashboard')->name('courses.dashboard');
         Route::get('support', 'SupportController@getList')->name('support');
-
-        Route::get('profile/view/{id}', 'ProfileController@view')->name('profile.view');
-        Route::get('profile/edit/{id}', 'ProfileController@edit')->name('profile.edit');
-        Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
-        Route::post('profile/resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
 
 
         Route::get('carbrand', 'VehicleBrandController@getall')->name('vehiclebrand.getall');
@@ -87,20 +94,54 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('carbrand/add', 'VehicleBrandController@add')->name('vehiclebrand.add');
         Route::post('carbrand/update/{id}', 'VehicleBrandController@update')->name('vehiclebrand.update');
 
+    
+        Route::group(['prefix' => 'interiorcolor'], function() {
+            Route::get('', 'InteriorColorController@getall')->name('interiorcolor.getall');
+            Route::get('create', 'InteriorColorController@create')->name('interiorcolor.create');
+            Route::get('edit/{id}', 'InteriorColorController@edit')->name('interiorcolor.edit');
+            Route::post('add', 'InteriorColorController@add')->name('interiorcolor.add');
+            Route::post('update/{id}', 'InteriorColorController@update')->name('interiorcolor.update');
+        });
+            
+        Route::group(['prefix' => 'exteriorcolor'], function () {
+            Route::get('', 'ExteriorColorController@getall')->name('exteriorcolor.getall');
+            Route::get('create', 'ExteriorColorController@create')->name('exteriorcolor.create');
+            Route::get('edit/{id}', 'ExteriorColorController@edit')->name('exteriorcolor.edit');
+            Route::post('add', 'ExteriorColorController@add')->name('exteriorcolor.add');
+            Route::post('update/{id}', 'ExteriorColorController@update')->name('exteriorcolor.update');
+        });
         
-        Route::get('interiorcolor', 'InteriorColorController@getall')->name('interiorcolor.getall');
-        Route::get('interiorcolor/create', 'InteriorColorController@create')->name('interiorcolor.create');
-        Route::get('interiorcolor/edit/{id}', 'InteriorColorController@edit')->name('interiorcolor.edit');
-        Route::post('interiorcolor/add', 'InteriorColorController@add')->name('interiorcolor.add');
-        Route::post('interiorcolor/update/{id}', 'InteriorColorController@update')->name('interiorcolor.update');
+        
+        Route::group(['prefix' => 'vehicle'], function () {
+            Route::get('', 'AdminVehicleController@getall')->name('vehicle.getall');
+            Route::get('/details', 'AdminVehicleController@getdetails')->name('vehicle.details');
+            Route::get('/details/{id}', 'AdminVehicleController@geteditdetails')->name('vehicle.details.edit');
+            Route::post('/details/create', 'AdminVehicleController@createdetails')->name('vehicle.details.create');
+            Route::get('/features/{id}', 'AdminVehicleController@getfeatures')->name('vehicle.features');
+            Route::post('/features/create/{id}', 'AdminVehicleController@createfeatures')->name('vehicle.features.create');
+            Route::get('/images/{id}', 'AdminVehicleController@getimages')->name('vehicle.images');
+            Route::post('/images/create/{id}', 'AdminVehicleController@createimages')->name('vehicle.images.create');
+            Route::get('/contact/{id}', 'AdminVehicleController@getcontacts')->name('vehicle.contact');
+            Route::post('/contact/create/{id}', 'AdminVehicleController@createcontacts')->name('vehicle.contact.create');
+            Route::get('/publish/{id}', 'AdminVehicleController@getpublish')->name('vehicle.publish');
+            Route::post('/publish/create/{id}', 'AdminVehicleController@createpublishVehicle')->name('vehicle.publish.create');
 
-        
-        Route::get('exteriorcolor', 'ExteriorColorController@getall')->name('exteriorcolor.getall');
-        Route::get('exteriorcolor/create', 'ExteriorColorController@create')->name('exteriorcolor.create');
-        Route::get('exteriorcolor/edit/{id}', 'ExteriorColorController@edit')->name('exteriorcolor.edit');
-        Route::post('exteriorcolor/add', 'ExteriorColorController@add')->name('exteriorcolor.add');
-        Route::post('exteriorcolor/update/{id}', 'ExteriorColorController@update')->name('exteriorcolor.update');
+            Route::get('/vehicle/ad/approve/{id}', 'AdminVehicleController@approveAdStatus')->name('vehicle.approve.status');
+            
+
+        });
 
     });
 
+    
+});
+
+
+Route::group(['middleware' => 'is_buyer', 'prefix' => 'buyer'], function () {
+    Route::get('home', 'BuyerController@dashboard')->name('buyer.home');
+});
+
+
+Route::group(['middleware' => 'is_seller', 'prefix' => 'seller'], function () {
+    Route::get('home', 'SellerController@dashboard')->name('seller.home');
 });

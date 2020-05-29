@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use Auth;
 class AdminController extends Controller
 {
     public function login(){
@@ -27,5 +27,26 @@ class AdminController extends Controller
         ->with(compact('sellerCount'))
         ->with(compact('admins'))
         ->with(compact('adminCount'));
+    }
+    public function changeAccountType(){
+        $user = User::find(Auth::user()->id);
+        
+        if($user->role == "admin")
+        {
+            
+            return redirect()->back();
+        }
+        else{
+            if($user->role == "buyer"){
+                $user->role = "seller";
+                $user->save();
+            }
+            else if($user->role == "seller") {
+                $user->role = "buyer";
+                $user->save();
+            }
+            
+            return redirect()->back();
+        }
     }
 }

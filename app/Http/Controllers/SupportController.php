@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class SupportController extends Controller
 {
     public function getList(){
-        return view("Theme.pages.contact");
+        return view("Theme.contact");
     }
 }

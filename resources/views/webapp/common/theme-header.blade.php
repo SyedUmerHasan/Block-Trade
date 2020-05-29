@@ -29,7 +29,7 @@
                             @csrf
                         </form>
                         <li><a href="#">Cart</a></li>
-                        <li><a href="#">Welcome {{ Auth::user()->first_name }}</a></li>
+                        <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->first_name }}</a></li>
                         @endauth
                     </ul>
                 </nav>

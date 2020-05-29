@@ -3,85 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\VehicleStatus;
 use App\VehicleDetail;
 use App\VehicleFeatures;
 use App\VehicleImages;
-use App\VehicleContact;
-use App\InteriorColor;
+use App\vehicleContact;
 use App\ExteriorColor;
-use App\VehicleStatus;
-use Session;
+use App\InteriorColor;
 use Auth;
+use Session;
 
-class ClassifiedAdController extends Controller
+class AdminVehicleController extends Controller
 {
+    public function getall(){
+        $vehicle = VehicleStatus::all();
+        return view('admin.vehicle.list_vehicles')->with(compact('vehicle'));
+    }
     public function index(){
-        return view('webapp.pages.main_home');
+        return view('admin.vehicle.admin_vehicledetails');
     }
-    public function submit1(){
-        return view('webapp.pages.submit1');
-    }
-
-    public function submit2($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->find($id);
-        if($vehicleDetail == null){
-            return redirect()->route('webapp.submit1');
-        }
-        $vehicleFeature = $vehicleDetail->getallvehiclefeatures;
-        return view('webapp.pages.submit2')->with(compact('vehicleDetail'))
-                                            ->with(compact('vehicleFeature'));
-
-    }
-    
-    public function submit3($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
-                                        ->with('getallvehicleimages')
-                                        ->find($id);
-        if($vehicleDetail == null){
-            return redirect()->route('webapp.submit1');
-        }
-        $vehicleFeature = $vehicleDetail->getallvehiclefeatures;
-        $vehicleimages = $vehicleDetail->getallvehicleimages;
-        if(sizeof($vehicleFeature) == 0){
-            return redirect()->route('webapp.submit2',$id);
-        }
-        return view('webapp.pages.submit3')->with(compact('vehicleDetail'))
-                                            ->with(compact('vehicleFeature'))
-                                            ->with(compact('vehicleimages'));
-    }
-    public function submit4($id){
-        $vehicleDetail = VehicleDetail::find($id);
-        if($vehicleDetail == null){
-            return redirect()->route('webapp.submit1');
-        }
-        $vehicleFeature = VehicleFeatures::find($id);
-        if($vehicleFeature == null){
-            return redirect()->route('webapp.submit2');
-        }
-        $vehicleContact = vehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        $interiorcolor = InteriorColor::all();
-        $exteriorcolor = ExteriorColor::all();
-        return view('webapp.pages.submit4')
+    public function getdetails(){
+        // $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
+        // ->with('getallvehicleimages')
+        // ->find($id);
+        
+        // $vehicleImages = $vehicleDetail->getallvehicleimages;
+        return view('admin.vehicle.admin_vehicledetails')
         ->with(compact('vehicleDetail'))
-        ->with(compact('interiorcolor'))
-        ->with(compact('exteriorcolor'))
-        ->with(compact('vehicleContact'));
-
+        ->with(compact('vehicleImages'));
     }
-    public function submit5($id){
-        $vehicleDetail = VehicleDetail::find($id);
-        if($vehicleDetail == null){
-            return redirect()->route('webapp.submit1');
-        }
-        $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        return view('webapp.pages.submit5')->with(compact('vehicleDetail'))
-                                            ->with(compact('vehicleContact'));
+    public function geteditdetails($id){
+        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
+        ->with('getallvehicleimages')
+        ->find($id);
+        
+        $vehicleImages = $vehicleDetail->getallvehicleimages;
+        return view('admin.vehicle.admin_vehicledetails')
+        ->with(compact('vehicleDetail'))
+        ->with(compact('vehicleImages'));
     }
-    /**
-     * Implemenatation of Submit 1
-     */
-    public function addVehicleDetails(Request $request){
-        // dd($request->all());
+    public function createdetails(Request $request){
         $validatedData = $request->validate([
             'vehiclebrand_id' => 'required',
             'brandmodel_id' => 'required',
@@ -98,57 +59,44 @@ class ClassifiedAdController extends Controller
             'fuel_type' => 'required',
             'chasis_number' => 'required'
         ]);
-        $vehicleDetail = VehicleDetail::create([
-            'users_id' => Auth::user()->id,
-            'vehiclebrand_id' => $request->vehiclebrand_id,
-            'brandmodel_id' => $request->brandmodel_id,
-            'year_manufacture' => $request->year_manufacture,
-            'body_type' => $request->body_type,
-            'number_seat' => $request->number_seat,
-            'number_door' => $request->number_door,
-            'number_gear' => $request->number_gear,
-            'tranmission_type' => $request->tranmission_type,
-            'drive_type' => $request->drive_type,
-            'engine_type' => $request->engine_type,
-            'number_cylinder' => $request->number_cylinder,
-            'engine_capacity' => $request->engine_capacity,
-            'fuel_type' => $request->fuel_type,
-            'chasis_number' => $request->chasis_number
-        ]);
+        $vehicleDetail;
+        if($request->vehicle_detail_id != ""){
+            $vehicleDetail = VehicleDetail::find($request->vehicle_detail_id)->update($validatedData);
+            $vehicleDetail =VehicleDetail::find($request->vehicle_detail_id);
+        }
+        else{
+            $vehicleDetail = VehicleDetail::create([
+                'users_id' => Auth::user()->id,
+                'vehiclebrand_id' => $request->vehiclebrand_id,
+                'brandmodel_id' => $request->brandmodel_id,
+                'year_manufacture' => $request->year_manufacture,
+                'body_type' => $request->body_type,
+                'number_seat' => $request->number_seat,
+                'number_door' => $request->number_door,
+                'number_gear' => $request->number_gear,
+                'tranmission_type' => $request->tranmission_type,
+                'drive_type' => $request->drive_type,
+                'engine_type' => $request->engine_type,
+                'number_cylinder' => $request->number_cylinder,
+                'engine_capacity' => $request->engine_capacity,
+                'fuel_type' => $request->fuel_type,
+                'chasis_number' => $request->chasis_number
+            ]);
+        }
+       
+        
         // Mail::to($data['email'])->send(new WelcomeMail($user));
         Session::flash('message', "Vehicle Details Added Successfully");
         // return redirect()->back(); 
-        return redirect()->route('webapp.submit2', $vehicleDetail->id)->with(compact('vehicleDetail'));
+        return redirect()->route('vehicle.features', $vehicleDetail->id)->with(compact('vehicleDetail'));
     }
-    /**
-     * Implemenatation of Submit 2
-     */
-    public function addVehicleFeature(Request $request){
-        // $validatedData = $request->validate([
-        //     'abs' => 'required',
-        //     'alloywheels' => 'required',
-        //     'passengerairbag' => 'required',
-        //     'heateddoormirrors' => 'required',
-        //     'airconditioning' => 'required',
-        //     'tripcomputer' => 'required',
-        //     'sideairbags' => 'required',
-        //     'audioremotecontrol' => 'required',
-        //     'foldingrearseats' => 'required',
-        //     'centrallocking' => 'required',
-        //     'weathershields' => 'required',
-        //     'electricfrontseats' => 'required',
-        //     'engineimmobiliser' => 'required',
-        //     'foglamps' => 'required',
-        //     'gpssatellite' => 'required',
-        //     'headlightcovers' => 'required',
-        //     'leatherseats' => 'required',
-        //     'leathertrim' => 'required',
-        //     'dualfuel' => 'required',
-        //     'roofdeflector' => 'required',
-        //     'rearspoiler' => 'required',
-        //     'tintedwindows' => 'required',
-        //     'towbar' => 'required'
-        // ]);
+    public function getfeatures($id){
+        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->with('getallvehicleimages')->find($id);
+        $vehicleImages = $vehicleDetail->getallvehicleimages;
+        $vehiclefeatures = $vehicleDetail->getallvehiclefeatures;
+        return view('admin.vehicle.admin_vehiclefeatures')->with(compact('vehicleDetail'));
+    }
+    public function createfeatures(Request $request, $id){
         $myarray=[];
         // dD($request->vehicledetail_id);
         foreach($request->all() as $key => $value) {
@@ -160,12 +108,18 @@ class ClassifiedAdController extends Controller
             $vehicle->save();
         }
         Session::flash('message', "Vehicle Features Added Successfully");
-        return redirect()->route('webapp.submit3', $vehicle->vehicledetail_id);
+        return redirect()->route('vehicle.images', $vehicle->vehicledetail_id);
     }
-    /**
-     * Implemenatation of Submit 3
-     */
-    public function addVehicleImages(Request $request, $id){
+
+    public function getimages($id){
+        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->with('getallvehicleimages')->find($id);
+        $vehicleImages = $vehicleDetail->getallvehicleimages;
+
+        return view('admin.vehicle.admin_vehicleimages')
+        ->with(compact('vehicleDetail'))
+        ->with(compact('vehicleImages'));
+    }
+    public function createimages(Request $request, $id){
         $files = $request->vehicle_images;
         $vehicleDetail = VehicleDetail::with('getallvehicleimages')->find($id);
         if($files == null)
@@ -182,9 +136,10 @@ class ClassifiedAdController extends Controller
             }
             
             Session::flash('message', "Vehicle Images Added Successfully");
-            return redirect()->route('webapp.submit4', $vehicleDetail->id);
+            return redirect()->route('vehicle.contact', $vehicleDetail->id);
         }
-        if(count($vehicleDetail->getallvehicleimages) + count($files) > 10){
+        $dbimagecount = $vehicleDetail->getallvehicleimages;
+        if(sizeof($dbimagecount) + count($files) > 10){
             return redirect()->back()->with('error', "Cannot upload more than 10 images");
         }
     
@@ -200,18 +155,35 @@ class ClassifiedAdController extends Controller
             $filename = $this->getImageSlug($filename);
             $upload_success = $file->move($destinationPath, $filename);
             $vehicle=  new VehicleImages();
-            $vehicle->vehicledetail_id=$request->vehicledetail_id;
+            $vehicle->vehicledetail_id=$id;
             $vehicle->image_path = '/vehicle_images'.'/'.$filename;
             $vehicle->save();
             $uploadcount++;
         }
         Session::flash('message', "Vehicle Images Added Successfully");
-        return redirect()->route('webapp.submit4', $vehicle->vehicledetail_id);
+        return redirect()->route('vehicle.contact', $vehicle->vehicledetail_id);
     }
-    /**
-     * Implemenatation of Submit 4
-     */
-    public function addVehicleContact(Request $request, $id){
+
+
+    public function getcontacts($id){
+        $vehicleDetail = VehicleDetail::find($id);
+        if($vehicleDetail == null){
+            return redirect()->route('vehicle.details');
+        }
+        $vehicleFeature = VehicleFeatures::find($id);
+        if($vehicleFeature == null){
+            return redirect()->route('vehicle.features');
+        }
+        $vehicleContact = vehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
+        $interiorcolor = InteriorColor::all();
+        $exteriorcolor = ExteriorColor::all();
+        return view('admin.vehicle.admin_vehiclecontact')
+        ->with(compact('vehicleDetail'))
+        ->with(compact('interiorcolor'))
+        ->with(compact('exteriorcolor'))
+        ->with(compact('vehicleContact'));
+    }
+    public function createcontacts(Request $request, $id){
         $validatedData = $request->validate([
             'vehicledetail_id' => 'required',
             'price' => 'required',
@@ -260,14 +232,31 @@ class ClassifiedAdController extends Controller
             $vehicleDetail = VehicleContact::where('vehicledetail_id' , '=' , $request->vehicledetail_id)->update($validatedData);
             Session::flash('message', "Ad contact has been updated successfully");
         }
-        return redirect()->route('webapp.submit5', $request->vehicledetail_id);
+        return redirect()->route('vehicle.publish', $request->vehicledetail_id);
 
     }
-    public function publishVehicle(Request $request, $id){
+
+    public function getpublish($id){
+        $vehicleDetail = VehicleDetail::find($id);
+        if($vehicleDetail == null){
+            return redirect()->route('webapp.submit1');
+        }
+        $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
+        $vehicleStatus = VehicleStatus::where('car_id', $id)->first();
+
+        return view('admin.vehicle.admin_vehiclepublish')
+        ->with(compact('vehicleDetail'))
+        ->with(compact('vehicleStatus'))
+        ->with(compact('vehicleContact'));
+    }
+    public function createpublishVehicle(Request $request, $id){
         $validatedData = $request->validate([
             'car_title' => 'required'
         ]);
-        $vehicleStatus = new VehicleStatus();
+        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
+        if($vehicleStatus  == null){
+            $vehicleStatus = new VehicleStatus();
+        }
         $vehicleStatus->car_id = $id;
         $vehicleStatus->car_title = $request->car_title;
         $vehicleStatus->status = false;
@@ -276,9 +265,24 @@ class ClassifiedAdController extends Controller
         $vehicleStatus->payment_status = 'false';
         $vehicleStatus->payment_method = 'false';
         $vehicleStatus->save();
-        return redirect()->route('webapp.home');
+        return redirect()->route('home');
     }
 
+    public function approveAdStatus($id){
+        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
+        if($vehicleStatus  == null){
+            return redirect()->back()->with('error', 'Ad not found');
+        }
+        if($vehicleStatus->status == 0)
+        {
+            $vehicleStatus->status = true;
+        }
+        else{
+            $vehicleStatus->status = false;
+        }
+        $vehicleStatus->save();
+        return redirect()->back()->with('success', 'Ad approved successfully');
+    }
     /***
      * helper Function
      */
@@ -289,4 +293,5 @@ class ClassifiedAdController extends Controller
         $slug= strtolower($slug);  // make it lowercase
         return $slug;
     }
+    
 }

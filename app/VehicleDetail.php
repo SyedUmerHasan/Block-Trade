@@ -12,6 +12,7 @@ class VehicleDetail extends Model
     protected $fillable = [
         'users_id', 
         "vehiclebrand_id", 
+        "brandmodel_id", 
         "body_type", 
         "number_seat", 
         'number_door', 
