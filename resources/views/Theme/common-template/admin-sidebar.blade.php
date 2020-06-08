@@ -148,12 +148,6 @@
             <i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehicle.details') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Create Car Ad</span>
-            </a>
-        </li>
-        <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('changeAccountType') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Change Buyer Account</span>

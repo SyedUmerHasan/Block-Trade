@@ -106,7 +106,7 @@
               @csrf
               <div class="display-flex">
                 <div class="media">
-                  <img src="{{ $profile->image_url }}" class="border-radius-4" alt="profile image" height="64" width="64">
+                  <img src="{{ $profile->image_url != '' ? $profile->image_url:  '/admin-assets/app-assets/images/avatar/avatar-7.png'  }}" class="border-radius-4" alt="profile image" height="64" width="64">
                 </div>
                 <div class="media-body">
                   <div class="col m12 s12 file-field input-field">

@@ -170,10 +170,6 @@ class AdminVehicleController extends Controller
         if($vehicleDetail == null){
             return redirect()->route('vehicle.details');
         }
-        $vehicleFeature = VehicleFeatures::find($id);
-        if($vehicleFeature == null){
-            return redirect()->route('vehicle.features');
-        }
         $vehicleContact = vehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
         $interiorcolor = InteriorColor::all();
         $exteriorcolor = ExteriorColor::all();

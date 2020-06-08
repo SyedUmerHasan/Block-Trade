@@ -2,7 +2,17 @@
 
 
 @section('body')
-    
+    <style>
+        .b-welcome__text p {
+            font: 300 13px 'Open Sans', sans-serif;
+            margin: 5px !important;
+        }
+        .b-welcome__text h3 {
+            font: 700 30px 'Open Sans', sans-serif;
+            text-transform: uppercase;
+            margin: 0px !important;
+        }
+    </style>
 <section class="b-slider">
     <div id="carousel" class="slide carousel carousel-fade">
         <div class="carousel-inner">
@@ -570,14 +580,16 @@
                 <div class="b-welcome__text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
                     <h2>WORLDS LEADING CAR DEALER</h2>
                     <h3>WELCOME TO BLOCKTRADE</h3>
-                    <p>Curabitur libero. Donec facilisis velit eudsl est. Phasellus consequat. Aenean vita quam. Vivamus et nunc. Nunc consequat sem velde metus imperdiet lacinia. Dui estter neque molestie necd dignissim ac hendrerit quis purus. Etiam
-                        sit amet vec convallis massa scelerisque mattis. Sed placerat leo nec.</p>
-                    <p>Ipsum midne ultrices magn eu tempor quam dolor eustrl sem. Donec quis dolel Donec pede quam placerat alterl tristique faucibus posuere lobortis.</p>
+                    <p>Blocktrade is car-sales portal that is powered by blockchain technology. It features an exchange and marketplace that provides a detailed history of cars and makes use of smart contracts.</p>
+                    <p>We introduced asset backed lending to the cryptocurrency marketplace, providing a new level of versatility to digital asset holders.</p>
+                    <p>Large companies, maintain a monopoly on the market, pushing prices down and smaller car retailers into the corner. We at blocktrade hopes to achieve a new market force, where car dealers can access automobile market with minimal effort and cost through a decentralized marketplace — with free listings, free advertising and low transaction costs without risking their trust. </p>
                     <ul>
-                        <li><span class="fa fa-check"></span>Donec facilisis velit eu est phasellus consequat </li>
-                        <li><span class="fa fa-check"></span>Aenean vitae quam. Vivamus et nunc nunc consequat</li>
-                        <li><span class="fa fa-check"></span>Sem vel metus imperdiet lacinia enean </li>
-                        <li><span class="fa fa-check"></span>Dapibus aliquam augue fusce eleifend quisque tels</li>
+                        <li><span class="fa fa-check"></span>Greater transparency</li>
+                        <li><span class="fa fa-check"></span>Authenticity</li>
+                        <li><span class="fa fa-check"></span>Reduced costs</li>
+                        <li><span class="fa fa-check"></span>Increased efficiency and speed</li>
+                        <li><span class="fa fa-check"></span>Improved traceability</li>
+                        <li><span class="fa fa-check"></span>Enhanced security</li>
                     </ul>
                 </div>
             </div>
@@ -723,10 +735,12 @@
                     </div>
                     <div class="b-asks__first-info">
                         <h2>ARE YOU LOOKING FOR A CAR?</h2>
-                        <p>Search Our Inventory With Thousands Of Cars And More Cars Are Adding On Daily Basis</p>
+                        <p>Gone are the days when you have to wait several days for lender confirmation of title transfer.
+                            With us, a car can be remarketed right away and the registration data handled in a streamlined and safe manner. Save your cost and time substantially with Blocktrade now.
+                            </p>
                     </div>
                     <div class="b-asks__first-arrow">
-                        <a href="listingsTwo.html"><span class="fa fa-angle-right"></span></a>
+                        <a href="{{ route('loginpage') }}"><span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -737,10 +751,10 @@
                     </div>
                     <div class="b-asks__first-info">
                         <h2>DO YOU WANT TO SELL A CAR?</h2>
-                        <p>Search Our Inventory With Thousands Of Cars And More Cars Are Adding On Daily Basis</p>
+                        <p>Blocktrade facilitates an easier collection method of gathering VIN specific information this will in turn make it simpler for you to connect with potential customers as cars become more connected than ever before</p>
                     </div>
                     <div class="b-asks__first-arrow">
-                        <a href="listingsTwo.html"><span class="fa fa-angle-right"></span></a>
+                        <a href="{{ route('loginpage') }}"><span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -1167,27 +1181,24 @@
                         <div class="b-review__main-person-inside">
                         </div>
                     </div>
-                    <h5><span>DONALD BROOKS</span>, Customer, Ferrari 488 GTB 2 Owner<em></em></h5>
-                    <p>Donec facilisis velit eust. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Nam rutrum congue diam. Vestibulum acda risus eros auctor egestas. Morbids sem magna, viverra quis
-                        sollicitudin quis consectetuer quis nec magna.</p>
+                    <h5><span>Josh Ali</span>, Customer, Ferrari 488 GTB 2 Owner<em></em></h5>
+                    <p>I had only heard about how blockchain and related trust enhancing technologies are redefining the automotive industry and how consumers purchase, insure and use vehicles. And having been personally experiencing is the best decision that I could have ever taken in life</p>
                 </div>
                 <div class="b-review__main">
                     <div class="b-review__main-person">
                         <div class="b-review__main-person-inside">
                         </div>
                     </div>
-                    <h5><span>DONALD BROOKS</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
-                    <p>Donec facilisis velit eust. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Nam rutrum congue diam. Vestibulum acda risus eros auctor egestas. Morbids sem magna, viverra quis
-                        sollicitudin quis consectetuer quis nec magna.</p>
+                    <h5><span>John Black</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
+                    <p>For me blockchain is the perfect solution to many of the challenges that I face being the owner of a transportation company. It helps me with easier verification of the vehicle’s history allowing, therefore, major transparency when purchasing new cars. </p>
                 </div>
                 <div class="b-review__main">
                     <div class="b-review__main-person">
                         <div class="b-review__main-person-inside">
                         </div>
                     </div>
-                    <h5><span>DONALD BROOKS</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
-                    <p>Donec facilisis velit eust. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Nam rutrum congue diam. Vestibulum acda risus eros auctor egestas. Morbids sem magna, viverra quis
-                        sollicitudin quis consectetuer quis nec magna.</p>
+                    <h5><span>Angelina Julie</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
+                    <p>With such platform I was able to overview parts of the vehicle and could also look up the origin of the carpets and solve repair-related problems. Moreover the greatest relief was not to have a middleman intervening in my choices. </p>
                 </div>
             </div>
         </div>
@@ -1264,21 +1275,21 @@
                     <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
-                            <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
+                            <p>Blockchain ID Solution Aims to Tackle Spike in Delivery Fraud ...</p>
                             <span>20 minutes ago</span>
                         </div>
                     </div>
                     <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
-                            <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
+                            <p>Blockchain Bites: Google Validates Theta, Coinbase and ...</p>
                             <span>20 minutes ago</span>
                         </div>
                     </div>
                     <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
-                            <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
+                            <p>Is blockchain becoming the new digital?</p>
                             <span>20 minutes ago</span>
                         </div>
                     </div>

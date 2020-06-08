@@ -80,12 +80,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
     Route::post('profile/resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
 
+    Route::get('support', 'SupportController@getList')->name('support');
 
     //  Authenticated Routes
     Route::group(['middleware' => 'is_admin'], function () {
         Route::get('home', 'AdminController@home')->name('home');
         Route::get('courses/dashboard', 'AdminController@coursesDashboard')->name('courses.dashboard');
-        Route::get('support', 'SupportController@getList')->name('support');
 
 
         Route::get('carbrand', 'VehicleBrandController@getall')->name('vehiclebrand.getall');

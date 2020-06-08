@@ -16,10 +16,8 @@
                                 class="material-icons">notifications_none<small
                                     class="notification-badge">5</small></i></a></li>
                     <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);"
-                            data-target="profile-dropdown"><span class="avatar-status avatar-online"><img
-                                    src="/admin-assets/app-assets/images/avatar/avatar-7.png"
+                            data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ Auth::user()->image_url != '' ? Auth::user()->image_url:  '/admin-assets/app-assets/images/avatar/avatar-7.png'  }}"
                                     alt="avatar"><i></i></span></a></li>
-
                 </ul>
                 <!-- notifications-dropdown-->
                 <ul class="dropdown-content" id="notifications-dropdown">

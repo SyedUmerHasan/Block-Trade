@@ -67,15 +67,9 @@
                                 <div class="col s12 m7">
                                     <div class="display-flex media">
                                         <a href="#" class="avatar">
-                                            @if ($profile->image_url == '')
-                                                <img src="/admin-assets/app-assets/images/avatar/avatar-15.png"
+                                                <img src="{{ Auth::user()->image_url != '' ? Auth::user()->image_url:  '/admin-assets/app-assets/images/avatar/avatar-7.png'  }}"
                                                      alt="users view avatar" class="z-depth-4 circle"
                                                      height="64" width="64">
-                                            @else
-                                                <img src="{{asset($profile->image_url)}}"
-                                                     alt="users view avatar" class="z-depth-4 circle"
-                                                     height="64" width="64">
-                                            @endif
                                         </a>
                                         <div class="media-body">
                                             <h6 class="media-heading">
@@ -138,10 +132,10 @@
 
                                         <div class="row indigo lighten-5 border-radius-4 mb-2">
                                             <div class="col s12 m4 users-view-timeline">
-                                              <h6 class="indigo-text m-0">Emails Sent: <span>125</span></h6>
+                                              <h6 class="indigo-text m-0">Emails Sent: <span>0</span></h6>
                                             </div>
                                             <div class="col s12 m4 users-view-timeline">
-                                              <h6 class="indigo-text m-0">Messages Sent: <span>534</span></h6>
+                                              <h6 class="indigo-text m-0">Messages Sent: <span>0</span></h6>
                                             </div>
                                           </div>
                                         <table class="striped">

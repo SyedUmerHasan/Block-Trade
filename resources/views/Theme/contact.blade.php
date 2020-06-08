@@ -236,7 +236,7 @@ data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
                                                     <div class="col s2 m2 l2"><i class="material-icons">
                                                             call </i></div>
                                                     <div class="col s10 m10 l10">
-                                                        <p class="m-0"><a href="tel:+92-330-8140623">+92-330-8140623</a>
+                                                        <p class="m-0"><a href="tel:+923362891707">+92-336-2891707</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -246,7 +246,7 @@ data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
                                                             mail_outline </i></div>
                                                     <div class="col s10 m10 l10">
                                                         <p class="m-0"><a
-                                                                    href="mailto:learnatvearn@gmail.com">learnatvearn@gmail.com</a>
+                                                                    href="mailto:k163893@nu.edu.pk">k163893@nu.edu.pk</a>
                                                         </p>
                                                     </div>
                                                 </div>

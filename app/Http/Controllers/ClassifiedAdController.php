@@ -54,10 +54,6 @@ class ClassifiedAdController extends Controller
         if($vehicleDetail == null){
             return redirect()->route('webapp.submit1');
         }
-        $vehicleFeature = VehicleFeatures::find($id);
-        if($vehicleFeature == null){
-            return redirect()->route('webapp.submit2');
-        }
         $vehicleContact = vehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
         $interiorcolor = InteriorColor::all();
         $exteriorcolor = ExteriorColor::all();
