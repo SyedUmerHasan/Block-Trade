@@ -1,3 +1,10 @@
+<style>
+    .gradient-45deg-indigo-purple {
+        background: rgb(85, 167, 255);
+        background: -webkit-linear-gradient(45deg, #4E9CED, #6669DF) !important;
+        background: linear-gradient(45deg, #4E9CED, #6669DF) !important;
+    }
+</style>
 <header class="page-topbar" id="header">
     <div class="navbar navbar-fixed">
         <nav
