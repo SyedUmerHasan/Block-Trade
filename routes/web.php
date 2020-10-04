@@ -19,26 +19,30 @@ use Illuminate\Support\Facades\Route;
  *
  */
  Route::group([], function(){
-    Route::get('/', function () {return redirect()->route("webapp.home");})->name("redirect.center");
+    Route::get('', function () {return redirect()->route("webapp.home");})->name("redirect.center");
+
+    Route::get('search','SearchController@index')->name("webapp.search");
+
+
     /****
      * Pages
      */
-    Route::get('/home','ClassifiedAdController@index')->name("webapp.home");
+    Route::get('home','ClassifiedAdController@index')->name("webapp.home");
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/vehicle/detail/','ClassifiedAdController@submit1')->name("webapp.submit1");
-        Route::get('/vehicle/features/{id}','ClassifiedAdController@submit2')->name("webapp.submit2");
-        Route::get('/vehicle/images/{id}','ClassifiedAdController@submit3')->name("webapp.submit3");
-        Route::get('/vehicle/contact/{id}','ClassifiedAdController@submit4')->name("webapp.submit4");
-        Route::get('/vehicle/publish/{id}','ClassifiedAdController@submit5')->name("webapp.submit5");
+        Route::get('vehicle/detail/','ClassifiedAdController@submit1')->name("webapp.submit1");
+        Route::get('vehicle/features/{id}','ClassifiedAdController@submit2')->name("webapp.submit2");
+        Route::get('vehicle/images/{id}','ClassifiedAdController@submit3')->name("webapp.submit3");
+        Route::get('vehicle/contact/{id}','ClassifiedAdController@submit4')->name("webapp.submit4");
+        Route::get('vehicle/publish/{id}','ClassifiedAdController@submit5')->name("webapp.submit5");
     });
     /***
      * APIS
      */
-    Route::post('/vehicledetail/add','ClassifiedAdController@addVehicleDetails')->name("webapp.vehicledetail.add");
-    Route::post('/vehiclefeature/add/{id}','ClassifiedAdController@addvehiclefeature')->name("webapp.vehiclefeature.add");
-    Route::post('/vehicleimage/add/{id}','ClassifiedAdController@addVehicleImages')->name("webapp.vehicleimage.add");
-    Route::post('/vehiclecontact/add/{id}','ClassifiedAdController@addVehicleContact')->name("webapp.vehiclecontact.add");
-    Route::post('/vehicle/publish/{id}','ClassifiedAdController@publishVehicle')->name("webapp.vehicle.publish");
+    Route::post('vehicledetail/add','ClassifiedAdController@addVehicleDetails')->name("webapp.vehicledetail.add");
+    Route::post('vehiclefeature/add/{id}','ClassifiedAdController@addvehiclefeature')->name("webapp.vehiclefeature.add");
+    Route::post('vehicleimage/add/{id}','ClassifiedAdController@addVehicleImages')->name("webapp.vehicleimage.add");
+    Route::post('vehiclecontact/add/{id}','ClassifiedAdController@addVehicleContact')->name("webapp.vehiclecontact.add");
+    Route::post('vehicle/publish/{id}','ClassifiedAdController@publishVehicle')->name("webapp.vehicle.publish");
     
 });
 
@@ -68,65 +72,82 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::group(['prefix' => 'admin'], function () {
-
-
-    Route::get('changeAccountType', 'AdminController@changeAccountType')->name('changeAccountType');
-
-    // Home Redirect Controller
+    
     Route::get('', function () {return redirect()->route("home");});
+    
+    
+    // Home Redirect Controller
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('view/{id}', 'ProfileController@view')->name('profile.view');
+        Route::get('edit/{id}', 'ProfileController@edit')->name('profile.edit');
+        Route::post('update/{id}', 'ProfileController@update')->name('profile.update');
+        Route::post('resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
+        Route::get('account', 'AdminController@changeAccountType')->name('changeAccountType');
 
-    Route::get('profile/view/{id}', 'ProfileController@view')->name('profile.view');
-    Route::get('profile/edit/{id}', 'ProfileController@edit')->name('profile.edit');
-    Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
-    Route::post('profile/resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
-
+    });
+    
     Route::get('support', 'SupportController@getList')->name('support');
-
+    
     //  Authenticated Routes
     Route::group(['middleware' => 'is_admin'], function () {
+        
         Route::get('home', 'AdminController@home')->name('home');
-        Route::get('courses/dashboard', 'AdminController@coursesDashboard')->name('courses.dashboard');
 
-
-        Route::get('carbrand', 'VehicleBrandController@getall')->name('vehiclebrand.getall');
-        Route::get('carbrand/create', 'VehicleBrandController@create')->name('vehiclebrand.create');
-        Route::get('carbrand/edit/{id}', 'VehicleBrandController@edit')->name('vehiclebrand.edit');
-        Route::post('carbrand/add', 'VehicleBrandController@add')->name('vehiclebrand.add');
-        Route::post('carbrand/update/{id}', 'VehicleBrandController@update')->name('vehiclebrand.update');
-
-    
-        Route::group(['prefix' => 'interiorcolor'], function() {
-            Route::get('', 'InteriorColorController@getall')->name('interiorcolor.getall');
-            Route::get('create', 'InteriorColorController@create')->name('interiorcolor.create');
-            Route::get('edit/{id}', 'InteriorColorController@edit')->name('interiorcolor.edit');
-            Route::post('add', 'InteriorColorController@add')->name('interiorcolor.add');
-            Route::post('update/{id}', 'InteriorColorController@update')->name('interiorcolor.update');
-        });
-            
-        Route::group(['prefix' => 'exteriorcolor'], function () {
-            Route::get('', 'ExteriorColorController@getall')->name('exteriorcolor.getall');
-            Route::get('create', 'ExteriorColorController@create')->name('exteriorcolor.create');
-            Route::get('edit/{id}', 'ExteriorColorController@edit')->name('exteriorcolor.edit');
-            Route::post('add', 'ExteriorColorController@add')->name('exteriorcolor.add');
-            Route::post('update/{id}', 'ExteriorColorController@update')->name('exteriorcolor.update');
-        });
         
-        
-        Route::group(['prefix' => 'vehicle'], function () {
+        Route::group(['prefix' => 'car'], function() {
+
             Route::get('', 'AdminVehicleController@getall')->name('vehicle.getall');
-            Route::get('/details', 'AdminVehicleController@getdetails')->name('vehicle.details');
-            Route::get('/details/{id}', 'AdminVehicleController@geteditdetails')->name('vehicle.details.edit');
-            Route::post('/details/create', 'AdminVehicleController@createdetails')->name('vehicle.details.create');
-            Route::get('/features/{id}', 'AdminVehicleController@getfeatures')->name('vehicle.features');
-            Route::post('/features/create/{id}', 'AdminVehicleController@createfeatures')->name('vehicle.features.create');
-            Route::get('/images/{id}', 'AdminVehicleController@getimages')->name('vehicle.images');
-            Route::post('/images/create/{id}', 'AdminVehicleController@createimages')->name('vehicle.images.create');
-            Route::get('/contact/{id}', 'AdminVehicleController@getcontacts')->name('vehicle.contact');
-            Route::post('/contact/create/{id}', 'AdminVehicleController@createcontacts')->name('vehicle.contact.create');
-            Route::get('/publish/{id}', 'AdminVehicleController@getpublish')->name('vehicle.publish');
-            Route::post('/publish/create/{id}', 'AdminVehicleController@createpublishVehicle')->name('vehicle.publish.create');
 
-            Route::get('/vehicle/ad/approve/{id}', 'AdminVehicleController@approveAdStatus')->name('vehicle.approve.status');
+            Route::group(['prefix' => 'brand'], function () {
+                Route::get('', 'VehicleBrandController@getall')->name('vehiclebrand.getall');
+                Route::get('/create', 'VehicleBrandController@create')->name('vehiclebrand.create');
+                Route::get('/edit/{id}', 'VehicleBrandController@edit')->name('vehiclebrand.edit');
+                Route::post('/add', 'VehicleBrandController@add')->name('vehiclebrand.add');
+                Route::post('/update/{id}', 'VehicleBrandController@update')->name('vehiclebrand.update');
+            });
+            
+            Route::group(['prefix' => 'interiorcolor'], function() {
+                Route::get('', 'InteriorColorController@getall')->name('interiorcolor.getall');
+                Route::get('create', 'InteriorColorController@create')->name('interiorcolor.create');
+                Route::get('edit/{id}', 'InteriorColorController@edit')->name('interiorcolor.edit');
+                Route::post('add', 'InteriorColorController@add')->name('interiorcolor.add');
+                Route::post('update/{id}', 'InteriorColorController@update')->name('interiorcolor.update');
+            });
+
+            Route::group(['prefix' => 'exteriorcolor'], function () {
+                Route::get('', 'ExteriorColorController@getall')->name('exteriorcolor.getall');
+                Route::get('create', 'ExteriorColorController@create')->name('exteriorcolor.create');
+                Route::get('edit/{id}', 'ExteriorColorController@edit')->name('exteriorcolor.edit');
+                Route::post('add', 'ExteriorColorController@add')->name('exteriorcolor.add');
+                Route::post('update/{id}', 'ExteriorColorController@update')->name('exteriorcolor.update');
+            });
+
+            Route::group(['prefix' => 'details'], function () {
+                Route::get('', 'AdminVehicleController@getdetails')->name('vehicle.details');
+                Route::get('{id}', 'AdminVehicleController@geteditdetails')->name('vehicle.details.edit');
+                Route::post('create', 'AdminVehicleController@createdetails')->name('vehicle.details.create');    
+            });
+
+            Route::group(['prefix' => 'features'], function () {
+                Route::get('{id}', 'AdminVehicleController@getfeatures')->name('vehicle.features');
+                Route::post('create/{id}', 'AdminVehicleController@createfeatures')->name('vehicle.features.create');
+            });
+
+            Route::group(['prefix' => 'images'], function () {
+                Route::get('images/{id}', 'AdminVehicleController@getimages')->name('vehicle.images');
+                Route::post('images/create/{id}', 'AdminVehicleController@createimages')->name('vehicle.images.create');
+            });
+
+            Route::group(['prefix' => 'contact'], function () {
+                Route::get('{id}', 'AdminVehicleController@getcontacts')->name('vehicle.contact');
+                Route::post('create/{id}', 'AdminVehicleController@createcontacts')->name('vehicle.contact.create');
+            });
+            Route::group(['prefix' => 'publish'], function () {
+                Route::get('{id}', 'AdminVehicleController@getpublish')->name('vehicle.publish');
+                Route::post('create/{id}', 'AdminVehicleController@createpublishVehicle')->name('vehicle.publish.create');
+            });
+
+            Route::get('vehicle/ad/approve/{id}', 'AdminVehicleController@approveAdStatus')->name('vehicle.approve.status');
             
 
         });

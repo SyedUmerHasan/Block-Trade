@@ -108,7 +108,7 @@
 
                 if (isSlider) {
                     var minVal = $slider.data('min-val') ? $slider.data('min-val') : 100,
-                        maxVal = $slider.data('max-val') ? $slider.data('max-val') : 1000;
+                        maxVal = $slider.data('max-val') ? $slider.data('max-val') : 500;
 
                     $slider.slider({
                         min: minVal,
@@ -116,16 +116,16 @@
                         values: [minVal, maxVal],
                         range: true,
                         slide: function(event, ui) {
-                            $(this).find('span.min').text(ui.values[0]);
-                            $(this).find('span.max').text(ui.values[1]);
+                            $(this).find('span.min').text(ui.values[0]+ "k");
+                            $(this).find('span.max').text(ui.values[1]+ "k");
                         },
                         stop: function(event, ui) {
-                            $(this).parent('div').find('input.j-min').text(ui.values[0]);
-                            $(this).parent('div').find('input.j-max').text(ui.values[1]);
+                            $(this).parent('div').find('input.j-min').val(ui.values[0]);
+                            $(this).parent('div').find('input.j-max').val(ui.values[1]);
                         }
                     });
-                    $(".ui-slider-handle:first-of-type").append("<span class='min'>" + minVal + "</span>");
-                    $(".ui-slider-handle:last-of-type").append("<span class='max'>" + maxVal + "</span>");
+                    $(".ui-slider-handle:first-of-type").append("<span class='min'>" + minVal + "k</span>");
+                    $(".ui-slider-handle:last-of-type").append("<span class='max'>" + maxVal + "k</span>");
                 }
             });
         },

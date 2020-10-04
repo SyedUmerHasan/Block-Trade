@@ -48,11 +48,11 @@
             <div class="container">
               <div class="row">
                 <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Course Category</span></h5>
+                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Brand </span></h5>
                   <ol class="breadcrumbs mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('category') }}">Course Category</a>
+                    <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Car Brand </a>
                     </li>
                   </ol>
                 </div>
@@ -66,23 +66,35 @@
       <div class="col s12 m12 l12">
         <div id="button-trigger" class="card card card-default scrollspy">
           <div class="card-content">
-            <h4 class="card-title">Course Category List</h4>
+            <h4 class="card-title">Car Brand List</h4>
             <div class="row">
               <div class="col s12">
                 <table id="table_id" class="display responsive nowrap" style="width:100%">
 
                     <thead>
-                        {{-- <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email Address</th>
-                            <th>Phone Number</th>
-                            <th>Profession</th>
-                            <th>NI/NIF</th>
+                        <tr>
+                            <th>Car Brand Name</th>
                             <th>Action</th>
-                        </tr> --}}
+                        </tr>
                     </thead>
                     <tbody>
+                      @foreach ($vehiclebrand as $item)
+                          <tr>
+                            <td>{{ $item->brand_name }}</td>
+                            <td>
+                              <a href="{{ route('vehiclebrand.edit',$item->id) }}" class="btn cyan">
+                                Edit
+                              </a>
+                              {{--  <a href="#" class="btn green">
+                                Edit
+                              </a>  --}}
+                              <a href="#" class="btn red">
+                                Delete
+                              </a>
+                            </td>
+                            
+                          </tr>
+                      @endforeach
                     </tbody>
                 </table>
               </div>
@@ -97,8 +109,6 @@
         </div>
       </div>
   
-    <div style="display: none" id="getall">{{ route('category.getall') }}</div>
-
     @include('Theme.common-template.admin-footer')
 
     </body>
@@ -117,20 +127,8 @@
     <script>
         $(document).ready(function() { 
             $('#table_id').DataTable( {
-                "responsive": true,
-                "ajax": {
-                    "url": $('#getall').text(),
-                    "type": "GET"
-                },
-                "columns": [
-                    { "title": "CategoryName", "data": "name", "defaultContent": "<i>-</i>"},
-                    { "title": "Status", "data": "status", "defaultContent": "<i>-</i>"},
-                    { "title": "Details", "data": "id" ,"render": function ( data, type, row, meta ) {
-                        return '<a class="btn btn-info blue" href="/user/' + data+'" role="button">View</a>';
-                      }
-                    }
-                ]
-            } );    
+                "responsive": true
+            });    
         });
     </script>
     </html>

@@ -10,13 +10,11 @@
 
     <link href="{{asset('web-assets/css/master.css') }}" rel="stylesheet">
 
-    <link rel="alternate stylesheet" type="text/css" href="{{asset('web-assets/assets/switcher/css/color5.css') }}" title="color5" media="all" />
     
     <!--[if lt IE 9]>
 		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
+    <![endif]-->
 </head>
 
 <body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
@@ -24,9 +22,8 @@
     <div id="page-preloader"><span class="spinner"></span></div>
 
    @include('webapp.common.theme-header')
-    <!--b-nav-->
+   
     @yield('body')
-    <!--b-info-->
 
     @include('webapp.common.theme-footer')
 
@@ -34,22 +31,14 @@
     <script src="{{asset('web-assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('web-assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('web-assets/js/modernizr.custom.js')}}"></script>
-
     <script src="{{asset('web-assets/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('web-assets/js/waypoints.min.js')}}"></script>
     <script src="{{asset('web-assets/js/jquery.easypiechart.min.js')}}"></script>
     <script src="{{asset('web-assets/js/classie.js')}}"></script>
-
-    <!--Switcher-->
     <script src="{{asset('web-assets/assets/switcher/js/switcher.js')}}"></script>
-    <!--Owl Carousel-->
     <script src="{{asset('web-assets/assets/owl-carousel/owl.carousel.min.js')}}"></script>
-    <!--bxSlider-->
     <script src="{{asset('web-assets/assets/bxslider/jquery.bxslider.js')}}"></script>
-    <!-- jQuery UI Slider -->
     <script src="{{asset('web-assets/assets/slider/jquery.ui-slider.js')}}"></script>
-
-    <!--Theme-->
     <script src="{{asset('web-assets/js/jquery.smooth-scroll.js')}}"></script>
     <script src="{{asset('web-assets/js/wow.min.js')}}"></script>
     <script src="{{asset('web-assets/js/jquery.placeholder.min.js')}}"></script>

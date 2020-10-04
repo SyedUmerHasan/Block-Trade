@@ -200,10 +200,10 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="drive_type">
                                             <option value="">Select</option>
-                                            <option selected>All Wheel Drive</option>
-                                            <option>Front Wheel Drive</option>
-                                            <option>Rear Wheel Drive</option>
-                                            <option>4WD</option>
+                                            <option value="All Wheel Drive">All Wheel Drive</option>
+                                            <option value="Front Wheel Drive">Front Wheel Drive</option>
+                                            <option value="Rear Wheel Drive">Rear Wheel Drive</option>
+                                            <option value="4WD">4WD</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -226,10 +226,10 @@
                                         <select class="m-select" name="fuel_type">
                                             <option value="">Select</option>
                                             <option selected>CNG</option>
-                                            <option>Petrol</option>
-                                            <option>Diesel</option>
-                                            <option>Hybrid</option>
-                                            <option>Electric</option>
+                                            <option value="Petrol">Petrol</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Hybrid">Hybrid</option>
+                                            <option value="Electric">Electric</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -253,17 +253,14 @@
                                     <label>Select Body Type <span>*</span></label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="body_type">
-                                            <option>Select</option>
-                                            <option selected>Sedan</option>
-                                            <option>Hatchback</option>
-                                            <option>MUV/SUV</option>
-                                            <option>Coupe</option>
-                                            <option>Convertible</option>
-                                            <option>Wagon</option>
-                                            <option>Van</option>
-                                            <option>Van</option>
-                                            <option>Van</option>
-                                            <option>Van</option>
+                                            <option value="">Select</option>
+                                            <option value="Sedan">Sedan</option>
+                                            <option value="Hatchback">Hatchback</option>
+                                            <option value="SUV">MUV/SUV</option>
+                                            <option value="Coupe">Coupe</option>
+                                            <option value="Convertible">Convertible</option>
+                                            <option value="Wagon">Wagon</option>
+                                            <option value="Van">Van</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>

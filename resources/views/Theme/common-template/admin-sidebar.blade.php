@@ -38,6 +38,13 @@
         </li>
 
         <li class="bold">
+            <a class="waves-effect waves-cyan " href="{{ route('vehicle.getall') }}">
+                <i class="material-icons">person_outline</i>
+                <span class="menu-title" data-i18n="User Profile">Vehicle Ads List</span>
+            </a>
+        </li>
+        
+        <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.getall') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Car Brand List</span>
@@ -55,18 +62,6 @@
                 <span class="menu-title" data-i18n="User Profile">Exterior Color List</span>
             </a>
         </li>
-        
-        <li class="navigation-header">
-            <a class="navigation-header-text">Products </a>
-            <i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehicle.getall') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Vehicle Ads List</span>
-            </a>
-        </li>
-
         
         <li class="navigation-header">
             <a class="navigation-header-text">Add Products </a>

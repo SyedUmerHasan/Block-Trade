@@ -25,13 +25,22 @@ class VehicleDetail extends Model
         'fuel_type', 
         'chasis_number'
     ];
-    public function getallvehiclefeatures(){
+    public function features(){
         return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'id');
     }
-    public function getallvehicleimages(){
+    public function images(){
         return $this->hasMany('App\VehicleImages', 'vehicledetail_id', 'id');
     }
-    public function getvehiclecontactdetails(){
+    public function contact(){
         return $this->hasMany('App\VehicleContact', 'vehicledetail_id', 'id');
+    }
+    public function brands(){
+        return $this->belongsTo('App\VehicleBrand', 'brandmodel_id', 'id');
+    }
+    public function model(){
+        return $this->belongsTo('App\BrandModel', 'vehiclebrand_id', 'id');
+    }
+    public function car(){
+        return $this->belongsTo('App\VehicleStatus', 'id', 'car_id');
     }
 }

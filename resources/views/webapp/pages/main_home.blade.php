@@ -62,7 +62,11 @@
 
 <section class="b-search">
     <div class="container">
-        <form action="listings.html" method="POST" class="b-search__main">
+        <a href="/used-cars/660cc-cars/190519" title="660cc cars for sale in Pakistan" onclick="trackEvents('UsedCar','ViewBrowseMoreAdsFromHome','car-ctg-660cc-cars')">
+            <span class="paw-car-ctg-660cc-cars"></span>
+          660cc cars
+        </a>
+        <form action="{{ route('webapp.search') }}" method="GET" class="b-search__main">
             <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
                 <h2>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</h2>
             </div>
@@ -73,7 +77,7 @@
                 <div class="col-xs-12 col-md-10">
                     <div class="row">
                         <div class="col-xs-2">
-                            <input id="type1" type="radio" name="type" />
+                            <input id="type1" type="radio" name="type" value="pickup" />
                             <label for="type1" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -114,7 +118,7 @@
                             <h5><label for="type1">Pickup</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type2" type="radio" name="type" />
+                            <input id="type2" type="radio" name="type" value="suv" />
                             <label for="type2" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -158,7 +162,7 @@
                             <h5><label for="type2">Suv</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type3" type="radio" name="type" />
+                            <input id="type3" type="radio" name="type" value="coupe" />
                             <label for="type3" class="b-search__main-type-svg">
                                     <svg  version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -200,7 +204,7 @@
                             <h5><label for="type3">Coupe</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type4" type="radio" name="type" />
+                            <input id="type4" type="radio" name="type" value="convertible" />
                             <label for="type4" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -249,7 +253,7 @@
                             <h5><label for="type4">Convertible</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type5" type="radio" name="type" />
+                            <input id="type5" type="radio" name="type" value="sedan"/>
                             <label for="type5" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -300,7 +304,7 @@
                             <h5><label for="type5">Sedan</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type6" type="radio" name="type" />
+                            <input id="type6" type="radio" name="type" value="minicar"/>
                             <label for="type6" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -347,22 +351,36 @@
                     <div class="col-xs-12 col-md-8">
                         <div class="m-firstSelects">
                             <div class="col-xs-4">
-                                <select name="select1">
+                                <select name="brand">
                                         <option value="" selected="">Any Make</option>
+                                        @foreach ($carManufacturer as $item)
+                                            <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                        @endforeach
                                     </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>MISSING MANUFACTURER?</p>
                             </div>
                             <div class="col-xs-4">
-                                <select name="select2">
+                                <select name="model">
                                         <option value="" selected="">Any Model</option>
+                                        <option value="civic">Civic</option>
+                                        <option value="city">Honda City</option>
+                                        <option value="brv">Honda BRV</option>
+                                        <option value="corolla">Toyota Corolla</option>
+                                        @foreach ($carModels as $item)
+                                            <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                        @endforeach
                                     </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>MISSING MODEL?</p>
                             </div>
                             <div class="col-xs-4">
-                                <select name="select3">
+                                <select name="cartype">
                                         <option value="" selected="">Vehicle Status</option>
+                                        <option value="new">New Cars</option>
+                                        <option value="used">Used Cars</option>
+                                        <option value="japanese">Japanese Cars</option>
+                                        <option value="imported">Imported Cars</option>
                                     </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>E.G: NEW, USED, CERTIFIED</p>
@@ -370,15 +388,21 @@
                         </div>
                         <div class="m-secondSelects">
                             <div class="col-xs-4">
-                                <select name="select4">
+                                <select name="minyear">
                                         <option value="" selected="">Min Year</option>
+                                        @for ($i = 0; $i < 24; $i++)
+                                            <option>{{ $i +1998 }}</option>
+                                        @endfor
                                     </select>
                                 <span class="fa fa-caret-down"></span>
                             </div>
                             <div class="col-xs-4">
-                                <select name="select5">
-                                        <option value="" selected="">Max Year</option>
-                                    </select>
+                                <select name="maxyear">
+                                    <option value="" selected="">Max Year</option>
+                                    @for ($i = 0; $i < 24; $i++)
+                                        <option>{{ $i +1998 }}</option>
+                                    @endfor
+                                </select>
                                 <span class="fa fa-caret-down"></span>
                             </div>
                         </div>
@@ -387,11 +411,11 @@
                         <div class="b-search__main-form-range">
                             <label>PRICE RANGE</label>
                             <div class="slider"></div>
-                            <input type="hidden" name="min" class="j-min" />
-                            <input type="hidden" name="max" class="j-max" />
+                            <input type="hidden" name="minrange" class="j-min" />
+                            <input type="hidden" name="maxrange" class="j-max" />
                         </div>
                         <div class="b-search__main-form-submit">
-                            <a href="#">Advanced search</a>
+                            <a href="{{ route('webapp.search') }}">Advanced search</a>
                             <button type="submit" class="btn m-btn">Search the Vehicle<span class="fa fa-angle-right"></span></button>
                         </div>
                     </div>
@@ -400,13 +424,12 @@
         </form>
     </div>
 </section>
-
 <section class="b-featured">
     <div class="container">
-        <h2 class="s-title wow zoomInUp" data-wow-delay="0.3s">Featured Vehicles</h2>
-        <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="4" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-tablet-small="2">
+        <h2 class="s-title  zoomInUp" >Featured Vehicles</h2>
+        <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="3" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="3" data-items-tablet-small="2">
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item  ">
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/mers.jpg') }}" alt="mers" />
                             <span class="m-premium">Premium</span>
@@ -427,7 +450,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item  ">
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/audi.jpg') }}" alt="audi" />
                         </a>
@@ -447,7 +470,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/aston.jpg') }}" alt="aston" />
                             <span class="m-leasing">LEASING AVAILABLE</span>
@@ -468,7 +491,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/jaguar.jpg') }}" alt="jaguar" />
                         </a>
@@ -488,7 +511,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/mers.jpg') }}" alt="mers" />
                             <span class="m-premium">Premium</span>
@@ -509,7 +532,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/audi.jpg') }}" alt="audi" />
                         </a>
@@ -529,7 +552,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/aston.jpg') }}" alt="aston" />
                             <span class="m-leasing">LEASING AVAILABLE</span>
@@ -550,7 +573,7 @@
                 </div>
             </div>
             <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
+                <div class="b-featured__item " >
                     <a href="detail.html">
                             <img src="{{ asset('web-assets/media/186x113/jaguar.jpg') }}" alt="jaguar" />
                         </a>
@@ -572,6 +595,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="b-welcome">
     <div class="container">
@@ -659,111 +683,7 @@
     </div>
 </section>
 
-<section class="b-world">
-    <div class="container">
-        <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">EVERYTHING YOU NEED TO KNOW</h6><br />
-        <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">THE WORLD OF AUTOS</h2>
-        <div class="row">
-            <div class="col-sm-4 col-xs-12">
-                <div class="b-world__item wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="{{ asset('web-assets/media/370x200/wolks.jpg') }}" alt="wolks" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title">FIRST DRIVE REVIEW</span>
-                        <div class="b-world__item-val-circles">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span class="m-empty"></span>
-                        </div>
-                        <span class="b-world__item-num">4.1</span>
-                    </div>
-                    <h2>2016 Volkswagen Golf R SportWagen</h2>
-                    <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ sem velde metus imperdiet lacinia.</p>
-                    <a href="article.html" class="btn m-btn">READ MORE<span class="fa fa-angle-right"></span></a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="b-world__item wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="{{ asset('web-assets/media/370x200/mazda.jpg') }}" alt="mazda" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title">INSTRUMENTED TEST</span>
-                        <div class="b-world__item-val-circles">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span class="m-halfEmpty"></span>
-                        </div>
-                        <span class="b-world__item-num">4.5</span>
-                    </div>
-                    <h2>2016 Mazda CX-5 2.5L AWD</h2>
-                    <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ sem velde metus imp erdiet lacinia.</p>
-                    <a href="article.html" class="btn m-btn m-active">READ MORE<span class="fa fa-angle-right"></span></a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="b-world__item j-item wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="{{ asset('web-assets/media/370x200/chevrolet.jpg') }}" alt="chevrolet" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title">BUYERS INFO</span>
-                        <div class="b-world__item-val-circles">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <span class="b-world__item-num">5.0</span>
-                    </div>
-                    <h2>Advantages of Buying New or Used Vehicle</h2>
-                    <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ sem velde metus imp erdiet lacinia.</p>
-                    <a href="article.html" class="btn m-btn">READ MORE<span class="fa fa-angle-right"></span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="b-asks">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
-                <div class="b-asks__first wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                    <div class="b-asks__first-circle">
-                        <span class="fa fa-search"></span>
-                    </div>
-                    <div class="b-asks__first-info">
-                        <h2>ARE YOU LOOKING FOR A CAR?</h2>
-                        <p>Gone are the days when you have to wait several days for lender confirmation of title transfer.
-                            With us, a car can be remarketed right away and the registration data handled in a streamlined and safe manner. Save your cost and time substantially with Blocktrade now.
-                            </p>
-                    </div>
-                    <div class="b-asks__first-arrow">
-                        <a href="{{ route('loginpage') }}"><span class="fa fa-angle-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
-                <div class="b-asks__first m-second wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">
-                    <div class="b-asks__first-circle">
-                        <span class="fa fa-usd"></span>
-                    </div>
-                    <div class="b-asks__first-info">
-                        <h2>DO YOU WANT TO SELL A CAR?</h2>
-                        <p>Blocktrade facilitates an easier collection method of gathering VIN specific information this will in turn make it simpler for you to connect with potential customers as cars become more connected than ever before</p>
-                    </div>
-                    <div class="b-asks__first-arrow">
-                        <a href="{{ route('loginpage') }}"><span class="fa fa-angle-right"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <p class="b-asks__call wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">QUESTIONS? CALL US : <span>+92-336-2891707</span></p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="b-auto">
     <div class="container">
@@ -1172,155 +1092,19 @@
     </div>
 </section>
 
-<section class="b-review">
-    <div class="container">
-        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-            <div id="carousel-small-rev" class="owl-carousel enable-owl-carousel" data-items="1" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="1" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
-                <div class="b-review__main">
-                    <div class="b-review__main-person">
-                        <div class="b-review__main-person-inside">
-                        </div>
-                    </div>
-                    <h5><span>Josh Ali</span>, Customer, Ferrari 488 GTB 2 Owner<em></em></h5>
-                    <p>I had only heard about how blockchain and related trust enhancing technologies are redefining the automotive industry and how consumers purchase, insure and use vehicles. And having been personally experiencing is the best decision that I could have ever taken in life</p>
-                </div>
-                <div class="b-review__main">
-                    <div class="b-review__main-person">
-                        <div class="b-review__main-person-inside">
-                        </div>
-                    </div>
-                    <h5><span>John Black</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
-                    <p>For me blockchain is the perfect solution to many of the challenges that I face being the owner of a transportation company. It helps me with easier verification of the vehicle’s history allowing, therefore, major transparency when purchasing new cars. </p>
-                </div>
-                <div class="b-review__main">
-                    <div class="b-review__main-person">
-                        <div class="b-review__main-person-inside">
-                        </div>
-                    </div>
-                    <h5><span>Angelina Julie</span>, Customer, Ferrari 488 GTB 2 Owner<em>"</em></h5>
-                    <p>With such platform I was able to overview parts of the vehicle and could also look up the origin of the carpets and solve repair-related problems. Moreover the greatest relief was not to have a middleman intervening in my choices. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <img src="images/backgrounds/reviews.jpg') }}" alt="" class="img-responsive center-block" />
-</section>
-
 <div class="b-features">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
+            <div class="col-md-12 col-xs-12">
                 <ul class="b-features__items">
                     <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Low Prices, No Haggling</li>
                     <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Largest Car Dealership</li>
                     <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Multipoint Safety Check</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Secure Transaction</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-<div class="b-info">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-xs-6">
-                <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
-                    <article class="b-info__aside-article">
-                        <h3>OPENING HOURS</h3>
-                        <div class="b-info__aside-article-item">
-                            <h6>Sales Department</h6>
-                            <p>Mon-Sat : 8:00am - 5:00pm<br /> Sunday is closed</p>
-                        </div>
-                        <div class="b-info__aside-article-item">
-                            <h6>Service Department</h6>
-                            <p>Mon-Sat : 8:00am - 5:00pm<br /> Sunday is closed</p>
-                        </div>
-                    </article>
-                    <article class="b-info__aside-article">
-                        <h3>About us</h3>
-                        <p>Vestibulum varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl non ultricies lectus nibh mas lsa Duis scelerisque aliquet. Ante donec libero pede porttitor dacu msan esct venenatis quis.</p>
-                    </article>
-                    <a href="about.html" class="btn m-btn">Read More<span class="fa fa-angle-right"></span></a>
-                </aside>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="b-info__latest">
-                    <h3>LATEST AUTOS</h3>
-                    <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__latest-article-photo m-audi"></div>
-                        <div class="b-info__latest-article-info">
-                            <h6><a href="detail.html">MERCEDES-AMG GT S</a></h6>
-                            <p><span class="fa fa-tachometer"></span> 35,000 KM</p>
-                        </div>
-                    </div>
-                    <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__latest-article-photo m-audiSpyder"></div>
-                        <div class="b-info__latest-article-info">
-                            <h6><a href="#">AUDI R8 SPYDER V-8</a></h6>
-                            <p><span class="fa fa-tachometer"></span> 35,000 KM</p>
-                        </div>
-                    </div>
-                    <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__latest-article-photo m-aston"></div>
-                        <div class="b-info__latest-article-info">
-                            <h6><a href="#">ASTON MARTIN VANTAGE</a></h6>
-                            <p><span class="fa fa-tachometer"></span> 35,000 KM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="b-info__twitter">
-                    <h3>from twitter</h3>
-                    <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
-                        <div class="b-info__twitter-article-content">
-                            <p>Blockchain ID Solution Aims to Tackle Spike in Delivery Fraud ...</p>
-                            <span>20 minutes ago</span>
-                        </div>
-                    </div>
-                    <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
-                        <div class="b-info__twitter-article-content">
-                            <p>Blockchain Bites: Google Validates Theta, Coinbase and ...</p>
-                            <span>20 minutes ago</span>
-                        </div>
-                    </div>
-                    <div class="b-info__twitter-article wow zoomInUp" data-wow-delay="0.3s">
-                        <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
-                        <div class="b-info__twitter-article-content">
-                            <p>Is blockchain becoming the new digital?</p>
-                            <span>20 minutes ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
-                        <p>contact us</p>
-                        <div class="b-info__contacts-item">
-                            <span class="fa fa-map-marker"></span>
-                            <em>202 W 7th St, Suite 233 Los Angeles,
-                                California 90014 USA</em>
-                        </div>
-                        <div class="b-info__contacts-item">
-                            <span class="fa fa-phone"></span>
-                            <em>Phone:  +92-336-2891707</em>
-                        </div>
-                        <div class="b-info__contacts-item">
-                            <span class="fa fa-fax"></span>
-                            <em>FAX:  +92-336-2891707</em>
-                        </div>
-                        <div class="b-info__contacts-item">
-                            <span class="fa fa-envelope"></span>
-                            <em>Email:  info@domain.com</em>
-                        </div>
-                    </address>
-                <address class="b-info__map">
-                        <a href="contacts.html">Open Location Map</a>
-                    </address>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

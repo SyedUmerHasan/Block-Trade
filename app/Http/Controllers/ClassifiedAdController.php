@@ -10,38 +10,47 @@ use App\VehicleContact;
 use App\InteriorColor;
 use App\ExteriorColor;
 use App\VehicleStatus;
+use App\VehicleBrand;
+use App\BrandModel;
 use Session;
 use Auth;
 
 class ClassifiedAdController extends Controller
 {
     public function index(){
-        return view('webapp.pages.main_home');
+        $carManufacturer = VehicleBrand::orderBy('brand_name', 'asc')->get();
+        $carModels = BrandModel::all();
+
+        $featuredCars = null;
+
+        return view('webapp.pages.main_home')
+        ->with(compact('carManufacturer'))
+        ->with(compact('carModels'));
     }
     public function submit1(){
         return view('webapp.pages.submit1');
     }
 
     public function submit2($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->find($id);
+        $vehicleDetail = VehicleDetail::with('features')->find($id);
         if($vehicleDetail == null){
             return redirect()->route('webapp.submit1');
         }
-        $vehicleFeature = $vehicleDetail->getallvehiclefeatures;
+        $vehicleFeature = $vehicleDetail->features;
         return view('webapp.pages.submit2')->with(compact('vehicleDetail'))
                                             ->with(compact('vehicleFeature'));
 
     }
     
     public function submit3($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
-                                        ->with('getallvehicleimages')
+        $vehicleDetail = VehicleDetail::with('features')
+                                        ->with('images')
                                         ->find($id);
         if($vehicleDetail == null){
             return redirect()->route('webapp.submit1');
         }
-        $vehicleFeature = $vehicleDetail->getallvehiclefeatures;
-        $vehicleimages = $vehicleDetail->getallvehicleimages;
+        $vehicleFeature = $vehicleDetail->features;
+        $vehicleimages = $vehicleDetail->images;
         if(sizeof($vehicleFeature) == 0){
             return redirect()->route('webapp.submit2',$id);
         }
@@ -163,15 +172,15 @@ class ClassifiedAdController extends Controller
      */
     public function addVehicleImages(Request $request, $id){
         $files = $request->vehicle_images;
-        $vehicleDetail = VehicleDetail::with('getallvehicleimages')->find($id);
+        $vehicleDetail = VehicleDetail::with('images')->find($id);
         if($files == null)
         {
-            if(count($vehicleDetail->getallvehicleimages) > 10){
+            if(count($vehicleDetail->images) > 10){
     
                 Session::flash('error', "Vehicle Images Cannot be uploaded more than 10 ");
                 return redirect()->back()->with('error', "Cannot upload more than 10 images")->withErrors(['images' => 'Cannot upload more than 10 images']);
             }
-            if(count($vehicleDetail->getallvehicleimages) == 0){
+            if(count($vehicleDetail->images) == 0){
                 
                 Session::flash('error', "Vehicle Images are mandatory");
                 return redirect()->back()->with('error', "Car images is mandatory")->withErrors(['images' => 'Car images is mandatory']);
@@ -180,7 +189,7 @@ class ClassifiedAdController extends Controller
             Session::flash('message', "Vehicle Images Added Successfully");
             return redirect()->route('webapp.submit4', $vehicleDetail->id);
         }
-        if(count($vehicleDetail->getallvehicleimages) + count($files) > 10){
+        if(count($vehicleDetail->images) + count($files) > 10){
             return redirect()->back()->with('error', "Cannot upload more than 10 images");
         }
     

@@ -10,6 +10,7 @@ use App\VehicleImages;
 use App\vehicleContact;
 use App\ExteriorColor;
 use App\InteriorColor;
+use App\VehicleBrand;
 use Auth;
 use Session;
 
@@ -23,21 +24,22 @@ class AdminVehicleController extends Controller
         return view('admin.vehicle.admin_vehicledetails');
     }
     public function getdetails(){
-        // $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
-        // ->with('getallvehicleimages')
+        // $vehicleDetail = VehicleDetail::with('features')
+        // ->with('images')
         // ->find($id);
         
-        // $vehicleImages = $vehicleDetail->getallvehicleimages;
+        // $vehicleImages = $vehicleDetail->images;
+        $carBrands = VehicleBrand::all();
         return view('admin.vehicle.admin_vehicledetails')
-        ->with(compact('vehicleDetail'))
+        ->with(compact('carBrands'))
         ->with(compact('vehicleImages'));
     }
     public function geteditdetails($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')
-        ->with('getallvehicleimages')
+        $vehicleDetail = VehicleDetail::with('features')
+        ->with('images')
         ->find($id);
         
-        $vehicleImages = $vehicleDetail->getallvehicleimages;
+        $vehicleImages = $vehicleDetail->images;
         return view('admin.vehicle.admin_vehicledetails')
         ->with(compact('vehicleDetail'))
         ->with(compact('vehicleImages'));
@@ -91,9 +93,9 @@ class AdminVehicleController extends Controller
         return redirect()->route('vehicle.features', $vehicleDetail->id)->with(compact('vehicleDetail'));
     }
     public function getfeatures($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->with('getallvehicleimages')->find($id);
-        $vehicleImages = $vehicleDetail->getallvehicleimages;
-        $vehiclefeatures = $vehicleDetail->getallvehiclefeatures;
+        $vehicleDetail = VehicleDetail::with('features')->with('images')->find($id);
+        $vehicleImages = $vehicleDetail->images;
+        $vehiclefeatures = $vehicleDetail->features;
         return view('admin.vehicle.admin_vehiclefeatures')->with(compact('vehicleDetail'));
     }
     public function createfeatures(Request $request, $id){
@@ -112,8 +114,8 @@ class AdminVehicleController extends Controller
     }
 
     public function getimages($id){
-        $vehicleDetail = VehicleDetail::with('getallvehiclefeatures')->with('getallvehicleimages')->find($id);
-        $vehicleImages = $vehicleDetail->getallvehicleimages;
+        $vehicleDetail = VehicleDetail::with('features')->with('images')->find($id);
+        $vehicleImages = $vehicleDetail->images;
 
         return view('admin.vehicle.admin_vehicleimages')
         ->with(compact('vehicleDetail'))
@@ -121,15 +123,15 @@ class AdminVehicleController extends Controller
     }
     public function createimages(Request $request, $id){
         $files = $request->vehicle_images;
-        $vehicleDetail = VehicleDetail::with('getallvehicleimages')->find($id);
+        $vehicleDetail = VehicleDetail::with('images')->find($id);
         if($files == null)
         {
-            if(count($vehicleDetail->getallvehicleimages) > 10){
+            if(count($vehicleDetail->images) > 10){
     
                 Session::flash('error', "Vehicle Images Cannot be uploaded more than 10 ");
                 return redirect()->back()->with('error', "Cannot upload more than 10 images")->withErrors(['images' => 'Cannot upload more than 10 images']);
             }
-            if(count($vehicleDetail->getallvehicleimages) == 0){
+            if(count($vehicleDetail->images) == 0){
                 
                 Session::flash('error', "Vehicle Images are mandatory");
                 return redirect()->back()->with('error', "Car images is mandatory")->withErrors(['images' => 'Car images is mandatory']);
@@ -138,7 +140,7 @@ class AdminVehicleController extends Controller
             Session::flash('message', "Vehicle Images Added Successfully");
             return redirect()->route('vehicle.contact', $vehicleDetail->id);
         }
-        $dbimagecount = $vehicleDetail->getallvehicleimages;
+        $dbimagecount = $vehicleDetail->images;
         if(sizeof($dbimagecount) + count($files) > 10){
             return redirect()->back()->with('error', "Cannot upload more than 10 images");
         }

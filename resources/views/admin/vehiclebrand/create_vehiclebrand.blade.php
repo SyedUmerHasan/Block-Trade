@@ -58,11 +58,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Category</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Brand</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('category.create') }}">Category</a>
+                                <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Car Brand</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.create') }}">Create</a>
                                 </li>
                             </ol>
                         </div>
@@ -76,7 +78,7 @@
                             <div class="col s12 m12 l12">
                                 <div id="button-trigger" class="card card card-default scrollspy">
                                     <div class="card-content">
-                                        <h4 class="card-title">Create Category</h4>
+                                        <h4 class="card-title">Create Car Brand</h4>
                                         <div class="row">
                                             <div class="col s12">
 
@@ -105,12 +107,12 @@
                                             @endif
 
                                                 <div class="row">
-                                                    <form class="col s12" action="{{ route('category.add') }}" method="POST">
+                                                    <form class="col s12" action="{{ route('vehiclebrand.add') }}" method="POST">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="input-field col s12">
-                                                                <input type="text" class="form-control" id="name" name="name" aria-describedby="helpId"  >
-                                                                <label for="name">Enter Category Name</label>
+                                                                <input type="text" class="form-control" id="brand_name" name="brand_name" aria-describedby="helpId"  >
+                                                                <label for="brand_name">Enter Brand Name</label>
                                                             </div>
                                                         </div>
                                                         <div class=" right">

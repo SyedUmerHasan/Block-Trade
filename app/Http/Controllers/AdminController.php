@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\VehicleStatus;
 use Auth;
 class AdminController extends Controller
 {
@@ -22,9 +23,11 @@ class AdminController extends Controller
         $sellerCount = User::where("is_active", "=", "true")->where("role", "=", "seller")->count();
         $adminCount = User::where("is_active", "=", "true")->where("role", "=", "admin")->count();
         $admins = User::where("is_active", "=", "true")->where("role", "=", "admin")->take(10)->get();
+        $carRegistered =  VehicleStatus::where("status", "=", true)->count();
         // dd($teachers);
         return view('admin.dashboard')->with(compact('buyerCount'))
         ->with(compact('sellerCount'))
+        ->with(compact('carRegistered'))
         ->with(compact('admins'))
         ->with(compact('adminCount'));
     }

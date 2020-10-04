@@ -18,7 +18,7 @@ class CreateVehicledetailTable extends Migration
             $table->bigInteger("users_id")->nullable();
             $table->bigInteger("vehiclebrand_id")->nullable();
             $table->bigInteger("brandmodel_id")->nullable();
-            $table->text("year_manufacture")->nullable();
+            $table->bigInteger("year_manufacture")->nullable();
             $table->text("body_type")->nullable();
             $table->text("number_seat")->nullable();
             $table->text("number_door")->nullable();
