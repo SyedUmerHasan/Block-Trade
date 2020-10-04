@@ -98,14 +98,22 @@ Route::group(['prefix' => 'admin'], function () {
 
             Route::get('', 'AdminVehicleController@getall')->name('vehicle.getall');
 
-            Route::group(['prefix' => 'brand'], function () {
-                Route::get('', 'VehicleBrandController@getall')->name('vehiclebrand.getall');
-                Route::get('/create', 'VehicleBrandController@create')->name('vehiclebrand.create');
-                Route::get('/edit/{id}', 'VehicleBrandController@edit')->name('vehiclebrand.edit');
-                Route::post('/add', 'VehicleBrandController@add')->name('vehiclebrand.add');
-                Route::post('/update/{id}', 'VehicleBrandController@update')->name('vehiclebrand.update');
+            Route::group(['prefix' => 'manufacturer'], function () {
+                Route::get('', 'CarManufacturerController@getall')->name('vehiclebrand.getall');
+                Route::get('/create', 'CarManufacturerController@create')->name('vehiclebrand.create');
+                Route::get('/edit/{id}', 'CarManufacturerController@edit')->name('vehiclebrand.edit');
+                Route::post('/add', 'CarManufacturerController@add')->name('vehiclebrand.add');
+                Route::post('/update/{id}', 'CarManufacturerController@update')->name('vehiclebrand.update');
             });
-            
+
+            Route::group(['prefix' => 'model'], function () {
+                Route::get('', 'CarModelController@getall')->name('carmodel.getall');
+                Route::get('/create', 'CarModelController@create')->name('carmodel.create');
+                Route::get('/edit/{id}', 'CarModelController@edit')->name('carmodel.edit');
+                Route::post('/add', 'CarModelController@add')->name('carmodel.add');
+                Route::post('/update/{id}', 'CarModelController@update')->name('carmodel.update');
+            });
+
             Route::group(['prefix' => 'interiorcolor'], function() {
                 Route::get('', 'InteriorColorController@getall')->name('interiorcolor.getall');
                 Route::get('create', 'InteriorColorController@create')->name('interiorcolor.create');

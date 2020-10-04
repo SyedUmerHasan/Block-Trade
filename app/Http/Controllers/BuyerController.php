@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\VehicleStatus;
+use App\PublishedVehicle;
 use App\VehicleDetail;
 use App\VehicleFeatures;
 use App\VehicleImages;
@@ -12,7 +12,7 @@ use App\VehicleContact;
 class BuyerController extends Controller
 {
     public function dashboard(){
-        $vehicleStatus = VehicleStatus::with('VehicleDetail')
+        $vehicleStatus = PublishedVehicle::with('VehicleDetail')
         ->with('VehicleFeatures')
         ->with('VehicleImages')
         ->with('VehicleContact')->get();

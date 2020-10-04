@@ -35,12 +35,12 @@ class VehicleDetail extends Model
         return $this->hasMany('App\VehicleContact', 'vehicledetail_id', 'id');
     }
     public function brands(){
-        return $this->belongsTo('App\VehicleBrand', 'brandmodel_id', 'id');
+        return $this->belongsTo('App\CarManufacturer', 'brandmodel_id', 'id');
     }
     public function model(){
         return $this->belongsTo('App\BrandModel', 'vehiclebrand_id', 'id');
     }
     public function car(){
-        return $this->belongsTo('App\VehicleStatus', 'id', 'car_id');
+        return $this->belongsTo('App\PublishedVehicle', 'id', 'car_id');
     }
 }

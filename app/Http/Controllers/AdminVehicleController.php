@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\VehicleStatus;
+use App\PublishedVehicle;
 use App\VehicleDetail;
 use App\VehicleFeatures;
 use App\VehicleImages;
 use App\vehicleContact;
 use App\ExteriorColor;
 use App\InteriorColor;
-use App\VehicleBrand;
+use App\CarManufacturer;
 use Auth;
 use Session;
 
 class AdminVehicleController extends Controller
 {
     public function getall(){
-        $vehicle = VehicleStatus::all();
+        $vehicle = PublishedVehicle::all();
         return view('admin.vehicle.list_vehicles')->with(compact('vehicle'));
     }
     public function index(){
@@ -29,7 +29,7 @@ class AdminVehicleController extends Controller
         // ->find($id);
         
         // $vehicleImages = $vehicleDetail->images;
-        $carBrands = VehicleBrand::all();
+        $carBrands = CarManufacturer::all();
         return view('admin.vehicle.admin_vehicledetails')
         ->with(compact('carBrands'))
         ->with(compact('vehicleImages'));
@@ -240,7 +240,7 @@ class AdminVehicleController extends Controller
             return redirect()->route('webapp.submit1');
         }
         $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        $vehicleStatus = VehicleStatus::where('car_id', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('car_id', $id)->first();
 
         return view('admin.vehicle.admin_vehiclepublish')
         ->with(compact('vehicleDetail'))
@@ -251,9 +251,9 @@ class AdminVehicleController extends Controller
         $validatedData = $request->validate([
             'car_title' => 'required'
         ]);
-        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('car_id', '=', $id)->first();
         if($vehicleStatus  == null){
-            $vehicleStatus = new VehicleStatus();
+            $vehicleStatus = new PublishedVehicle();
         }
         $vehicleStatus->car_id = $id;
         $vehicleStatus->car_title = $request->car_title;
@@ -267,7 +267,7 @@ class AdminVehicleController extends Controller
     }
 
     public function approveAdStatus($id){
-        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('car_id', '=', $id)->first();
         if($vehicleStatus  == null){
             return redirect()->back()->with('error', 'Ad not found');
         }

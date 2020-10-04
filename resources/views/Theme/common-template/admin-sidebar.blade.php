@@ -45,15 +45,21 @@
         </li>
         
         <li class="bold">
+            <a class="waves-effect waves-cyan " href="{{ route('carmodel.getall') }}">
+                <i class="material-icons">person_outline</i>
+                <span class="menu-title" data-i18n="User Profile">Car Model List</span>
+            </a>
+        </li>
+        <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Car Brand List</span>
+                <span class="menu-title" data-i18n="User Profile">Car Manufacturer List</span>
             </a>
         </li>
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Interior Color List</span>
+                <span class="menu-title" data-i18n="User Profile">Interior Theme List</span>
             </a>
         </li>
         <li class="bold">
@@ -76,7 +82,7 @@
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Brand</span>
+                <span class="menu-title" data-i18n="User Profile">Add Car Manufacturer</span>
             </a>
         </li>
         <li class="bold">

@@ -9,7 +9,7 @@ use App\VehicleImages;
 
 
 
-class VehicleStatus extends Model
+class PublishedVehicle extends Model
 {
     protected $table = "vehicle_status";
     protected $primaryKey = "id";

@@ -9,8 +9,8 @@ use App\VehicleImages;
 use App\VehicleContact;
 use App\InteriorColor;
 use App\ExteriorColor;
-use App\VehicleStatus;
-use App\VehicleBrand;
+use App\PublishedVehicle;
+use App\CarManufacturer;
 use App\BrandModel;
 use Session;
 use Auth;
@@ -18,7 +18,7 @@ use Auth;
 class ClassifiedAdController extends Controller
 {
     public function index(){
-        $carManufacturer = VehicleBrand::orderBy('brand_name', 'asc')->get();
+        $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
         $carModels = BrandModel::all();
 
         $featuredCars = null;
@@ -272,7 +272,7 @@ class ClassifiedAdController extends Controller
         $validatedData = $request->validate([
             'car_title' => 'required'
         ]);
-        $vehicleStatus = new VehicleStatus();
+        $vehicleStatus = new PublishedVehicle();
         $vehicleStatus->car_id = $id;
         $vehicleStatus->car_title = $request->car_title;
         $vehicleStatus->status = false;

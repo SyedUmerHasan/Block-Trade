@@ -48,11 +48,11 @@
             <div class="container">
               <div class="row">
                 <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Brand </span></h5>
+                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Model </span></h5>
                   <ol class="breadcrumbs mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Car Brand </a>
+                    <li class="breadcrumb-item"><a href="{{ route('carmodel.getall') }}">Car Model </a>
                     </li>
                   </ol>
                 </div>
@@ -66,23 +66,25 @@
       <div class="col s12 m12 l12">
         <div id="button-trigger" class="card card card-default scrollspy">
           <div class="card-content">
-            <h4 class="card-title">Car Brand List</h4>
+            <h4 class="card-title">Car Model List</h4>
             <div class="row">
               <div class="col s12">
                 <table id="table_id" class="display responsive nowrap" style="width:100%">
 
                     <thead>
                         <tr>
-                            <th>Car Brand Name</th>
-                            <th>Action</th>
+                          <th>Car Model Name</th>
+                          <th>Car Brand Name</th>
+                          <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                       @foreach ($vehiclebrand as $item)
                           <tr>
+                            <td>{{ $item->model_name }}</td>
                             <td>{{ $item->brand_name }}</td>
                             <td>
-                              <a href="{{ route('vehiclebrand.edit',$item->id) }}" class="btn cyan">
+                              <a href="{{ route('carmodel.edit',$item->id) }}" class="btn cyan">
                                 Edit
                               </a>
                               {{--  <a href="#" class="btn green">

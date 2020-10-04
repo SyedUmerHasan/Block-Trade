@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\VehicleBrand;
+use App\CarManufacturer;
 use Session;
 
-class VehicleBrandController extends Controller
+class CarManufacturerController extends Controller
 {
     public function create(){
         return view('admin.vehiclebrand.create_vehiclebrand');
     }
     public function edit($id){
-        $vehiclebrand = VehicleBrand::find($id);
+        $vehiclebrand = CarManufacturer::find($id);
         if($vehiclebrand == null){
             abort(404);
         }
@@ -22,27 +22,27 @@ class VehicleBrandController extends Controller
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:vehiclebrand'
         ]);
-        $vehiclebrand = new VehicleBrand();
+        $vehiclebrand = new CarManufacturer();
         $vehiclebrand->brand_name = $request->brand_name;
         $vehiclebrand->save();
-        Session::flash('message', "Vehicle Brand Added");
-        return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Brand added successfully!');
+        Session::flash('message', "Vehicle Manufacturer Added");
+        return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Manufacturer added successfully!');
     }
     public function update(Request $request, $id){
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:vehiclebrand'
         ]);
-        $vehiclebrand = VehicleBrand::find($id);
+        $vehiclebrand = CarManufacturer::find($id);
         if($vehiclebrand == null){
-            return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Brand Not Found!');
+            return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Manufacturer Not Found!');
         }
         $vehiclebrand->brand_name = $request->brand_name;
         $vehiclebrand->save();
-        Session::flash('message', "Vehicle Brand Added");
-        return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Brand updated successfully!');
+        Session::flash('message', "Vehicle Manufacturer Added");
+        return redirect()->back()->with(compact('vehiclebrand'))->with('success','Vehicle Manufacturer updated successfully!');
     }
     public function getall(){
-        $vehiclebrand = VehicleBrand::all();
+        $vehiclebrand = CarManufacturer::all();
         return view('admin.vehiclebrand.list_vehiclebrand')->with(compact('vehiclebrand'));
     }
 }
