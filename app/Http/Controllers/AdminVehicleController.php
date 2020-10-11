@@ -23,26 +23,24 @@ class AdminVehicleController extends Controller
     public function index(){
         $carBrands = CarManufacturer::all();
         return view('admin.vehicle.admin_vehicledetails')
-        ->with(compact('carBrands'))
-        ->with(compact('vehicleImages'));
+        ->with(compact('carBrands'));
     }
     public function getdetails(){
         // $vehicleDetail = VehicleDetail::with('features')
         // ->with('images')
         // ->find($id);
         
+        $carBrands = CarManufacturer::all();
         // $vehicleImages = $vehicleDetail->images;
         $carBrands = CarManufacturer::all();
         return view('admin.vehicle.admin_vehicledetails')
-        ->with(compact('carBrands'))
-        ->with(compact('vehicleImages'));
+        ->with(compact('carBrands'));
     }
     public function geteditdetails($id){
         $vehicleDetail = VehicleDetail::with('features')
         ->with('images')
         ->find($id);
         $carBrands = CarManufacturer::all();
-        
         $vehicleImages = $vehicleDetail->images;
         return view('admin.vehicle.admin_vehicledetails')
         ->with(compact('carBrands'))
