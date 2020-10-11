@@ -84,7 +84,7 @@
                                         <p>{{ $item->VehicleDetail->comments }}</p>
                                         <div class="row mt-4 flex">
                                             <div class="col s2" >
-                                                <a href="#"><img src="http://127.0.0.1:8000/admin-assets/app-assets/images/avatar/avatar-8.png" width="40" alt="fashion" class="z-depth-4 circle"></a>
+                                                <a href="#"><img src="/admin-assets/app-assets/images/avatar/avatar-8.png" width="40" alt="fashion" class="z-depth-4 circle"></a>
                                             </div>
                                             <div class="col s6 p-0 mt-1 valign-wrapper">
                                                 <a href="#">
