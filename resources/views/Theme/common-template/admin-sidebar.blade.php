@@ -3,11 +3,11 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="http://127.0.0.1:8000/admin/home">
+            <a class="brand-logo darken-1" href="/admin/home">
 
-                <img class="hide-on-med-and-down" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
+                <img class="hide-on-med-and-down" src="/admin.png" alt="materialize logo">
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
                 <span class="logo-text hide-on-med-and-down">Admin Panel </span>
 
             </a>
