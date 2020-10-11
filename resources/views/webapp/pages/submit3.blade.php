@@ -174,19 +174,12 @@
                             </div>
                             <div class="b-submit__main-file wow zoomInUp" data-wow-delay="0.3s">
                                 <header class="s-headerSubmit s-lineDownLeft">
-                                    <h2>Please Enter A Hosted Video URL Of Your Vehicle</h2>
+                                    <h2>Write Some Additional Description About Your Vehicle</h2>
                                 </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</p>
-                                <input type="text" placeholder="like Youtube or Vimeo URL" name="url" />
-                            </div>
-                            <div class="b-submit__main-file wow zoomInUp" data-wow-delay="0.3s">
-                                <header class="s-headerSubmit s-lineDownLeft">
-                                    <h2>Write Some Additional Comments About Your Vehicle</h2>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</p>
-                                <textarea name="text" placeholder="write additional comments"></textarea>
+                                <textarea name="comments"style="text-transform: none !important;"
+                                
+                                placeholder="Describe Your car: 
+Example: Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc."></textarea>
                             </div>
                         </div>
                         <div class="s-submit">

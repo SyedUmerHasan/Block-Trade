@@ -175,6 +175,12 @@ class ClassifiedAdController extends Controller
      */
     public function addVehicleImages(Request $request, $id){
         $files = $request->vehicle_images;
+        $comments = $request->comments;
+        // Updating Vehicle Comments 
+        $vehicleDetail = VehicleDetail::find($id);
+        $vehicleDetail->comments = $comments;
+        $vehicleDetail->save();
+
         $vehicleDetail = VehicleDetail::with('images')->find($id);
         if($files == null)
         {
@@ -213,6 +219,8 @@ class ClassifiedAdController extends Controller
             $vehicle->save();
             $uploadcount++;
         }
+
+
         Session::flash('message', "Vehicle Images Added Successfully");
         return redirect()->route('webapp.submit4', $vehicle->vehicledetail_id);
     }

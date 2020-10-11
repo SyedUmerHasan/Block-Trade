@@ -86,6 +86,12 @@
             </a>
         </li>
         <li class="bold">
+            <a class="waves-effect waves-cyan " href="{{ route('carmodel.create') }}">
+                <i class="material-icons">person_outline</i>
+                <span class="menu-title" data-i18n="User Profile">Add Car Model</span>
+            </a>
+        </li>
+        <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.create') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Add Car Interior Color</span>

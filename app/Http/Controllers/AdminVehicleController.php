@@ -21,7 +21,10 @@ class AdminVehicleController extends Controller
         return view('admin.vehicle.list_vehicles')->with(compact('vehicle'));
     }
     public function index(){
-        return view('admin.vehicle.admin_vehicledetails');
+        $carBrands = CarManufacturer::all();
+        return view('admin.vehicle.admin_vehicledetails')
+        ->with(compact('carBrands'))
+        ->with(compact('vehicleImages'));
     }
     public function getdetails(){
         // $vehicleDetail = VehicleDetail::with('features')
@@ -38,9 +41,11 @@ class AdminVehicleController extends Controller
         $vehicleDetail = VehicleDetail::with('features')
         ->with('images')
         ->find($id);
+        $carBrands = CarManufacturer::all();
         
         $vehicleImages = $vehicleDetail->images;
         return view('admin.vehicle.admin_vehicledetails')
+        ->with(compact('carBrands'))
         ->with(compact('vehicleDetail'))
         ->with(compact('vehicleImages'));
     }

@@ -23,7 +23,8 @@ class VehicleDetail extends Model
         "number_cylinder", 
         "engine_capacity", 
         'fuel_type', 
-        'chasis_number'
+        'chasis_number',
+        'comments'
     ];
     public function features(){
         return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'id');
