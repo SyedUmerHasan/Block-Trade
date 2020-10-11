@@ -74,7 +74,7 @@
                     <thead>
                         <tr>
                           <th>Car Model Name</th>
-                          <th>Car Brand Name</th>
+                          <th>Car Manufacturer Name</th>
                           <th>Action</th>
                         </tr>
                     </thead>

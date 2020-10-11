@@ -151,10 +151,9 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="vehiclebrand_id">
                                             <option value="">Select</option>
-                                            <option value="1" selected>Honda</option>
-                                            <option value="2">Toyota</option>
-                                            <option value="3">Suzuki</option>
-                                            <option value="4">Kia</option>
+                                            @foreach ($carManufacturer as $item)
+                                            <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
+                                            @endforeach
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -241,10 +240,9 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="brandmodel_id">
                                             <option>Select a Model</option>
-                                            <option value="1" selected>Civic</option>
-                                            <option value="2">City</option>
-                                            <option value="3">Corolla</option>
-                                            <option value="4">Hummer</option>
+                                            @foreach ($carModels as $item)
+                                            <option value="{{ $item->id }}">{{ $item->model_name }}</option>
+                                            @endforeach
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>

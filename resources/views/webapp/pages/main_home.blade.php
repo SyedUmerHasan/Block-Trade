@@ -2,17 +2,18 @@
 
 
 @section('body')
-    <style>
-        .b-welcome__text p {
-            font: 300 13px 'Open Sans', sans-serif;
-            margin: 5px !important;
-        }
-        .b-welcome__text h3 {
-            font: 700 30px 'Open Sans', sans-serif;
-            text-transform: uppercase;
-            margin: 0px !important;
-        }
-    </style>
+<style>
+    .b-welcome__text p {
+        font: 300 13px 'Open Sans', sans-serif;
+        margin: 5px !important;
+    }
+    .b-welcome__text h3 {
+        font: 700 30px 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        margin: 0px !important;
+    }
+</style>
+
 <section class="b-slider">
     <div id="carousel" class="slide carousel carousel-fade">
         <div class="carousel-inner">
@@ -356,17 +357,13 @@
                                         @foreach ($carManufacturer as $item)
                                             <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
                                         @endforeach
-                                    </select>
+                                </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>MISSING MANUFACTURER?</p>
                             </div>
                             <div class="col-xs-4">
                                 <select name="model">
                                         <option value="" selected="">Any Model</option>
-                                        <option value="civic">Civic</option>
-                                        <option value="city">Honda City</option>
-                                        <option value="brv">Honda BRV</option>
-                                        <option value="corolla">Toyota Corolla</option>
                                         @foreach ($carModels as $item)
                                             <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
                                         @endforeach
@@ -424,6 +421,7 @@
         </form>
     </div>
 </section>
+
 <section class="b-featured">
     <div class="container">
         <h2 class="s-title  zoomInUp" >Featured Vehicles</h2>
@@ -596,7 +594,6 @@
     </div>
 </section>
 
-
 <section class="b-welcome">
     <div class="container">
         <div class="row">
@@ -682,8 +679,6 @@
         </div>
     </div>
 </section>
-
-
 
 <section class="b-auto">
     <div class="container">

@@ -6,9 +6,9 @@
 
 <section class="b-pageHeader">
     <div class="container">
-        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Auto Listings</h1>
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Auto Cars Listing</h1>
         <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
-            <h3>Your search returned 28 results</h3>
+            <h3>Your search returned {{$vehicleDetail->total()}} results</h3>
         </div>
     </div>
 </section>
@@ -78,8 +78,11 @@
                                 <div class="b-items__aside-main-body-item">
                                     <label>SELECT A MAKE</label>
                                     <div>
-                                        <select name="select1" class="m-select">
+                                        <select name="brand" class="m-select">
                                             <option value="" selected="">Any Make</option>
+                                            @foreach ($carManufacturer as $item)
+                                                <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                            @endforeach
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -87,8 +90,24 @@
                                 <div class="b-items__aside-main-body-item">
                                     <label>SELECT A MODEL</label>
                                     <div>
-                                        <select name="select1" class="m-select">
-                                            <option value="" selected="">Any Make</option>
+                                    <select name="model" class="m-select">
+                                        <option value="" selected="">Any Model</option>
+                                        @foreach ($carModels as $item)
+                                            <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                        @endforeach
+                                    </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-items__aside-main-body-item">
+                                    <label>VEHICLE STATUS</label>
+                                    <div>
+                                        <select name="cartype" class="m-select">
+                                            <option value="" selected="">Vehicle Status</option>
+                                            <option value="new">New Cars</option>
+                                            <option value="used">Used Cars</option>
+                                            <option value="japanese">Japanese Cars</option>
+                                            <option value="imported">Imported Cars</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -98,33 +117,6 @@
                                     <div class="slider"></div>
                                     <input type="hidden" name="min" value="100k" class="j-min" />
                                     <input type="hidden" name="max" value="500k" class="j-max" />
-                                </div>
-                                <div class="b-items__aside-main-body-item">
-                                    <label>VEHICLE TYPE</label>
-                                    <div>
-                                        <select name="select1" class="m-select">
-                                            <option value="" selected="">Any Type</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-items__aside-main-body-item">
-                                    <label>VEHICLE STATUS</label>
-                                    <div>
-                                        <select name="select1" class="m-select">
-                                            <option value="" selected="">Any Status</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-items__aside-main-body-item">
-                                    <label>FUEL TYPE</label>
-                                    <div>
-                                        <select name="select1" class="m-select">
-                                            <option value="" selected="">All Fuel Types</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
                                 </div>
                             </div>
                             <footer class="b-items__aside-main-footer">

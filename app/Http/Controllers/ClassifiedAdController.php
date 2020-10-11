@@ -21,14 +21,17 @@ class ClassifiedAdController extends Controller
         $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
         $carModels = BrandModel::all();
 
-        $featuredCars = null;
-
         return view('webapp.pages.main_home')
         ->with(compact('carManufacturer'))
         ->with(compact('carModels'));
     }
     public function submit1(){
-        return view('webapp.pages.submit1');
+        $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
+        $carModels = BrandModel::all();
+
+        return view('webapp.pages.submit1')
+        ->with(compact('carManufacturer'))
+        ->with(compact('carModels'));
     }
 
     public function submit2($id){
@@ -101,7 +104,7 @@ class ClassifiedAdController extends Controller
             'number_cylinder' => 'required',
             'engine_capacity' => 'required',
             'fuel_type' => 'required',
-            'chasis_number' => 'required'
+            'chasis_number' => 'required|unique:vehicledetail'
         ]);
         $vehicleDetail = VehicleDetail::create([
             'users_id' => Auth::user()->id,

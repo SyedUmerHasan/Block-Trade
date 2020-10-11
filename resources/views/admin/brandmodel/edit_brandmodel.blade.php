@@ -116,7 +116,7 @@
                                                         </div>
                                                         <div class="input-field col s6 s-relative">
                                                             <select   class="m-select"  id="vehiclebrand_id" name="vehiclebrand_id">
-                                                                <option value="">Select Car Brand</option>
+                                                                <option value="">Select Car Manufacturer</option>
                                                                 @foreach ($carbrand as $item)
                                                                     @if ($item->id ==  $vehiclebrand->id)
                                                                     <option value="{{ $item->id }}" selected>{{ $item->brand_name }}</option>

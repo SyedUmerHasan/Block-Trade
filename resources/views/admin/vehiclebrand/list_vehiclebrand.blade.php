@@ -48,11 +48,11 @@
             <div class="container">
               <div class="row">
                 <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Brand </span></h5>
+                  <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Manufacturer </span></h5>
                   <ol class="breadcrumbs mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Car Brand </a>
+                    <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Car Manufacturer </a>
                     </li>
                   </ol>
                 </div>
@@ -66,14 +66,14 @@
       <div class="col s12 m12 l12">
         <div id="button-trigger" class="card card card-default scrollspy">
           <div class="card-content">
-            <h4 class="card-title">Car Brand List</h4>
+            <h4 class="card-title">Car Manufacturer List</h4>
             <div class="row">
               <div class="col s12">
                 <table id="table_id" class="display responsive nowrap" style="width:100%">
 
                     <thead>
                         <tr>
-                            <th>Car Brand Name</th>
+                            <th>Car Manufacturer Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>

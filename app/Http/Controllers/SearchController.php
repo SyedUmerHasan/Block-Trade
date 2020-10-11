@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\VehicleDetail;
+use App\CarManufacturer;
+use App\BrandModel;
 
 class SearchController extends Controller
 {
@@ -51,6 +53,14 @@ class SearchController extends Controller
             $q->where('status', '=', true);
         });
         $vehicleDetail = $vehicleDetail->paginate(5);
-        return view('webapp.pages.search')->with(compact('vehicleDetail'));
+        
+        $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
+        $carModels = BrandModel::all();
+
+        return view('webapp.pages.search')
+        ->with(compact('vehicleDetail'))
+        ->with(compact('carManufacturer'))
+        ->with(compact('carModels'));
+
     }
 }
