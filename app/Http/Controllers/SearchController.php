@@ -52,7 +52,6 @@ class SearchController extends Controller
         {
             $q->where('status', '=', true);
         });
-        dd($vehicleDetail);
         $vehicleDetail = $vehicleDetail->paginate(5);
         
         $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
