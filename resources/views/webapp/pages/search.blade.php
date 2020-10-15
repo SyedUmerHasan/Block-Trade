@@ -3,7 +3,19 @@
 
 @section('body')
 
-
+<style>
+.b-items__aside-sell-img {
+    background: url("/web-assets/car_ad.jpg") center no-repeat;
+    background-size: cover;
+    height: 200px;
+    text-align: center;
+}
+.b-pageHeader {
+    padding: 40px 0;
+    background: url("/web-assets/car_ad.jpg") center !important;
+    background-size: cover;
+}
+</style>
 <section class="b-pageHeader">
     <div class="container">
         <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Auto Cars Listing</h1>
@@ -131,7 +143,7 @@
                         </div>
                         <div class="b-items__aside-sell-info">
                             <p>
-                                Nam tellus enimds eleifend dignis lsim biben edum tristique sed metus fusce Maecenas lobortis.
+                                BlockTrade has made buying and selling and transfer of ownership alot easier. Interested in buy and selling cars? 
                             </p>
                             <a href="submit1.html" class="btn m-btn">REGISTER NOW<span class="fa fa-angle-right"></span></a>
                         </div>
