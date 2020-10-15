@@ -145,7 +145,11 @@
                             <p>
                                 BlockTrade has made buying and selling and transfer of ownership alot easier. Interested in buy and selling cars? 
                             </p>
-                            <a href="submit1.html" class="btn m-btn">REGISTER NOW<span class="fa fa-angle-right"></span></a>
+                            @if (Auth::check())
+                            <a href="{{ route('webapp.submit1') }}" class="btn m-btn">Create Ad<span class="fa fa-angle-right"></span></a>                                
+                             @else
+                            <a href="{{ route('register') }}" class="btn m-btn">REGISTER NOW<span class="fa fa-angle-right"></span></a>                                
+                            @endif
                         </div>
                     </div>
                 </aside>
