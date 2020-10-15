@@ -142,8 +142,8 @@ Route::group(['prefix' => 'admin'], function () {
             });
 
             Route::group(['prefix' => 'images'], function () {
-                Route::get('images/{id}', 'AdminVehicleController@getimages')->name('vehicle.images');
-                Route::post('images/create/{id}', 'AdminVehicleController@createimages')->name('vehicle.images.create');
+                Route::get('{id}', 'AdminVehicleController@getimages')->name('vehicle.images');
+                Route::post('create/{id}', 'AdminVehicleController@createimages')->name('vehicle.images.create');
             });
 
             Route::group(['prefix' => 'contact'], function () {

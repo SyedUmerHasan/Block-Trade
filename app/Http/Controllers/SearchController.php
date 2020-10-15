@@ -26,7 +26,7 @@ class SearchController extends Controller
         $vehicleDetail = new VehicleDetail;
         $vehicleDetail =  $vehicleDetail::with('features')->with('images')
                                         ->with('contact')->with('brands')
-                                        ->with('model')->with('car');
+                                        ->with('model')->with('car');                     
         if(isset($type)){
             $vehicleDetail = $vehicleDetail->where('body_type', 'like', '%'. $type.'%');
         }

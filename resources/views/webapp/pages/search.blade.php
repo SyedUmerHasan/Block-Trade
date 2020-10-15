@@ -152,43 +152,18 @@
                             </form>
                             <div class="row s-noRightMargin">
                                 <div class="col-md-9 col-xs-12">
-                                    <p>In a pickup market gone fancy, the Silverado sticks to its basic-truck recipe. The steering is accurate, and the Silverado</p>
-                                    <div class="m-width row m-smallPadding">
-                                        <div class="col-xs-6">
-                                            <div class="row m-smallPadding">
-                                                <div class="col-xs-6">
-                                                    <span class="b-items__cars-one-info-title">Body Style:</span>
-                                                    <span class="b-items__cars-one-info-title">Mileage:</span>
-                                                    <span class="b-items__cars-one-info-title">Transmission:</span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="b-items__cars-one-info-value">Sedan</span>
-                                                    <span class="b-items__cars-one-info-value">35,000 KM</span>
-                                                    <span class="b-items__cars-one-info-value">6-Speed Auto</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <div class="row m-smallPadding">
-                                                <div class="col-xs-4">
-                                                    <span class="b-items__cars-one-info-title">Engine:</span>
-                                                    <span class="b-items__cars-one-info-title">Color:</span>
-                                                    <span class="b-items__cars-one-info-title">Specs:</span>
-                                                </div>
-                                                <div class="col-xs-8">
-                                                    <span class="b-items__cars-one-info-value">DOHC 24-valve V-6</span>
-                                                    <span class="b-items__cars-one-info-value">White</span>
-                                                    <span class="b-items__cars-one-info-value">2-Passenger, 2-Door</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <p>
+                                    @if(isset($item->comments))
+                                    {{$item->comments}}                                    
+                                    @else
+                                    In a pickup market gone fancy, the Silverado sticks to its basic-truck recipe. The steering is accurate, and the Silverado</p>
+                                    @endif
                                 </div>
                                 <div class="col-md-3 col-xs-12">
                                     <div class="b-items__cars-one-info-price">
                                         <div class="pull-right">
                                             <h3>Price:</h3>
-                                            <h4>$29,415</h4>
+                                            <h4>${{$item->contact[0]->price}}</h4>
                                         </div>
                                         <a href="detail.html" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
                                     </div>

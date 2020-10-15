@@ -103,7 +103,6 @@ class AdminVehicleController extends Controller
     }
     public function createfeatures(Request $request, $id){
         $myarray=[];
-        // dD($request->vehicledetail_id);
         foreach($request->all() as $key => $value) {
             if($key == "_token") continue;
             if($key == "vehicledetail_id") continue;
