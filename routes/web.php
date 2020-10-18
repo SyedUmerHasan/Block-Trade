@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
      * Pages
      */
     Route::get('home','ClassifiedAdController@index')->name("webapp.home");
+    Route::get('ad/detail/{id}','ClassifiedAdController@detail')->name("webapp.detail");
     Route::group(['middleware' => 'auth'], function () {
         Route::get('vehicle/detail/','ClassifiedAdController@submit1')->name("webapp.submit1");
         Route::get('vehicle/features/{id}','ClassifiedAdController@submit2')->name("webapp.submit2");

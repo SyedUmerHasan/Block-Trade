@@ -20,6 +20,20 @@ class ClassifiedAdController extends Controller
     public function index(){
         return view('webapp.pages.main_home');
     }
+
+    public function detail($id){
+        $vehicleDetail =  VehicleDetail::find($id)
+            ->with('images')
+            ->with('contact')
+            ->with('brands')
+            ->with('model')
+            ->with('car')
+            ->with('features')->first();
+
+        return view('webapp.pages.detail')
+        ->with(compact('vehicleDetail'));
+    }
+
     public function submit1(){
 
         return view('webapp.pages.submit1');

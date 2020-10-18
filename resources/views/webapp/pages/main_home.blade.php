@@ -433,7 +433,7 @@
             @foreach (\App\VehicleDetail::take(10)->get() as $item)
             <div>
                 <div class="b-featured__item  ">
-                    <a href="detail.html">
+                    <a href="{{ route('webapp.detail', $item->id ) }}">
                             <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" alt="{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}" />
                             <span class="m-premium">Premium</span>
                         </a>
@@ -441,7 +441,7 @@
                         $184,900
                     </div>
                     <div class="clearfix"></div>
-                    <h5><a href="detail.html">{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}</a></h5>
+                    <h5><a href="{{ route('webapp.detail', $item->id ) }}">{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}</a></h5>
                     <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
                     <div class="b-featured__item-links">
                         <a href="#">Used</a>
