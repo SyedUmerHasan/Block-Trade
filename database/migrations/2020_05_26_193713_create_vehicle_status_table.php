@@ -15,7 +15,7 @@ class CreateVehicleStatusTable extends Migration
     {
         Schema::create('vehicle_status', function (Blueprint $table) {
             $table->id();
-            $table->text('car_id');
+            $table->text('vehicledetail_id');
             $table->text('car_title');
             $table->boolean('status')->default(false);
             $table->text('plan')->nullable();

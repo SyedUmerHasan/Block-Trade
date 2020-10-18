@@ -16,16 +16,16 @@ class PublishedVehicle extends Model
     
 
     public function VehicleDetail(){
-        return $this->hasOne('App\VehicleDetail', 'id', 'car_id');
+        return $this->hasOne('App\VehicleDetail', 'id', 'vehicledetail_id');
     }
     public function VehicleFeatures(){
-        return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'car_id');
+        return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'vehicledetail_id');
     }
     public function VehicleImages(){
-        return $this->hasMany('App\VehicleImages', 'vehicledetail_id', 'car_id');
+        return $this->hasMany('App\VehicleImages', 'vehicledetail_id', 'vehicledetail_id');
     }
     public function VehicleContact(){
-        return $this->hasOne('App\VehicleContact', 'vehicledetail_id', 'car_id');
+        return $this->hasOne('App\VehicleContact', 'vehicledetail_id', 'vehicledetail_id');
     }
 
 

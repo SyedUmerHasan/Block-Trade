@@ -90,9 +90,9 @@
                             <td>{{ $item->plan }}</td>
                             <td>
                               @if ($item->status == 0)
-                              <a href="{{ route('vehicle.approve.status',$item->car_id) }}" class="btn red">Non Active</a>
+                              <a href="{{ route('vehicle.approve.status',$item->vehicledetail_id) }}" class="btn red">Non Active</a>
                               @else  
-                              <a href="{{ route('vehicle.approve.status',$item->car_id) }}" class="btn cyan">Active</a>
+                              <a href="{{ route('vehicle.approve.status',$item->vehicledetail_id) }}" class="btn cyan">Active</a>
                               @endif
                             </td>
                             <td>
@@ -102,10 +102,10 @@
                               <a href="#" class="btn cyan">Paid</a>
                               @endif
                             </td>
-                            <td><a href="{{ route('vehicle.details.edit',$item->car_id) }}" class="btn green">Details</a></td>
-                            <td><a href="{{ route('vehicle.images',$item->car_id) }}" class="btn purple">Images</a></td>
-                            <td><a href="{{ route('vehicle.features',$item->car_id) }}" class="btn pink">Features</a></td>
-                            <td><a href="{{ route('vehicle.contact',$item->car_id) }}" class="btn cyan">Contact</a></td>
+                            <td><a href="{{ route('vehicle.details.edit',$item->vehicledetail_id) }}" class="btn green">Details</a></td>
+                            <td><a href="{{ route('vehicle.images',$item->vehicledetail_id) }}" class="btn purple">Images</a></td>
+                            <td><a href="{{ route('vehicle.features',$item->vehicledetail_id) }}" class="btn pink">Features</a></td>
+                            <td><a href="{{ route('vehicle.contact',$item->vehicledetail_id) }}" class="btn cyan">Contact</a></td>
                             
                           </tr>
                       @endforeach

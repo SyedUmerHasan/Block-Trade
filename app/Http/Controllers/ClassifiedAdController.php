@@ -284,7 +284,7 @@ class ClassifiedAdController extends Controller
             'car_title' => 'required'
         ]);
         $vehicleStatus = new PublishedVehicle();
-        $vehicleStatus->car_id = $id;
+        $vehicleStatus->vehicledetail_id = $id;
         $vehicleStatus->car_title = $request->car_title;
         $vehicleStatus->status = false;
         $vehicleStatus->plan = 'Basic';

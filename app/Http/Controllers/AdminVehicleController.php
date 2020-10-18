@@ -242,7 +242,7 @@ class AdminVehicleController extends Controller
             return redirect()->route('webapp.submit1');
         }
         $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        $vehicleStatus = PublishedVehicle::where('car_id', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('vehicledetail_id', $id)->first();
 
         return view('admin.vehicle.admin_vehiclepublish')
         ->with(compact('vehicleDetail'))
@@ -253,11 +253,11 @@ class AdminVehicleController extends Controller
         $validatedData = $request->validate([
             'car_title' => 'required'
         ]);
-        $vehicleStatus = PublishedVehicle::where('car_id', '=', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('vehicledetail_id', '=', $id)->first();
         if($vehicleStatus  == null){
             $vehicleStatus = new PublishedVehicle();
         }
-        $vehicleStatus->car_id = $id;
+        $vehicleStatus->vehicledetail_id = $id;
         $vehicleStatus->car_title = $request->car_title;
         $vehicleStatus->status = false;
         $vehicleStatus->plan = 'Basic';
@@ -269,7 +269,7 @@ class AdminVehicleController extends Controller
     }
 
     public function approveAdStatus($id){
-        $vehicleStatus = PublishedVehicle::where('car_id', '=', $id)->first();
+        $vehicleStatus = PublishedVehicle::where('vehicledetail_id', '=', $id)->first();
         if($vehicleStatus  == null){
             return redirect()->back()->with('error', 'Ad not found');
         }
