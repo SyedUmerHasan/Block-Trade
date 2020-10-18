@@ -7,7 +7,7 @@ use App\PublishedVehicle;
 use App\VehicleDetail;
 use App\VehicleFeatures;
 use App\VehicleImages;
-use App\vehicleContact;
+use App\VehicleContact;
 use App\ExteriorColor;
 use App\InteriorColor;
 use App\CarManufacturer;
@@ -171,7 +171,7 @@ class AdminVehicleController extends Controller
 
     public function getcontacts($id){
         $vehicleDetail = VehicleDetail::find($id);
-        if($vehicleDetail == null){
+        if(!isset($vehicleDetail)){
             return redirect()->route('vehicle.details');
         }
         $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
