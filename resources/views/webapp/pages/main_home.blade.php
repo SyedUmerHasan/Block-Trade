@@ -309,7 +309,7 @@
                             <h5><label for="type5">Sedan</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type6" type="radio" name="type" value="minicar"/>
+                            <input id="type6" type="radio" name="type" value="hatchback"/>
                             <label for="type6" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -346,7 +346,7 @@
                                         </g>
                                     </svg>
                                 </label>
-                            <h5><label for="type6">Minicar</label></h5>
+                            <h5><label for="type6">HatchBack</label></h5>
                         </div>
                     </div>
                 </div>
