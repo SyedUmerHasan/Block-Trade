@@ -57,9 +57,9 @@ class SearchController extends Controller
                         ->paginate(5);
 
         return view('webapp.pages.search')
+        ->with(compact('vehicleDetail'))
         ->with(compact('foundmodel'))
-        ->with(compact('foundbrand'))
-        ->with(compact('carModels'));
+        ->with(compact('foundbrand'));
 
     }
 }

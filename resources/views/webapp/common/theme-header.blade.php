@@ -80,12 +80,6 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a  href="#">Contact Us</a>
-                            </li>
-                            <li class="dropdown">
-                                <a  href="#">Car List</a>
-                            </li>
-                            <li class="dropdown">
                                 <a  href="{{ route('webapp.submit1') }}">Create Ad</a>
                             </li>
                             {{-- <li class="dropdown">

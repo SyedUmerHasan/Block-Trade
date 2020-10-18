@@ -368,7 +368,7 @@
                             <div class="col-xs-4">
                                 <select name="model">
                                         <option value="" selected="">Any Model</option>
-                                        @foreach ($carModels as $item)
+                                        @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get() as $item)
                                             <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
                                         @endforeach
                                     </select>
