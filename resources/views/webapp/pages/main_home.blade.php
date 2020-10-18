@@ -12,6 +12,10 @@
         text-transform: uppercase;
         margin: 0px !important;
     }
+    .b-featured__item a img{
+        width: 200px !important;
+        height: 133px !important;
+    }
 </style>
 
 <section class="b-slider">
@@ -419,7 +423,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div>  
 </section>
 
 <section class="b-featured">
