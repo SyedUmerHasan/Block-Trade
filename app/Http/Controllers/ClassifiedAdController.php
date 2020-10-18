@@ -18,18 +18,11 @@ use Auth;
 class ClassifiedAdController extends Controller
 {
     public function index(){
-        $carManufacturer = VehicleDetail::select('vehiclebrand_id')->distinct()->get();
-        $carModels = BrandModel::all();
-
-        return view('webapp.pages.main_home')
-        ->with(compact('carManufacturer'))
-        ->with(compact('carModels'));
+        return view('webapp.pages.main_home');
     }
     public function submit1(){
 
-        return view('webapp.pages.submit1')
-        ->with(compact('carManufacturer'))
-        ->with(compact('carModels'));
+        return view('webapp.pages.submit1');
     }
 
     public function submit2($id){
