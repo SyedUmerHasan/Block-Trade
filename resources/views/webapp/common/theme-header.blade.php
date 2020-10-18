@@ -64,7 +64,20 @@
                                 <a  href="{{ route('webapp.home') }}">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a  href="#">About Us</a>
+                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu  h-nav">
+                                    @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->get() as $item)
+                                    <li><a href="{{ route('webapp.search', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu  h-nav">
+                                    @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get() as $item)
+                                    <li><a href="{{ route('webapp.search', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
+                                    @endforeach
+                                </ul>
                             </li>
                             <li class="dropdown">
                                 <a  href="#">Contact Us</a>
