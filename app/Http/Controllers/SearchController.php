@@ -56,12 +56,7 @@ class SearchController extends Controller
                         })
                         ->paginate(5);
 
-        $carManufacturer = VehicleDetail::select('vehiclebrand_id')->distinct()->get();
-        $carModels = VehicleDetail::select('brandmodel_id')->distinct()->get();
-
         return view('webapp.pages.search')
-        ->with(compact('vehicleDetail'))
-        ->with(compact('carManufacturer'))
         ->with(compact('foundmodel'))
         ->with(compact('foundbrand'))
         ->with(compact('carModels'));
