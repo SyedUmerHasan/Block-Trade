@@ -180,21 +180,18 @@ class ClassifiedAdController extends Controller
         $vehicleDetail->save();
 
         $vehicleDetail = VehicleDetail::with('images')->find($id);
-        if($files == null)
+        if(!isset($files))
         {
             if(count($vehicleDetail->images) > 10){
-    
                 Session::flash('error', "Vehicle Images Cannot be uploaded more than 10 ");
                 return redirect()->back()->with('error', "Cannot upload more than 10 images")->withErrors(['images' => 'Cannot upload more than 10 images']);
             }
             if(count($vehicleDetail->images) == 0){
-                
                 Session::flash('error', "Vehicle Images are mandatory");
                 return redirect()->back()->with('error', "Car images is mandatory")->withErrors(['images' => 'Car images is mandatory']);
             }
-            
-            Session::flash('message', "Vehicle Images Added Successfully");
-            return redirect()->route('webapp.submit4', $vehicleDetail->id);
+            Session::flash('error', "Vehicle Images are mandatory");
+            return redirect()->back()->with('error', "Car images is mandatory");
         }
         if(count($vehicleDetail->images) + count($files) > 10){
             return redirect()->back()->with('error', "Cannot upload more than 10 images");

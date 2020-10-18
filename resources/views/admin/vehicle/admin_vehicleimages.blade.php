@@ -90,7 +90,7 @@
                                             <div class="col m12 s12">
                                                 <div class=" right">
                                                     <button  class="btn red">Cancel</button>
-                                                    <button type="submit" class="btn blue ">Create</button>
+                                                    <button type="submit" class="btn blue ">Next</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -58,13 +58,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Contact</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Add Car Registration Details</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('vehicle.getall') }}">Vehicle</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('vehicle.contact', $vehicleDetail->id) }}">Contact</a>
+                                <li class="breadcrumb-item"><a href="{{ route('vehicle.contact', $vehicleDetail->id) }}">Car Registration Details</a>
                                 </li>
                             </ol>
                         </div>
@@ -78,7 +78,7 @@
                             <div class="col s12 m12 l12">
                                 <div id="button-trigger" class="card card card-default scrollspy">
                                     <div class="card-content">
-                                        <h4 class="card-title">Create Car Contact</h4>
+                                        <h4 class="card-title">Add Car Registration Details</h4>
                                         <div class="row">
                                             <div class="col s12">
 
@@ -147,11 +147,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col s12 m6">
+                                                            <div class="col s12 m6" style="display: none">
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
                                                                         <select class="m-select" name="interior_color">
-                                                                            <option value="">Select</option>
+                                                                            <option value="-">Select</option>
                                                                             @if (isset($vehicleContact))
                                                                                 @foreach ($interiorcolor as $item)
                                                                                     <option value="{{ $item->id }}"  {{ ($item->id == old('interior_color')  || $item->id ==   $vehicleContact->interior_color ? "selected" : '') }}>{{ $item->color_name }}</option>
@@ -167,10 +167,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col s12 m6">
+                                                            <div class="col s12 m6" style="display: none">
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="seat_color" name="seat_color" aria-describedby="helpId"  value="{{ $vehicleContact->seat_color ?? '' ? $vehicleContact->seat_color : '' }}" >
+                                                                        <input type="text" class="form-control" id="seat_color" name="seat_color" aria-describedby="helpId"  value="-" >
                                                                         <label for="seat_color">Enter Seat Color</label>
                                                                     </div>
                                                                 </div>
@@ -254,43 +254,48 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col s12 m6">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="vehicle_address" name="vehicle_address" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_address ?? '' ? $vehicleContact->vehicle_address : '' }}" >
-                                                                        <label for="vehicle_address">Enter Vehicle Address</label>
+                                                            <div class="row">
+                                                                <div class="col s12 m12">
+                                                                    <h4 class="card-title">Add Car Contact Details</h4>
+                                                                </div>
+                                                                <div class="col s12 m6">
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input type="text" class="form-control" id="vehicle_address" name="vehicle_address" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_address ?? '' ? $vehicleContact->vehicle_address : '' }}" >
+                                                                            <label for="vehicle_address">Enter Vehicle Address</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col s12 m6">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="vehicle_city" name="vehicle_city" aria-describedby="helpId" value="{{ $vehicleContact->vehicle_city ?? '' ? $vehicleContact->vehicle_city : '' }}" >
-                                                                        <label for="vehicle_city">Enter Vehicle City</label>
+                                                                <div class="col s12 m6">
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input type="text" class="form-control" id="vehicle_city" name="vehicle_city" aria-describedby="helpId" value="{{ $vehicleContact->vehicle_city ?? '' ? $vehicleContact->vehicle_city : '' }}" >
+                                                                            <label for="vehicle_city">Enter Vehicle City</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col s12 m6">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="vehicle_country" name="vehicle_country" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_country ?? '' ? $vehicleContact->vehicle_country : '' }}" >
-                                                                        <label for="vehicle_country">Enter Vehicle Country</label>
+                                                                <div class="col s12 m6">
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input type="text" class="form-control" id="vehicle_country" name="vehicle_country" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_country ?? '' ? $vehicleContact->vehicle_country : '' }}" >
+                                                                            <label for="vehicle_country">Enter Vehicle Country</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col s12 m6">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="vehicle_phone" name="vehicle_phone" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_phone ?? '' ? $vehicleContact->vehicle_phone : '' }}" >
-                                                                        <label for="vehicle_phone">Enter Contact Phone Number</label>
+                                                                <div class="col s12 m6">
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input type="text" class="form-control" id="vehicle_phone" name="vehicle_phone" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_phone ?? '' ? $vehicleContact->vehicle_phone : '' }}" >
+                                                                            <label for="vehicle_phone">Enter Contact Phone Number</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col s12 m6">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="vehicle_email" name="vehicle_email" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_email ?? '' ? $vehicleContact->vehicle_email : '' }}" >
-                                                                        <label for="vehicle_email">Enter Owner Email</label>
+                                                                <div class="col s12 m6">
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input type="text" class="form-control" id="vehicle_email" name="vehicle_email" aria-describedby="helpId"   value="{{ $vehicleContact->vehicle_email ?? '' ? $vehicleContact->vehicle_email : '' }}" >
+                                                                            <label for="vehicle_email">Enter Owner Email</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

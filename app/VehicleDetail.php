@@ -42,6 +42,7 @@ class VehicleDetail extends Model
         return $this->belongsTo('App\BrandModel', 'vehiclebrand_id', 'id');
     }
     public function car(){
-        return $this->belongsTo('App\PublishedVehicle', 'id', 'vehicledetail_id');
+        return $this->belongsTo('App\PublishedPublishedVehicle
+        Vehicle', 'id', 'vehicledetail_id');
     }
 }
