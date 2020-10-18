@@ -224,8 +224,7 @@
                                                                         <option>MUV/SUV</option>
                                                                         <option>Coupe</option>
                                                                         <option>Convertible</option>
-                                                                        <option>Wagon</option>
-                                                                        <option>Van</option>
+                                                                        <option>Pickup</option>
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>

@@ -151,7 +151,7 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="vehiclebrand_id">
                                             <option value="">Select</option>
-                                            @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get() as $item)
+                                            @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get()V as $item)
                                             <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                             @endforeach
                                         </select>
@@ -257,8 +257,7 @@
                                             <option value="SUV">MUV/SUV</option>
                                             <option value="Coupe">Coupe</option>
                                             <option value="Convertible">Convertible</option>
-                                            <option value="Wagon">Wagon</option>
-                                            <option value="Van">Van</option>
+                                            <option value="Pickup">Pickup</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
