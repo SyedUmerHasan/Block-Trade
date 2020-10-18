@@ -151,7 +151,7 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="vehiclebrand_id">
                                             <option value="">Select</option>
-                                            @foreach ($carManufacturer as $item)
+                                            @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get() as $item)
                                             <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                             @endforeach
                                         </select>
@@ -240,7 +240,7 @@
                                     <div class='s-relative'>
                                         <select class="m-select" name="brandmodel_id">
                                             <option>Select a Model</option>
-                                            @foreach ($carModels as $item)
+                                            @foreach ( \App\BrandModel::all() as $item)
                                             <option value="{{ $item->id }}">{{ $item->model_name }}</option>
                                             @endforeach
                                         </select>

@@ -66,16 +66,16 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
-                                    @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->get() as $item)
+                                    @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->take(10)->get() as $item)
                                     <li><a href="{{ route('webapp.search', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Car Models<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
-                                    @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get() as $item)
-                                    <li><a href="{{ route('webapp.search', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
+                                    @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->take(10)->get() as $item)
+                                    <li><a href="{{ route('webapp.search', ['brand' => \App\BrandModel::find($item->brandmodel_id)->model_name ]) }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

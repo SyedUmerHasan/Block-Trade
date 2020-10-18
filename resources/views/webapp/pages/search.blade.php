@@ -93,7 +93,7 @@
                                         <select name="brand" class="m-select">
                                             <option value="" selected="">Any Make</option>
                                             @foreach ($carManufacturer as $item)
-                                                <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                                <option value="{{ $item->vehiclebrand_id }}">{{ \App\CarManufacturer::where("id", "=", $item->vehiclebrand_id)->first()->brand_name }}</option>
                                             @endforeach
                                         </select>
                                         <span class="fa fa-caret-down"></span>
@@ -105,7 +105,7 @@
                                     <select name="model" class="m-select">
                                         <option value="" selected="">Any Model</option>
                                         @foreach ($carModels as $item)
-                                            <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                            <option value="{{ $item->brandmodel_id }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</option>
                                         @endforeach
                                     </select>
                                         <span class="fa fa-caret-down"></span>

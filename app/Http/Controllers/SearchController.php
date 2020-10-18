@@ -23,43 +23,47 @@ class SearchController extends Controller
         $minrange = (isset($queryParams["minrange"]) ? $queryParams["minrange"] : null);
         $maxrange = (isset($queryParams["maxrange"]) ? $queryParams["maxrange"] : null);
 
-        $vehicleDetail = new VehicleDetail;
-        $vehicleDetail =  $vehicleDetail::with('features')->with('images')
-                                        ->with('contact')->with('brands')
-                                        ->with('model')->with('car');                     
-        if(isset($type)){
-            $vehicleDetail = $vehicleDetail->where('body_type', 'like', '%'. $type.'%');
-        }
-        if(isset($brand)){
-            $vehicleDetail = $vehicleDetail->whereHas('brands', function($q) use ($brand)
-            {
-                $q->where('brand_name', '=', $brand);
-            });
-        }
-        if(isset($model)){
-            $vehicleDetail = $vehicleDetail->whereHas('model', function($q) use ($model)
-            {
-                $q->where('model_name', '=', $model);
-            });
-        }
-        if(isset($minyear)){
-            $vehicleDetail = $vehicleDetail->where('year_manufacture', '>=', $minyear);
-        }
-        if(isset($maxyear)){
-            $vehicleDetail = $vehicleDetail->where('year_manufacture', '<=', $maxyear);
-        }
-        $vehicleDetail = $vehicleDetail->whereHas('car', function($q)
-        {
-            $q->where('status', '=', true);
-        });
-        $vehicleDetail = $vehicleDetail->paginate(5);
-        
-        $carManufacturer = CarManufacturer::orderBy('brand_name', 'asc')->get();
-        $carModels = BrandModel::all();
+        $foundmodel = BrandModel::where('model_name', '=', $model)->first();
+        $foundbrand = CarManufacturer::where('brand_name', '=', $brand)->first();
+
+        $vehicleDetail =  VehicleDetail::with('features')->with('images')
+                        ->with('contact')
+                        ->with('brands')
+                        ->with('model')
+                        ->with('car')
+                        ->Where(function ($query) use($type) { 
+                            $query->where('body_type', 'like', '%' .$type .'%' );
+                        })
+                        ->Where(function ($query) use($foundbrand) {
+                            if(isset($foundbrand)){
+                                $query->where('vehiclebrand_id', '=', $foundbrand->id );
+                            }
+                        })
+                        ->Where(function ($query) use($foundmodel) {
+                            if(isset($foundmodel)){
+                                $query->where('brandmodel_id', '=', $foundmodel->id );
+                            }
+                        })
+                        ->Where(function ($query) use($minyear) {
+                            if(isset($minyear)){
+                                $query->where('year_manufacture', '>=', $minyear );
+                            }
+                        })
+                        ->Where(function ($query) use($maxyear) {
+                            if(isset($maxyear)){
+                                $query->where('year_manufacture', '<=', $maxyear );
+                            }
+                        })
+                        ->paginate(5);
+
+        $carManufacturer = VehicleDetail::select('vehiclebrand_id')->distinct()->get();
+        $carModels = VehicleDetail::select('brandmodel_id')->distinct()->get();
 
         return view('webapp.pages.search')
         ->with(compact('vehicleDetail'))
         ->with(compact('carManufacturer'))
+        ->with(compact('foundmodel'))
+        ->with(compact('foundbrand'))
         ->with(compact('carModels'));
 
     }

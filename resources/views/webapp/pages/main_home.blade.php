@@ -355,7 +355,7 @@
                                 <select name="brand">
                                         <option value="" selected="">Any Make</option>
                                         @foreach ($carManufacturer as $item)
-                                            <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                            <option value="{{ $item->brand_name }}">{{ \App\CarManufacturer::where("id", "=", $item->vehiclebrand_id)->first()->brand_name }}</option>
                                         @endforeach
                                 </select>
                                 <span class="fa fa-caret-down"></span>
