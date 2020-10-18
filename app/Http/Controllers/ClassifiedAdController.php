@@ -22,14 +22,17 @@ class ClassifiedAdController extends Controller
     }
 
     public function detail($id){
-        $vehicleDetail =  VehicleDetail::find($id)
-            ->with('images')
-            ->with('contact')
-            ->with('brands')
-            ->with('model')
-            ->with('car')
-            ->with('features')->first();
-
+        $vehicleDetail =  VehicleDetail::find($id);
+        if(!isset($vehicleDetail)){
+            return redirect()->route('webapp.home');
+        }
+        $vehicleDetail = $vehicleDetail
+        ->with('images')
+        ->with('contact')
+        ->with('brands')
+        ->with('model')
+        ->with('car')
+        ->with('features')->first();
         return view('webapp.pages.detail')
         ->with(compact('vehicleDetail'));
     }
