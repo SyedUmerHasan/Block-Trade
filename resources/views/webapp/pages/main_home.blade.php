@@ -369,7 +369,7 @@
                                 <select name="model">
                                         <option value="" selected="">Any Model</option>
                                         @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get() as $item)
-                                            <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                            <option value="{{ \App\BrandModel::where('id', '=', $item->brandmodel_id)->first()->model_name }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</option>
                                         @endforeach
                                     </select>
                                 <span class="fa fa-caret-down"></span>

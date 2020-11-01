@@ -15,7 +15,7 @@
                 <nav class="b-topBar__nav">
                     <ul>
                         @guest
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="javascript:void(0);">Cart</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                         <li><a href="{{ route('loginpage') }}">Sign in</a></li>
                         @endguest
@@ -28,7 +28,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="javascript:void(0);">Cart</a></li>
                         <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->first_name }}</a></li>
                         @endauth
                     </ul>
@@ -64,7 +64,7 @@
                                 <a  href="{{ route('webapp.home') }}">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
                                     @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->take(10)->get() as $item)
                                     <li><a href="{{ route('webapp.search', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
@@ -72,10 +72,10 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Search By Car Models<span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Car Models<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
                                     @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->take(10)->get() as $item)
-                                    <li><a href="{{ route('webapp.search', ['brand' => \App\BrandModel::find($item->brandmodel_id)->model_name ]) }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</a></li>
+                                    <li><a href="{{ route('webapp.search', ['model' => \App\BrandModel::find($item->brandmodel_id)->model_name ]) }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -83,7 +83,7 @@
                                 <a  href="{{ route('webapp.submit1') }}">Create Ad</a>
                             </li>
                             {{-- <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Grid <span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="javascript:void(0);">Grid <span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu h-nav">
                                     <li><a href="listings.html">listing 1</a></li>
                                     <li><a href="listingsTwo.html">listing 2</a></li>
@@ -95,7 +95,7 @@
                             <li><a href="about.html">About</a></li>
                             <li><a href="article.html">Services</a></li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Blog <span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="javascript:void(0);">Blog <span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu h-nav">
                                     <li><a href="blog.html">Blog 1</a></li>
                                     <li><a href="blogTwo.html">Blog 2</a></li>

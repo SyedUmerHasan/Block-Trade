@@ -18,6 +18,7 @@ use Auth;
 class ClassifiedAdController extends Controller
 {
     public function index(){
+        // dd(\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get());
         return view('webapp.pages.main_home');
     }
 

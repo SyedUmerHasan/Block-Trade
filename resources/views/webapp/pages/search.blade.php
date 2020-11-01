@@ -91,9 +91,19 @@
                                     <label>SELECT A MAKE</label>
                                     <div>
                                         <select name="brand" class="m-select">
-                                            <option value="" selected="">Any Make</option>
-                                            @foreach (\App\VehicleDetail::select('vehiclebrand_id')->distinct()->get() as $item)
-                                                <option value="{{ $item->vehiclebrand_id }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</option>
+                                            <?php
+                                            $currentBrand = Request::get('brand');
+                                            ?>
+                                            <option value="">Search By Make</option>
+                                            @foreach (\App\VehicleDetail::groupBy('vehiclebrand_id')->take(10)->get() as $item)
+                                                <?php
+                                                    $data  =  \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name;     
+                                                ?>
+                                                @if (isset($currentModel) && $currentBrand == $data)
+                                                <option value="{{ $data }}" selected>{{ $data }}</option>
+                                                @else
+                                                <option value="{{ $data }}">{{ $data }}</option>                                                
+                                                @endif
                                             @endforeach
                                         </select>
                                         <span class="fa fa-caret-down"></span>
@@ -103,9 +113,19 @@
                                     <label>SELECT A MODEL</label>
                                     <div>
                                     <select name="model" class="m-select">
-                                        <option value="" selected="">Any Model</option>
-                                        @foreach (\App\VehicleDetail::select('brandmodel_id')->distinct()->get() as $item)
-                                            <option value="{{ $item->brandmodel_id }}">{{ \App\CarManufacturer::find($item->brandmodel_id)->model_name }}</option>
+                                        <?php
+                                        $currentModel = Request::get('model');
+                                        ?>
+                                        <option value="" selected="">Search By Model</option>
+                                        @foreach (\App\VehicleDetail::groupBy('brandmodel_id')->take(10)->get() as $item)
+                                            <?php
+                                            $data  =  \App\BrandModel::find($item->brandmodel_id)->model_name;      
+                                            ?>
+                                            @if (isset($currentModel) && $currentModel == $data)
+                                            <option value="{{ $data }}" selected>{{ $data }}</option>
+                                            @else
+                                            <option value="{{ $data }}">{{ $data }}</option>                                                
+                                            @endif
                                         @endforeach
                                     </select>
                                         <span class="fa fa-caret-down"></span>
