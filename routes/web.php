@@ -72,7 +72,7 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'is_admin'], function () {
     
     Route::get('', function () {return redirect()->route("home");});
     

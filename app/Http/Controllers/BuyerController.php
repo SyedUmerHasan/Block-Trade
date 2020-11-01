@@ -12,10 +12,10 @@ use App\VehicleContact;
 class BuyerController extends Controller
 {
     public function dashboard(){
-        $vehicleStatus = PublishedVehicle::with('VehicleDetail')
-        ->with('VehicleFeatures')
-        ->with('VehicleImages')
-        ->with('VehicleContact')->get();
+        $vehicleStatus = PublishedVehicle::with('features')
+        ->with('details')
+        ->with('images')
+        ->with('contact')->get();
         
         // dd($vehicleStatus);
 
