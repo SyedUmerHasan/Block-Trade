@@ -13,10 +13,10 @@ use App\VehicleContact;
 class SellerController extends Controller
 {
     public function dashboard(){
-        $vehicleStatus = PublishedVehicle::with('VehicleDetail')
-        ->with('VehicleFeatures')
-        ->with('VehicleImages')
-        ->with('VehicleContact')->get();
+        $vehicleStatus = PublishedVehicle::with('detail')
+        ->with('features')
+        ->with('images')
+        ->with('contact')->get();
         
         // dd($vehicleStatus);
 
