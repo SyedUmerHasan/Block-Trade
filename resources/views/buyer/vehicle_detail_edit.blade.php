@@ -205,7 +205,7 @@
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter Vehicle Model <span>*</span></label>
                                                                 <div class='s-relative'>
-                                                                    <select class="m-select" name="brandmodel_id">
+                                                                    <select class="m-select" name="brandmodel_id" value="{{ 2 }}">
                                                                         <option>Select a Model</option>
                                                                         @foreach ( \App\BrandModel::all() as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->model_name }}</option>

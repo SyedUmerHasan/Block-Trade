@@ -50,9 +50,9 @@
                 <div class="col s10 m6 l6">
                   <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Model </span></h5>
                   <ol class="breadcrumbs mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                    <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('carmodel.getall') }}">Car Model </a>
+                    <li class="breadcrumb-item"><a href="{{ route('automotive.model.getall') }}">Car Model </a>
                     </li>
                   </ol>
                 </div>
@@ -84,7 +84,7 @@
                             <td>{{ $item->model_name }}</td>
                             <td>{{ $item->brand_name }}</td>
                             <td>
-                              <a href="{{ route('carmodel.edit',$item->id) }}" class="btn cyan">
+                              <a href="{{ route('automotive.model.edit',$item->id) }}" class="btn cyan">
                                 Edit
                               </a>
                               {{--  <a href="#" class="btn green">

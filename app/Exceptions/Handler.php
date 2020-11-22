@@ -52,16 +52,7 @@ class Handler extends ExceptionHandler
     {
         if ($this->isHttpException($e)) {
 
-            $statusCode = $e->getStatusCode();
-    
-            switch ($statusCode) {
-    
-                case '404':
-                    return response()->view('admin.404');
-                case '500':
-                    return response()->view('admin.404');
-            }
-        }
+       }
         return parent::render($request, $e);
     }
 }

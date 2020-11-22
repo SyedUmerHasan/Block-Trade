@@ -9,14 +9,14 @@ use Session;
 class CarManufacturerController extends Controller
 {
     public function create(){
-        return view('admin.vehiclebrand.create_vehiclebrand');
+        return view('admin.automotive.manufacturer.create-manufacturer');
     }
     public function edit($id){
         $vehiclebrand = CarManufacturer::find($id);
         if($vehiclebrand == null){
             abort(404);
         }
-        return view('admin.vehiclebrand.edit_vehiclebrand')->with(compact('vehiclebrand'));
+        return view('admin.automotive.manufacturer.edit-manufacturer')->with(compact('vehiclebrand'));
     }
     public function add(Request $request){
         $validatedData = $request->validate([
@@ -43,6 +43,6 @@ class CarManufacturerController extends Controller
     }
     public function getall(){
         $vehiclebrand = CarManufacturer::all();
-        return view('admin.vehiclebrand.list_vehiclebrand')->with(compact('vehiclebrand'));
+        return view('admin.automotive.manufacturer.list-manufacturer')->with(compact('vehiclebrand'));
     }
 }

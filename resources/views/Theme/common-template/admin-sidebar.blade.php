@@ -21,13 +21,13 @@
         
         @if (!Auth::guest() && Auth::user()->role == "admin")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -45,21 +45,15 @@
         </li>
         
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('carmodel.getall') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.model.getall') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Car Model List</span>
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.getall') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.getall') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Car Manufacturer List</span>
-            </a>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.getall') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Interior Theme List</span>
             </a>
         </li>
         <li class="bold">
@@ -80,21 +74,15 @@
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.create') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.create') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Add Car Manufacturer</span>
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('carmodel.create') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.model.create') }}">
                 <i class="material-icons">person_outline</i>
                 <span class="menu-title" data-i18n="User Profile">Add Car Model</span>
-            </a>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.create') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Interior Color</span>
             </a>
         </li>
         <li class="bold">
@@ -106,13 +94,13 @@
         
         @elseif (!Auth::guest() && Auth::user()->role == "buyer")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('buyer.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -126,13 +114,13 @@
 
         @elseif (!Auth::guest() && Auth::user()->role == "seller")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('seller.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>

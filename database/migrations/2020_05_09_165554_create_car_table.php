@@ -13,6 +13,7 @@ class CreateCarTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('car');
         Schema::create('car', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

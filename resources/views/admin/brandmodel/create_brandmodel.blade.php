@@ -60,11 +60,11 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Model</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('carmodel.getall') }}">Car Model</a>
+                                <li class="breadcrumb-item"><a href="{{ route('automotive.model.getall') }}">Car Model</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('carmodel.create') }}">Create</a>
+                                <li class="breadcrumb-item"><a href="{{ route('automotive.model.create') }}">Create</a>
                                 </li>
                             </ol>
                         </div>
@@ -107,7 +107,7 @@
                                             @endif
 
                                                 <div class="row">
-                                                    <form class="col s12" action="{{ route('carmodel.add') }}" method="POST">
+                                                    <form class="col s12" action="{{ route('automotive.model.add') }}" method="POST">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="input-field col s6">

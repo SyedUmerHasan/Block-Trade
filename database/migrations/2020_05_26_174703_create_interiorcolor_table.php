@@ -13,6 +13,7 @@ class CreateInteriorcolorTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('interiorcolor');
         Schema::create('interiorcolor', function (Blueprint $table) {
             $table->id();
             $table->text('color_name');

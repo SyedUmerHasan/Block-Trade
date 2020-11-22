@@ -48,7 +48,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>User profile</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('portal')}}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#">User profile</a>
                                 </li>

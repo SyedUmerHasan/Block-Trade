@@ -71,7 +71,7 @@
             <span class="paw-car-ctg-660cc-cars"></span>
           660cc cars
         </a>
-        <form action="{{ route('webapp.search') }}" method="GET" class="b-search__main">
+        <form action="{{ route('searchportal') }}" method="GET" class="b-search__main">
             <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
                 <h2>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</h2>
             </div>
@@ -416,7 +416,7 @@
                             <input type="hidden" name="maxrange" class="j-max" />
                         </div>
                         <div class="b-search__main-form-submit">
-                            <a href="{{ route('webapp.search') }}">Advanced search</a>
+                            <a href="{{ route('searchportal') }}">Advanced search</a>
                             <button type="submit" class="btn m-btn">Search the Vehicle<span class="fa fa-angle-right"></span></button>
                         </div>
                     </div>
@@ -433,7 +433,7 @@
             @foreach (\App\VehicleDetail::take(10)->get() as $item)
             <div>
                 <div class="b-featured__item  ">
-                    <a href="{{ route('webapp.detail', $item->id ) }}">
+                    <a href="{{ route('cardetailsinportal', $item->id ) }}">
                             <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" alt="{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}" />
                             <span class="m-premium">Premium</span>
                         </a>
@@ -441,7 +441,7 @@
                         $184,900
                     </div>
                     <div class="clearfix"></div>
-                    <h5><a href="{{ route('webapp.detail', $item->id ) }}">{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}</a></h5>
+                    <h5><a href="{{ route('cardetailsinportal', $item->id ) }}">{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}</a></h5>
                     <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
                     <div class="b-featured__item-links">
                         <a href="#">Used</a>

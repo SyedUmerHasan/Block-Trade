@@ -13,6 +13,7 @@ class CreateBrandmodelTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('brandmodel');
         Schema::create('brandmodel', function (Blueprint $table) {
             $table->id();
             $table->text("model_name");

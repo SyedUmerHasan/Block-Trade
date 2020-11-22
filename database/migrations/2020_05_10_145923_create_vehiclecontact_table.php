@@ -13,6 +13,7 @@ class CreateVehiclecontactTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehiclecontact');
         Schema::create('vehiclecontact', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("vehicledetail_id");

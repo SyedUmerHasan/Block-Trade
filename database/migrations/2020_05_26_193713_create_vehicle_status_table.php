@@ -13,6 +13,7 @@ class CreateVehicleStatusTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehicle_status');
         Schema::create('vehicle_status', function (Blueprint $table) {
             $table->id();
             $table->text('vehicledetail_id');

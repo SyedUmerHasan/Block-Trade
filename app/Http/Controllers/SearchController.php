@@ -84,7 +84,7 @@ class SearchController extends Controller
         //                     }
         //                 })
         //                 ->paginate(5);
-
+            
         // dd($vehicleDetail);
         
         return view('webapp.pages.search')

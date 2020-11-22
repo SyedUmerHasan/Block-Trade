@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
 
-class IsAdmin
+class IsUser
 {
     /**
      * Handle an incoming request.
@@ -16,11 +15,15 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 'admin') {
-            return $next($request);
-        }
-        abort(403);
+        
+        if( auth()->user() !== null){
 
-        // return redirect()->route('loginpage')->with('error',"You don't have admin access.");
+            switch(auth()->user()->role){
+                default:
+                return $next($request);
+            }
+
+            return redirect()->route('loginpage');
+        }
     }
 }

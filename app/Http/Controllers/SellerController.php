@@ -17,8 +17,6 @@ class SellerController extends Controller
         ->with('features')
         ->with('images')
         ->with('contact')->get();
-        
-        // dd($vehicleStatus);
 
         return view('admin.buyer.buyer_dashboard')->with(compact('vehicleStatus'));
     }

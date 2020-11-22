@@ -60,11 +60,11 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Manufacturer</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.getall') }}">Vehicle Brand</a>
+                                <li class="breadcrumb-item"><a href="{{ route('automotive.manufacturer.getall') }}">Car Manufacturer</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('vehiclebrand.update', $vehiclebrand->id) }}">Edit</a>
+                                <li class="breadcrumb-item"><a href="{{ route('automotive.manufacturer.create') }}">Create</a>
                                 </li>
                             </ol>
                         </div>
@@ -78,11 +78,11 @@
                             <div class="col s12 m12 l12">
                                 <div id="button-trigger" class="card card card-default scrollspy">
                                     <div class="card-content">
-                                        <h4 class="card-title">Edit Car Manufacturer</h4>
+                                        <h4 class="card-title">Create Car Manufacturer</h4>
                                         <div class="row">
                                             <div class="col s12">
 
-                                            @if ($errors->any())
+                                                @if ($errors->any())
                                                 @foreach ($errors->all() as $error)
                                                 <div class="card-alert card red">
                                                     <div class="card-content white-text">
@@ -106,21 +106,21 @@
                                             </div>
                                             @endif
 
-                                            <div class="row">
-                                                <form class="col s12" action="{{ route('vehiclebrand.update', $vehiclebrand->id) }}" method="POST">
-                                                    @csrf
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input type="text" class="form-control" id="brand_name" name="brand_name" aria-describedby="helpId" value="{{ $vehiclebrand->brand_name }}" >
-                                                            <label for="brand_name">Enter Brand Name</label>
+                                                <div class="row">
+                                                    <form class="col s12" action="{{ route('automotive.manufacturer.add') }}" method="POST">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <input type="text" class="form-control" id="brand_name" name="brand_name" aria-describedby="helpId"  >
+                                                                <label for="brand_name">Enter Brand Name</label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class=" right">
-                                                        <button  class="btn red">Cancel</button>
-                                                        <button type="submit" class="btn blue ">Update</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                        <div class=" right">
+                                                            <button  class="btn red">Cancel</button>
+                                                            <button type="submit" class="btn blue ">Create</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
 
 
                                             </div>

@@ -209,7 +209,7 @@
                     </div>
                 @endforeach
                 </div>
-                {{ $vehicleDetail->links() }}
+                {{ $vehicleDetail->withQueryString()->links() }}
             </div>
         </div>
     </div>

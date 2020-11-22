@@ -13,6 +13,7 @@ class CreateVehiclebrandTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehiclebrand');
         Schema::create('vehiclebrand', function (Blueprint $table) {
             $table->id();
             $table->text("brand_name");

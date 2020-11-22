@@ -13,6 +13,7 @@ class CreateVehicledetailTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehicledetail');
         Schema::create('vehicledetail', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("users_id")->nullable();

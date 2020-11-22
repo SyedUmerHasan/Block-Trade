@@ -13,6 +13,7 @@ class CreateVehicleimageTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehicleimage');
         Schema::create('vehicleimage', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("vehicledetail_id");

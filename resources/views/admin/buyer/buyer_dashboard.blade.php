@@ -93,7 +93,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="col s4 mt-1 valign-wrapper">
-                                                    <a href="#"><span class="material-icons">edit</span></a>
+                                                    <a href="{{ route('buyer.vehicle.details.edit', $item->details->id) }}"><span class="material-icons">edit</span></a>
                                                     <a href="#"><span class="material-icons ml-10">delete</span></a>
                                                 </div>
                                             </div>

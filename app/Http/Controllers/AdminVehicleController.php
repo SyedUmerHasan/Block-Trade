@@ -42,6 +42,7 @@ class AdminVehicleController extends Controller
         ->find($id);
         $carBrands = CarManufacturer::all();
         $vehicleImages = $vehicleDetail->images;
+        // dd($vehicleDetail);
         return view('admin.vehicle.admin_vehicledetails')
         ->with(compact('carBrands'))
         ->with(compact('vehicleDetail'))
@@ -265,7 +266,7 @@ class AdminVehicleController extends Controller
         $vehicleStatus->payment_status = 'false';
         $vehicleStatus->payment_method = 'false';
         $vehicleStatus->save();
-        return redirect()->route('home');
+        return redirect()->route('portal');
     }
 
     public function approveAdStatus($id){

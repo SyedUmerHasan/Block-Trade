@@ -25,7 +25,7 @@ class ClassifiedAdController extends Controller
     public function detail($id){
         $vehicleDetail =  VehicleDetail::find($id);
         if(!isset($vehicleDetail)){
-            return redirect()->route('webapp.home');
+            return redirect()->route('portal');
         }
         $vehicleDetail = $vehicleDetail
         ->with('images')
@@ -298,7 +298,7 @@ class ClassifiedAdController extends Controller
         $vehicleStatus->payment_status = 'false';
         $vehicleStatus->payment_method = 'false';
         $vehicleStatus->save();
-        return redirect()->route('webapp.home');
+        return redirect()->route('portal');
     }
 
     /***
