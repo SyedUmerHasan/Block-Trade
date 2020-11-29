@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <link media="all"
-        href="/wp-content/cache/autoptimize/1/css/autoptimize_1a91a15fba9e280e53bb69d5b19f91cc.css"
+    <link media="all" href="/wp-content/cache/autoptimize/1/css/autoptimize_1a91a15fba9e280e53bb69d5b19f91cc.css"
         rel="stylesheet" />
     <title>Inventory - Motors</title>
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -59,10 +58,8 @@
     <script></script>
     <link rel="https://api.w.org/" href="/wp-json/" />
     <link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/639" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD"
-        href="/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-        href="/wp-includes/wlwmanifest.xml" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
     <meta name="generator" content="WordPress 5.5.3" />
     <meta name="generator" content="WooCommerce 4.5.2" />
     <link rel='shortlink' href='/?p=639' />
@@ -83,14 +80,10 @@
     <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
     <meta name="generator"
         content="Powered by Slider Revolution 6.2.23 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-    <link rel="icon" href="/wp-content/uploads/2015/12/cropped-favicon-150x150.png"
-        sizes="32x32" />
-    <link rel="icon" href="/wp-content/uploads/2015/12/cropped-favicon-300x300.png"
-        sizes="192x192" />
-    <link rel="apple-touch-icon"
-        href="/wp-content/uploads/2015/12/cropped-favicon-180x180.png" />
-    <meta name="msapplication-TileImage"
-        content="/wp-content/uploads/2015/12/cropped-favicon-300x300.png" />
+    <link rel="icon" href="/wp-content/uploads/2015/12/cropped-favicon-150x150.png" sizes="32x32" />
+    <link rel="icon" href="/wp-content/uploads/2015/12/cropped-favicon-300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/wp-content/uploads/2015/12/cropped-favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="/wp-content/uploads/2015/12/cropped-favicon-300x300.png" />
     <script></script>
     <style type="text/css" data-type="vc_shortcodes-custom-css">
         .vc_custom_1448609395747 {
@@ -129,8 +122,7 @@
         }
 
     </style>
-    <script
-        src="/wp-content/cache/autoptimize/1/js/autoptimize_9b561ac9d53efc1cb1edbb3babd46754.js">
+    <script src="/wp-content/cache/autoptimize/1/js/autoptimize_9b561ac9d53efc1cb1edbb3babd46754.js">
     </script>
 </head>
 
@@ -152,7 +144,7 @@
                 </div>
             </div>
 
-            
+
             <div class="container">
 
                 <div class="vc_row wpb_row vc_row-fluid vc_custom_1448609395747">
@@ -164,8 +156,7 @@
                                         <div class="row">
 
                                             <div class="col-md-3 col-sm-12 classic-filter-row sidebar-sm-mg-bt ">
-                                                <form action="/inventory/" method="get"
-                                                    data-trigger="filter">
+                                                <form action="/inventory/" method="get" data-trigger="filter">
                                                     <div class="filter filter-sidebar ajax-filter">
 
 
@@ -190,9 +181,11 @@
                                                             <div class="col-md-12 col-sm-6 stm-filter_body">
                                                                 <div class="form-group">
                                                                     <select name="body" class="form-control">
-                                                                        <option value="" selected='selected'> Body </option>
+                                                                        <option value="" selected='selected'> Body
+                                                                        </option>
                                                                         <option value="limousine">Compact </option>
-                                                                        <option value="convertible">Convertible </option>
+                                                                        <option value="convertible">Convertible
+                                                                        </option>
                                                                         <option value="coupe">Coupe </option>
                                                                         <option value="off-road">Off-Road </option>
                                                                         <option value="pickup"> Pickup </option>
@@ -206,14 +199,18 @@
                                                                 <div class="form-group">
                                                                     <select name="make" class="form-control">
                                                                         <option value="bmw"> BMW </option>
-                                                                        @if (\App\CarManufacturer::all()->count() > 0) 
-                                                                            <option value="" selected='selected'> dfuhufd </option>
+                                                                        @if (\App\CarManufacturer::all()->count() > 0)
+                                                                            <option value="" selected='selected'>
+                                                                                dfuhufd </option>
                                                                         @else
-                                                                            {{--  <option value="" selected='selected'> Make </option>
+                                                                            <option
+                                                                                value="" selected='selected'> Make
+                                                                            </option>
                                                                             <option value="acura"> Acura </option>
                                                                             <option value="audi"> Audi </option>
                                                                             <option value="bmw"> BMW </option>
-                                                                            <option value="chevrolet"> Chevrolet </option>
+                                                                            <option value="chevrolet"> Chevrolet
+                                                                            </option>
                                                                             <option value="dodge"> Dodge </option>
                                                                             <option value="ford"> Ford </option>
                                                                             <option value="honda"> Honda </option>
@@ -221,12 +218,15 @@
                                                                             <option value="kia"> Kia </option>
                                                                             <option value="lexus"> Lexus </option>
                                                                             <option value="mazda"> Mazda </option>
-                                                                            <option value="mercedes-benz"> Mercedes-Benz </option>
+                                                                            <option value="mercedes-benz"> Mercedes-Benz
+                                                                            </option>
                                                                             <option value="nissan"> Nissan </option>
-                                                                            <option value="range-rover"> Range Rover </option>
+                                                                            <option value="range-rover"> Range Rover
+                                                                            </option>
                                                                             <option value="renault"> Renault </option>
                                                                             <option value="tesla"> Tesla </option>
-                                                                            <option value="toyota"> Toyota </option>   --}}                                                                           --}}
+                                                                            <option value="toyota"> Toyota </option>
+                                                                         
                                                                         @endif
                                                                     </select>
                                                                 </div>
@@ -398,7 +398,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                
+
 
                                                                 <script data-cfasync="false"
                                                                     src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
@@ -505,7 +505,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            
+
 
                                                             <div class="col-md-12 col-sm-12">
                                                                 <div class="form-group boats-location">
@@ -546,13 +546,13 @@
 
                                                         </div>
 
-                                                        
+
                                                         <input type="hidden" id="stm_view_type" name="view_type"
                                                             value="" />
-                                                        
+
                                                         <input type="hidden" id="stm-filter-links-input"
                                                             name="stm_filter_link" value="" />
-                                                        
+
                                                         <input type="hidden" name="popular" value="" />
 
                                                         <input type="hidden" name="s" value="" />
@@ -562,8 +562,8 @@
                                                             <input id="stm-classic-filter-submit" class="hidden"
                                                                 type="submit" value="Show cars" />
 
-                                                            <a href="/inventory/"
-                                                                class="button external" rel="nofollow"><span>Reset
+                                                            <a href="/inventory/" class="button external"
+                                                                rel="nofollow"><span>Reset
                                                                     all</span></a>
                                                         </div>
 
@@ -589,127 +589,21 @@
                                                             <div class="collapsed collapse content  "
                                                                 id="exterior-color">
                                                                 <ul class="list-style-3">
+                                                                    @foreach (\App\ExternalColors::all() as $item)
                                                                     <li class="stm-single-filter-link"
                                                                         data-slug="exterior-color"
                                                                         data-value="deep-blue-pearl">
                                                                         <a href="?exterior-color=deep-blue-pearl">
                                                                             Deep Blue Pearl <span>(6)</span> </a>
                                                                     </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="midnight-silver-metallic">
-                                                                        <a
-                                                                            href="?exterior-color=midnight-silver-metallic">
-                                                                            Midnight Silver Metallic <span>(2)</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="obsidian-black-metallic">
-                                                                        <a
-                                                                            href="?exterior-color=obsidian-black-metallic">
-                                                                            Obsidian Black Metallic <span>(3)</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="orange-metallic">
-                                                                        <a href="?exterior-color=orange-metallic">
-                                                                            Orange Metallic <span>(2)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="deep-red">
-                                                                        <a href="?exterior-color=deep-red">
-                                                                            Pearl White <span>(7)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="rich-black">
-                                                                        <a href="?exterior-color=rich-black">
-                                                                            Red Multi-Coat <span>(8)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="silver-metallic">
-                                                                        <a href="?exterior-color=silver-metallic">
-                                                                            Silver Metallic <span>(3)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="solid-black">
-                                                                        <a href="?exterior-color=solid-black">
-                                                                            Solid Black <span>(5)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="solid-white">
-                                                                        <a href="?exterior-color=solid-white">
-                                                                            Solid White <span>(3)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="titanium-metallic">
-                                                                        <a href="?exterior-color=titanium-metallic">
-                                                                            Titanium Metallic <span>(2)</span> </a>
-                                                                    </li>
+                                                                    @endforeach
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <style></style>
-
-                                                    <div class="stm-accordion-single-unit"
-                                                        id="stm-filter-link-interior-color">
-                                                        <a class="title collapsed " data-toggle="collapse"
-                                                            href="#interior-color" aria-expanded="false">
-                                                            <h5>Interior Color</h5>
-                                                            <span class="minus"></span>
-                                                        </a>
-
-                                                        <div class="stm-accordion-content">
-                                                            <div class="collapsed collapse content  "
-                                                                id="interior-color">
-                                                                <ul class="list-style-3">
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color" data-value="beige">
-                                                                        <a href="?interior-color=beige">
-                                                                            Beige <span>(5)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color" data-value="brown">
-                                                                        <a href="?interior-color=brown">
-                                                                            Brown <span>(4)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color" data-value="grey">
-                                                                        <a href="?interior-color=grey">
-                                                                            Grey <span>(6)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color"
-                                                                        data-value="jet-black">
-                                                                        <a href="?interior-color=jet-black">
-                                                                            Jet Black <span>(16)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color" data-value="jet-red">
-                                                                        <a href="?interior-color=jet-red">
-                                                                            Jet Red <span>(6)</span> </a>
-                                                                    </li>
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="interior-color"
-                                                                        data-value="multi-pattern">
-                                                                        <a href="?interior-color=multi-pattern">
-                                                                            Multi-pattern <span>(5)</span> </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                                
+
                                                 <div class="stm-inventory-sidebar">
                                                 </div>
                                             </div>
@@ -752,18 +646,18 @@
 
                                                         <div class="stm-isotope-sorting stm-isotope-sorting-list">
 
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
+                                                            @for ($i = 0; $i < 10; $i++)
+                                                            <div class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
 
                                                                 <div class="image">
 
-                                                                    
+
 
                                                                     <a href="/listings/ford-f-150-raptor-62l-v8-at/"
                                                                         class="rmv_txt_drctn external" rel="nofollow">
                                                                         <div class="image-inner">
 
-                                                                            
+
                                                                             <div
                                                                                 class="special-label special-label-small h6">
                                                                                 Special </div>
@@ -779,14 +673,14 @@
                                                                 </div>
                                                                 <div class="content">
                                                                     <div class="meta-top">
-                                                                        
+
                                                                         <div class="price">
                                                                             <div class="normal-price">
                                                                                 <span class="heading-font">$78
                                                                                     000</span>
                                                                             </div>
                                                                         </div>
-                                                                        
+
                                                                         <div class="title heading-font">
                                                                             <a href="/listings/ford-f-150-raptor-62l-v8-at/"
                                                                                 class="rmv_txt_drctn external"
@@ -795,7 +689,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    
+
                                                                     <div class="meta-middle">
 
                                                                         <div class="meta-middle">
@@ -901,31 +795,32 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    
+
                                                                     <div class="meta-bottom">
 
                                                                         <div class="single-car-actions">
                                                                             <ul class="list-unstyled clearfix">
 
 
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>753093</div>
+                                                                                        <span>stock# </span>753093
+                                                                                    </div>
                                                                                 </li>
 
-                                                                                
-
-                                                                                
-
-                                                                                
 
 
-                                                                                
 
-                                                                                
 
-                                                                                
+
+
+
+
+
+
+
+
 
 
                                                                             </ul>
@@ -933,1448 +828,25 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
+                                                            @endfor
 
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/ford-fusion/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/fusion-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/fusion-01-300x189.jpg 300w, /wp-content/uploads/2020/10/fusion-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/fusion-01-150x95.jpg 150w, /wp-content/uploads/2020/10/fusion-01-768x484.jpg 768w, /wp-content/uploads/2020/10/fusion-01-380x240.jpg 380w, /wp-content/uploads/2020/10/fusion-01-255x160.jpg 255w, /wp-content/uploads/2020/10/fusion-01-510x320.jpg 510w, /wp-content/uploads/2020/10/fusion-01-600x378.jpg 600w, /wp-content/uploads/2020/10/fusion-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$23
-                                                                                    500</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/ford-fusion/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Ford Fusion 2.5L i-VCT </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    30 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Gasoline </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    FWD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="Nevada City, CA, USA">
-                                                                                        Nevada City, CA, USA </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>30102303
-                                                                                    </div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/audi-r8/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/R8-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/R8-01-300x189.jpg 300w, /wp-content/uploads/2020/10/R8-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/R8-01-150x95.jpg 150w, /wp-content/uploads/2020/10/R8-01-768x484.jpg 768w, /wp-content/uploads/2020/10/R8-01-380x240.jpg 380w, /wp-content/uploads/2020/10/R8-01-255x160.jpg 255w, /wp-content/uploads/2020/10/R8-01-510x320.jpg 510w, /wp-content/uploads/2020/10/R8-01-600x378.jpg 600w, /wp-content/uploads/2020/10/R8-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$170
-                                                                                    000</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/audi-r8/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                AUDI R8 5.2L V10 </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    20 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Ethanol </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    4WD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="San Andreas Fault, California, USA">
-                                                                                        San Andreas Fault, California,
-                                                                                        USA </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>30102303
-                                                                                    </div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/renault-kaptur/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-                                                                            <div
-                                                                                class="special-label special-label-small h6">
-                                                                                Special </div>
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/renault-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/renault-01-300x189.jpg 300w, /wp-content/uploads/2020/10/renault-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/renault-01-150x95.jpg 150w, /wp-content/uploads/2020/10/renault-01-768x484.jpg 768w, /wp-content/uploads/2020/10/renault-01-380x240.jpg 380w, /wp-content/uploads/2020/10/renault-01-255x160.jpg 255w, /wp-content/uploads/2020/10/renault-01-510x320.jpg 510w, /wp-content/uploads/2020/10/renault-01-600x378.jpg 600w, /wp-content/uploads/2020/10/renault-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$16
-                                                                                    000</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/renault-kaptur/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Renault Kaptur </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    3 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Gasoline </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="British Library, Euston Road, London, UK">
-                                                                                        British Library, Euston Road,
-                                                                                        London, UK </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>753093</div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/lexus-ux250h/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/UX-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/UX-01-300x189.jpg 300w, /wp-content/uploads/2020/10/UX-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/UX-01-150x95.jpg 150w, /wp-content/uploads/2020/10/UX-01-768x484.jpg 768w, /wp-content/uploads/2020/10/UX-01-380x240.jpg 380w, /wp-content/uploads/2020/10/UX-01-255x160.jpg 255w, /wp-content/uploads/2020/10/UX-01-510x320.jpg 510w, /wp-content/uploads/2020/10/UX-01-600x378.jpg 600w, /wp-content/uploads/2020/10/UX-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$64
-                                                                                    800</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/lexus-ux250h/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Lexus UX250h </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    200 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Hybrid </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    AWD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="Brighton, MI, USA">
-                                                                                        Brighton, MI, USA </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>753093</div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/bmw-x7/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/x7-02-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/x7-02-300x189.jpg 300w, /wp-content/uploads/2020/10/x7-02-1024x645.jpg 1024w, /wp-content/uploads/2020/10/x7-02-150x95.jpg 150w, /wp-content/uploads/2020/10/x7-02-768x484.jpg 768w, /wp-content/uploads/2020/10/x7-02-380x240.jpg 380w, /wp-content/uploads/2020/10/x7-02-255x160.jpg 255w, /wp-content/uploads/2020/10/x7-02-510x320.jpg 510w, /wp-content/uploads/2020/10/x7-02-600x378.jpg 600w, /wp-content/uploads/2020/10/x7-02.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$98
-                                                                                    000</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/bmw-x7/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                BMW X7 xDrive40i </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    3 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Gasoline </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    4WD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="Mexico City, CDMX, Mexico">
-                                                                                        Mexico City, CDMX, Mexico </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>753093312345
-                                                                                    </div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/range-rover/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/RR-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/RR-01-300x189.jpg 300w, /wp-content/uploads/2020/10/RR-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/RR-01-150x95.jpg 150w, /wp-content/uploads/2020/10/RR-01-768x484.jpg 768w, /wp-content/uploads/2020/10/RR-01-380x240.jpg 380w, /wp-content/uploads/2020/10/RR-01-255x160.jpg 255w, /wp-content/uploads/2020/10/RR-01-510x320.jpg 510w, /wp-content/uploads/2020/10/RR-01-600x378.jpg 600w, /wp-content/uploads/2020/10/RR-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$68
-                                                                                    000</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/range-rover/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Range Rover Vogue 3.0L TDV6 </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    4 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Diesel </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2019 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    AWD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="Las Vegas, NV, USA">
-                                                                                        Las Vegas, NV, USA </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>30102303312
-                                                                                    </div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/audi-q8-45-tdi-quattro-tiptronic/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/q9-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/q9-01-300x189.jpg 300w, /wp-content/uploads/2020/10/q9-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/q9-01-150x95.jpg 150w, /wp-content/uploads/2020/10/q9-01-768x484.jpg 768w, /wp-content/uploads/2020/10/q9-01-380x240.jpg 380w, /wp-content/uploads/2020/10/q9-01-255x160.jpg 255w, /wp-content/uploads/2020/10/q9-01-510x320.jpg 510w, /wp-content/uploads/2020/10/q9-01-600x378.jpg 600w, /wp-content/uploads/2020/10/q9-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$60
-                                                                                    300</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/audi-q8-45-tdi-quattro-tiptronic/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Audi Q8 45 TDI quattro tiptronic </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    10 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Diesel </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    4WD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="Mexicali, Baja California, Mexico">
-                                                                                        Mexicali, Baja California,
-                                                                                        Mexico </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>30102303
-                                                                                    </div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
-
-                                                                <div class="image">
-
-                                                                    
-
-                                                                    <a href="/listings/dodge-charger-2020/"
-                                                                        class="rmv_txt_drctn external" rel="nofollow">
-                                                                        <div class="image-inner">
-
-                                                                            
-
-                                                                            <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/charger-01-300x189.jpg"
-                                                                                class="img-responsive wp-post-image"
-                                                                                alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/charger-01-300x189.jpg 300w, /wp-content/uploads/2020/10/charger-01-1024x645.jpg 1024w, /wp-content/uploads/2020/10/charger-01-150x95.jpg 150w, /wp-content/uploads/2020/10/charger-01-768x484.jpg 768w, /wp-content/uploads/2020/10/charger-01-380x240.jpg 380w, /wp-content/uploads/2020/10/charger-01-255x160.jpg 255w, /wp-content/uploads/2020/10/charger-01-510x320.jpg 510w, /wp-content/uploads/2020/10/charger-01-600x378.jpg 600w, /wp-content/uploads/2020/10/charger-01.jpg 1109w"
-                                                                                sizes="(max-width: 300px) 100vw, 300px" />
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <div class="meta-top">
-                                                                        
-                                                                        <div class="price">
-                                                                            <div class="normal-price">
-                                                                                <span class="heading-font">$32
-                                                                                    000</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="title heading-font">
-                                                                            <a href="/listings/dodge-charger-2020/"
-                                                                                class="rmv_txt_drctn external"
-                                                                                rel="nofollow">
-                                                                                Dodge Charger 2020 </a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-middle">
-
-                                                                        <div class="meta-middle">
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists mileage">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-road"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Mileage</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists fuel">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-fuel"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Fuel type</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Ethanol </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists ca-year">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-date"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Year</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    2020 </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists transmission">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-transmission_fill"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Transmission</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
-                                                                            </div>
-
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists drive">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-icon-drive_2"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Drive</div>
-                                                                                </div>
-
-                                                                                <div class="value h5">
-                                                                                    AWD </div>
-                                                                            </div>
-
-
-                                                                            <div
-                                                                                class="meta-middle-unit font-exists location">
-                                                                                <div class="meta-middle-unit-top">
-                                                                                    <div class="icon"><i
-                                                                                            class="stm-service-icon-pin_big"></i>
-                                                                                    </div>
-                                                                                    <div class="name">Distance</div>
-                                                                                </div>
-
-                                                                                <div class="value">
-                                                                                    <div class="stm-tooltip-link"
-                                                                                        data-toggle="tooltip"
-                                                                                        data-placement="bottom"
-                                                                                        title="NY State Thruway, Central Valley, NY, USA">
-                                                                                        NY State Thruway, Central
-                                                                                        Valley, NY, USA </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="meta-middle-unit meta-middle-divider">
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    
-                                                                    <div class="meta-bottom">
-
-                                                                        <div class="single-car-actions">
-                                                                            <ul class="list-unstyled clearfix">
-
-
-                                                                                
-                                                                                <li>
-                                                                                    <div class="stock-num heading-font">
-                                                                                        <span>stock# </span>553095</div>
-                                                                                </li>
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                                
-
-                                                                                
-
-                                                                                
-
-
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <div class="stm_ajax_pagination stm-blog-pagination">
                                                             <ul class='page-numbers'>
                                                                 <li><span aria-current="page"
                                                                         class="page-numbers current">1</span></li>
                                                                 <li><a class="page-numbers external"
-                                                                        href="/inventory/page/2/"
-                                                                        rel="nofollow">2</a></li>
+                                                                        href="/inventory/page/2/" rel="nofollow">2</a>
+                                                                </li>
                                                                 <li><a class="page-numbers external"
-                                                                        href="/inventory/page/3/"
-                                                                        rel="nofollow">3</a></li>
+                                                                        href="/inventory/page/3/" rel="nofollow">3</a>
+                                                                </li>
                                                                 <li><span class="page-numbers dots">&hellip;</span></li>
                                                                 <li><a class="page-numbers external"
-                                                                        href="/inventory/page/5/"
-                                                                        rel="nofollow">5</a></li>
+                                                                        href="/inventory/page/5/" rel="nofollow">5</a>
+                                                                </li>
                                                                 <li><a class="next page-numbers external"
-                                                                        href="/inventory/page/2/"
-                                                                        rel="nofollow"><i
+                                                                        href="/inventory/page/2/" rel="nofollow"><i
                                                                             class="fa fa-angle-right"></i></a></li>
                                                             </ul>
                                                         </div>
@@ -2382,7 +854,7 @@
                                                 </div>
 
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -2431,10 +903,10 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
-    
-    
+
+
     @include('newtheme.footer')
 
 
@@ -2572,8 +1044,8 @@
             <i class="thicon thicon-bag"></i>
             <span>Buy <span class="stm_price_api">$0</span></span>
         </a>
-        <a id="motors-mobile-app-ico-wrap" href="/app/" target="_blank"
-            class="stm_theme_demos__icon external" rel="nofollow">
+        <a id="motors-mobile-app-ico-wrap" href="/app/" target="_blank" class="stm_theme_demos__icon external"
+            rel="nofollow">
             <i class="thicon thicon-mobile"></i>
             <span>Motors App</span>
         </a>
@@ -2583,8 +1055,8 @@
             <div class="stm_theme_demos__inner">
                 <div class="stm_theme_demos__inner_container">
                     <h3>Scan QR to view mobile version</h3>
-                    <img src="/wp-content/themes/pearl-child/assets/img/qr-codes/car_dealer.png"
-                        width="300px" alt="qr code" />
+                    <img src="/wp-content/themes/pearl-child/assets/img/qr-codes/car_dealer.png" width="300px"
+                        alt="qr code" />
                 </div>
             </div>
         </div>
@@ -2953,8 +1425,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3">
-                    <a href="/compare/"
-                        class="compare-fixed-link pull-right heading-font external" rel="nofollow">
+                    <a href="/compare/" class="compare-fixed-link pull-right heading-font external" rel="nofollow">
                         Compare </a>
                 </div>
             </div>
@@ -3383,7 +1854,7 @@
 
                 $('body').removeClass(
                     'stm-background-customizer-box_img_1 stm-background-customizer-box_img_2 stm-background-customizer-box_img_3 stm-background-customizer-box_img_4 stm-background-customizer-box_img_5 stm-background-customizer-box_img_6'
-                    );
+                );
 
                 $('body').addClass('stm-background-customizer-' + img_src);
             });

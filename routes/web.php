@@ -115,18 +115,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
 });
 
 
-Route::group(['middleware' => 'is_user'], function () {
+Route::group([], function () {
     
-    Route::group(['prefix' => 'home'], function() {
-        Route::get("", 'UserController@dashboard')->name('dashboard');
-        Route::get('portal', 'UserController@dashboard')->name('user.home');
-        Route::get('inventory', 'UserController@inventory')->name('inventory');
-        Route::get('buy', 'UserController@buy')->name('user.buy');
-        Route::get('sell', 'UserController@dashboard')->name('user.sell');
-        Route::get('wishlist', 'UserController@dashboard')->name('user.wishlist');
-        Route::group(['prefix' => 'secure'], function () {
-            Route::get('', 'BlockchainController@getall')->name('blockchain');
-        });
+    Route::get("home", 'UserController@dashboard')->name('dashboard');
+    Route::get('portal', 'UserController@dashboard')->name('user.home');
+    Route::get('inventory', 'UserController@inventory')->name('inventory');
+    Route::get('buy', 'UserController@buy')->name('user.buy');
+    Route::get('sell', 'UserController@dashboard')->name('user.sell');
+    Route::get('wishlist', 'UserController@dashboard')->name('user.wishlist');
+    Route::group(['prefix' => 'secure'], function () {
+        Route::get('', 'BlockchainController@getall')->name('blockchain');
     });
     
 
