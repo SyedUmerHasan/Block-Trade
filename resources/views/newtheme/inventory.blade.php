@@ -156,7 +156,7 @@
                                         <div class="row">
 
                                             <div class="col-md-3 col-sm-12 classic-filter-row sidebar-sm-mg-bt ">
-                                                <form action="{{ route('inventory') }}" method="get" data-trigger="filter">
+                                                <form>
                                                     <div class="filter filter-sidebar ajax-filter">
 
 

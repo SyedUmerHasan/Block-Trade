@@ -23,7 +23,7 @@ class IsUser
                 return $next($request);
             }
 
-            return redirect()->route('loginpage');
         }
+        return redirect()->route('loginpage');
     }
 }
