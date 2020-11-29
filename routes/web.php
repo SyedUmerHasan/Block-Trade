@@ -119,7 +119,7 @@ Route::group([], function () {
     
     Route::get("home", 'UserController@dashboard')->name('dashboard');
     Route::get('portal', 'UserController@dashboard')->name('user.home');
-    Route::get('inventory', 'UserController@inventory')->name('inventory');
+    Route::get('fff', 'UserController@inventory')->name('inventory');
     Route::get('buy', 'UserController@buy')->name('user.buy');
     Route::get('sell', 'UserController@dashboard')->name('user.sell');
     Route::get('wishlist', 'UserController@dashboard')->name('user.wishlist');

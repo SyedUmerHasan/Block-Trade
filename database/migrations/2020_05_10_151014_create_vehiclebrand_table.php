@@ -13,8 +13,8 @@ class CreateVehiclebrandTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('vehiclebrand');
-        Schema::create('vehiclebrand', function (Blueprint $table) {
+        Schema::dropIfExists('carmanufacturer');
+        Schema::create('carmanufacturer', function (Blueprint $table) {
             $table->id();
             $table->text("brand_name");
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateVehiclebrandTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehiclebrand');
+        Schema::dropIfExists('carmanufacturer');
     }
 }

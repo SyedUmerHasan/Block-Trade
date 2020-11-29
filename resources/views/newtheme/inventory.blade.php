@@ -156,7 +156,7 @@
                                         <div class="row">
 
                                             <div class="col-md-3 col-sm-12 classic-filter-row sidebar-sm-mg-bt ">
-                                                <form action="/inventory/" method="get" data-trigger="filter">
+                                                <form action="{{ route('inventory') }}" method="get" data-trigger="filter">
                                                     <div class="filter filter-sidebar ajax-filter">
 
 
@@ -589,7 +589,7 @@
                                                             <div class="collapsed collapse content  "
                                                                 id="exterior-color">
                                                                 <ul class="list-style-3">
-                                                                    @foreach (\App\ExternalColors::all() as $item)
+                                                                    @foreach (\App\ExteriorColor::all() as $item)
                                                                     <li class="stm-single-filter-link"
                                                                         data-slug="exterior-color"
                                                                         data-value="deep-blue-pearl">
@@ -666,7 +666,6 @@
                                                                                 src="/wp-content/uploads/2020/10/raptor-02-300x189.jpg"
                                                                                 class="img-responsive wp-post-image"
                                                                                 alt="" loading="lazy"
-                                                                                srcset="/wp-content/uploads/2020/10/raptor-02-300x189.jpg 300w, /wp-content/uploads/2020/10/raptor-02-1024x645.jpg 1024w, /wp-content/uploads/2020/10/raptor-02-150x95.jpg 150w, /wp-content/uploads/2020/10/raptor-02-768x484.jpg 768w, /wp-content/uploads/2020/10/raptor-02-380x240.jpg 380w, /wp-content/uploads/2020/10/raptor-02-255x160.jpg 255w, /wp-content/uploads/2020/10/raptor-02-510x320.jpg 510w, /wp-content/uploads/2020/10/raptor-02-600x378.jpg 600w, /wp-content/uploads/2020/10/raptor-02.jpg 1109w"
                                                                                 sizes="(max-width: 300px) 100vw, 300px" />
                                                                         </div>
                                                                     </a>
@@ -1890,17 +1889,6 @@
     <script type="text/javascript">
         jQuery('document').ready(function() {
             var $ = jQuery;
-            var api_url = 'https://stylemixthemes.scdn2.secure.raxcdn.com/api/prices.json';
-
-            $.ajax({
-                url: api_url,
-                dataType: 'json',
-                context: this,
-                complete: function(data) {
-                    var r = data.responseJSON;
-                    $('.stm_price_api').text(r.themes.motors.price);
-                }
-            });
 
 
             $('#crypterio-demos').on('click', function() {
