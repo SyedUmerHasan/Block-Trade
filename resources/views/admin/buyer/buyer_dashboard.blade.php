@@ -71,7 +71,7 @@
                             <div class="row mt-2 flex" style="width: 100%">
                                 <div class="card" style="width: 100%">
                                     <div class="card-content" style="width: 100%">
-                                        <p class="caption"><h5>Welcome {{ Auth::user()->first_name }}</h5></p>
+                                        <p class="caption"><h5>Welcome {{ Auth::user()->user_name }}</h5></p>
                                     </div>
                                 </div>
                             </div>
@@ -82,14 +82,14 @@
                                         <div class="card-panel border-radius-6 mt-10 card-animation-1">
                                             <img class="responsive-img border-radius-8 z-depth-4 image-n-margin" src="{{ $item->images[0]->image_path }}" alt="images">
                                             <h6><a href="#" class="mt-5">{{ $item->car_title }}</a></h6>
-                                            <p>{{ $item->details->comments }}</p>
+                                            <p>{{ $item->details->description }}</p>
                                             <div class="row mt-4 flex">
                                                 <div class="col s2" >
                                                     <a href="#"><img src="/admin-assets/app-assets/images/avatar/avatar-8.png" width="40" alt="fashion" class="z-depth-4 circle"></a>
                                                 </div>
                                                 <div class="col s6 p-0 mt-1 valign-wrapper">
                                                     <a href="#">
-                                                        <span class="pt-2">{{ Auth::user()->first_name  }} {{ Auth::user()->last_name   }}</span>
+                                                        <span class="pt-2">{{ Auth::user()->user_name  }}</span>
                                                     </a>
                                                 </div>
                                                 <div class="col s4 mt-1 valign-wrapper">

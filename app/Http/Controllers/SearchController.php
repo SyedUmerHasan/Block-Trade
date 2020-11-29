@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\VehicleDetail;
 use App\CarManufacturer;
-use App\BrandModel;
-use App\PublishedVehicle;
+use App\CarModel;
 
 class SearchController extends Controller
 {
@@ -24,12 +23,12 @@ class SearchController extends Controller
         $minrange = (isset($queryParams["minrange"]) ? $queryParams["minrange"] : null);
         $maxrange = (isset($queryParams["maxrange"]) ? $queryParams["maxrange"] : null);
 
-        $foundmodel = BrandModel::where('model_name', '=', $model)->first();
+        $foundmodel = CarModel::where('model_name', '=', $model)->first();
         $foundbrand = CarManufacturer::where('brand_name', '=', $brand)->first();
 
         $vehicleDetail =  VehicleDetail::with('features')->with('images')
                         ->with('contact')
-                        ->with('brands')
+                        ->with('manufacturer')
                         ->with('model')
                         ->with('car')
                         ->Where(function ($query) use($type) { 
@@ -37,12 +36,12 @@ class SearchController extends Controller
                         })
                         ->Where(function ($query) use($foundbrand) {
                             if(isset($foundbrand)){
-                                $query->where('vehiclebrand_id', '=', $foundbrand->id );
+                                $query->where('carmanufacturer_id', '=', $foundbrand->id );
                             }
                         })
                         ->Where(function ($query) use($foundmodel) {
                             if(isset($foundmodel)){
-                                $query->where('brandmodel_id', '=', $foundmodel->id );
+                                $query->where('carmodel_id', '=', $foundmodel->id );
                             }
                         })
                         ->Where(function ($query) use($minyear) {
@@ -57,34 +56,6 @@ class SearchController extends Controller
                         })
                         ->paginate(5);
 
-        //     $vehicleDetail =   PublishedVehicle::with('features')
-        //                 ->with('images')
-        //                 ->with('details')
-        //                 ->with('contact')
-        //                 ->with('brands')
-        //                 ->with('model')
-        //                 ->Where(function ($query) use($foundbrand) {
-        //                     if(isset($foundbrand)){
-        //                         $query->where('vehiclebrand_id', '=', $foundbrand->id );
-        //                     }
-        //                 })
-        //                 ->Where(function ($query) use($foundmodel) {
-        //                     if(isset($foundmodel)){
-        //                         $query->where('brandmodel_id', '=', $foundmodel->id );
-        //                     }
-        //                 })
-        //                 ->Where(function ($query) use($minyear) {
-        //                     if(isset($minyear)){
-        //                         $query->where('year_manufacture', '>=', $minyear );
-        //                     }
-        //                 })
-        //                 ->Where(function ($query) use($maxyear) {
-        //                     if(isset($maxyear)){
-        //                         $query->where('year_manufacture', '<=', $maxyear );
-        //                     }
-        //                 })
-        //                 ->paginate(5);
-            
         // dd($vehicleDetail);
         
         return view('webapp.pages.search')

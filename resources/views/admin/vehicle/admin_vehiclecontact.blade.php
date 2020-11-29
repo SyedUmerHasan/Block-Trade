@@ -60,7 +60,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Add Car Registration Details</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('vehicle.getall') }}">Vehicle</a>
                                 </li>
@@ -144,34 +144,6 @@
                                                                             @endif
                                                                         </select>
                                                                         <label for="exterior_color">Enter Vehicle Exterior Color</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col s12 m6" style="display: none">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <select class="m-select" name="interior_color">
-                                                                            <option value="-">Select</option>
-                                                                            @if (isset($vehicleContact))
-                                                                                @foreach ($interiorcolor as $item)
-                                                                                    <option value="{{ $item->id }}"  {{ ($item->id == old('interior_color')  || $item->id ==   $vehicleContact->interior_color ? "selected" : '') }}>{{ $item->color_name }}</option>
-                                                                                @endforeach
-                                                                            @else
-                                                                                @foreach ($interiorcolor as $item)
-                                                                                    <option value="{{ $item->id }}">{{ $item->color_name }}</option>
-                                                                                @endforeach
-                                                                            @endif
-
-                                                                        </select>
-                                                                        <label for="interior_color">Enter Vehicle Interior Color</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col s12 m6" style="display: none">
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input type="text" class="form-control" id="seat_color" name="seat_color" aria-describedby="helpId"  value="-" >
-                                                                        <label for="seat_color">Enter Seat Color</label>
                                                                     </div>
                                                                 </div>
                                                             </div>

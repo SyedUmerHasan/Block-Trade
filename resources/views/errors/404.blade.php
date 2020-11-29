@@ -31,7 +31,7 @@
               <h1 class="error-code m-0">404</h1>
               <h6 class="mb-2">BAD REQUEST : Page Not Found</h6>
               <a class="btn waves-effect waves-light gradient-45deg-deep-purple-blue gradient-shadow mb-4"
-                href="{{ route('portal') }}">Back To Home</a>
+                href="{{ route('dashboard') }}">Back To Home</a>
             </div>
           </div>
         </div>

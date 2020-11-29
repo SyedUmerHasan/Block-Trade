@@ -115,18 +115,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Step 5</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-globe"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4>SUBMIT &amp; PUBLISH</h4>
-                                <p>Add images / videos of vehicle</p>
-                            </div>
-                        </div>
-                    </div>
                 </aside>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
@@ -149,10 +137,17 @@
 
                         <input type="hidden" value="{{ $vehicleDetail->id }}" name="vehicledetail_id" />
                         <div class="b-submit__main-contacts wow zoomInUp" data-wow-delay="0.3s">
-                            <header class="s-headerSubmit s-lineDownLeft">
-                                <h2>Upload Your Vehicle Photos</h2>
-                            </header>
-                            <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <header class="s-headerSubmit s-lineDownLeft">
+                                    <h2>Publish you Car Advertisement</h2>
+                                </header>
+                                <div class="b-submit__main-element">
+                                    <label>Enter Your AD Title <span>*</span></label>
+                                    <div class="row m-smallPadding">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <input type="text" name="car_title" required=""  value="{{ old('car_title') }}">
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="b-submit__main-contacts-price">
                                 <div class="row m-smallPadding">
                                     <div class="col-lg-4 col-xs-12">
@@ -191,10 +186,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="b-submit__main-element">
-                                        <label>Enter Seats Color</label>
-                                        <input type="text" name="seat_color" value="{{ old('seat_color') }}"/>
-                                    </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
@@ -206,18 +197,6 @@
                                                 <option value="{{ $item->id }}" {{ ($item->id == old('exterior_color') ? "selected" : '') }}>{{ $item->color_name }}</option>
                                             @endforeach
 
-                                            </select>
-                                            <span class="fa fa-caret-down"></span>
-                                        </div>
-                                    </div>
-                                    <div class="b-submit__main-element">
-                                        <label>Select Interior Color <span>*</span></label>
-                                        <div class="s-relative">
-                                            <select class="m-select" name="interior_color">
-                                                <option value="">Select</option>
-                                                @foreach ($interiorcolor as $item)
-                                                    <option value="{{ $item->id }}"  {{ ($item->id == old('interior_color') ? "selected" : '') }}>{{ $item->color_name }}</option>
-                                                @endforeach
                                             </select>
                                             <span class="fa fa-caret-down"></span>
                                         </div>
@@ -247,7 +226,7 @@
                                     <div class="b-submit__main-element">
                                         <label>Select Registerarion Expiry Month  <span>*</span></label>
                                         <div class="s-relative">
-                                            <select class="m-select" name="registration_exiry_month"  >
+                                            <select class="m-select" name="registration_exiry_month">
                                                 <option value="">Select</option>
                                                 <option>January</option>
                                                 <option>Feburary</option>
@@ -290,7 +269,6 @@
                             <header class="s-headerSubmit s-lineDownLeft">
                                 <h2>Tell Us How Buyers Contact You</h2>
                             </header>
-                            <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat aenean vitae quam. </p>
                             <div class="b-submit__main-element">
                                 <label>Vehicle Current Address <span>*</span></label>
                                 <input type="text" name="vehicle_address" value="{{ old('vehicle_address') }}" />
@@ -308,11 +286,6 @@
                                         <input type="text" name="vehicle_country"value="{{ old('vehicle_country') }}" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="b-submit__main-contacts-check m-check">
-                                <input type="checkbox" name="check3" id="check3" />
-                                <label class="s-submitCheckLabel" for="check3"><span class="fa fa-check"></span></label>
-                                <label class="s-submitCheck" for="check3">Show Location On Google Maps to Buyers</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">

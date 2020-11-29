@@ -154,7 +154,7 @@
                             <div class="col s12 m12 l12 pr-0">
                                 <div class="col s12">
                                     
-                                    @for ($i = 0; $i < 10; $i++)
+                                    @for ($i = 0; $i < 1; $i++)
                                     <div class="card animate fadeUp">
                                         <div class="card-badge"><a class="white-text"> <b>On Offer</b> </a></div>
                                         <div class="card-content">

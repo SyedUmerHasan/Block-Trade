@@ -60,7 +60,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Model</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('automotive.model.getall') }}">Car Model</a>
                                 </li>
@@ -115,7 +115,7 @@
                                                             <label for="model_name">Enter Car Model Name</label>
                                                         </div>
                                                         <div class="input-field col s6 s-relative">
-                                                            <select   class="m-select"  id="vehiclebrand_id" name="vehiclebrand_id">
+                                                            <select   class="m-select"  id="carmanufacturer_id" name="carmanufacturer_id">
                                                                 <option value="">Select Car Manufacturer</option>
                                                                 @foreach ($carbrand as $item)
                                                                     @if ($item->id ==  $vehiclebrand->id)

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function dashboard()
     {
-        return view("user.home");
+        return view("newtheme.home");
     }
     public function sell()
     {
@@ -18,5 +18,8 @@ class UserController extends Controller
     public function buy()
     {
         return view("user.buyer");
+    }
+    public function inventory(){
+        return view("newtheme.inventory");
     }
 }

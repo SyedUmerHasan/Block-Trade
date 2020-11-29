@@ -33,16 +33,13 @@ Auth::routes();
  */
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', 'AdminController@login')->name('loginpage');
-    Route::get('register', 'AdminController@register')->name('register');
+    Route::get('register', 'AdminController@register')->name('register');     
     Route::get('password/reset', 'AdminController@resetpassword')->name('password.request');
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 });
-
+Route::post('register', 'Auth\RegisterController@register'); 
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-Route::post('register', 'Auth\RegisterController@register'); 
 
 // Password Reset Routes...
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -63,6 +60,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
             Route::get('/edit/{id}', 'CarManufacturerController@edit')->name('automotive.manufacturer.edit');
             Route::post('/add', 'CarManufacturerController@add')->name('automotive.manufacturer.add');
             Route::post('/update/{id}', 'CarManufacturerController@update')->name('automotive.manufacturer.update');
+        });
+
+        Route::group(['prefix' => 'secure'], function () {
+            Route::get('', 'BlockchainController@getall')->name('blockchain');
         });
 
         Route::group(['prefix' => 'model'], function () {
@@ -115,10 +116,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
 
 
 Route::group(['middleware' => 'is_user'], function () {
-    Route::get('portal', 'UserController@dashboard')->name('user.home');
-    Route::get('buy', 'UserController@buy')->name('user.buy');
-    Route::get('sell', 'UserController@dashboard')->name('user.sell');
-    Route::get('wishlist', 'UserController@dashboard')->name('user.wishlist');
+    
+    Route::group(['prefix' => 'home'], function() {
+        Route::get("", 'UserController@dashboard')->name('dashboard');
+        Route::get('portal', 'UserController@dashboard')->name('user.home');
+        Route::get('inventory', 'UserController@inventory')->name('inventory');
+        Route::get('buy', 'UserController@buy')->name('user.buy');
+        Route::get('sell', 'UserController@dashboard')->name('user.sell');
+        Route::get('wishlist', 'UserController@dashboard')->name('user.wishlist');
+        Route::group(['prefix' => 'secure'], function () {
+            Route::get('', 'BlockchainController@getall')->name('blockchain');
+        });
+    });
+    
 
     Route::group(['prefix' => 'car'], function() {
 
@@ -130,11 +140,6 @@ Route::group(['middleware' => 'is_user'], function () {
         Route::group(['prefix' => 'model'], function () {
             Route::get('/edit/{id}', 'CarModelController@edit')->name('automotive.model.edit');
             Route::post('/update/{id}', 'CarModelController@update')->name('automotive.model.update');
-        });
-
-        Route::group(['prefix' => 'interiorcolor'], function() {
-            Route::get('edit/{id}', 'InteriorColorController@edit')->name('interiorcolor.edit');
-            Route::post('update/{id}', 'InteriorColorController@update')->name('interiorcolor.update');
         });
 
         Route::group(['prefix' => 'exteriorcolor'], function () {
@@ -175,3 +180,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('support', 'SupportController@getList')->name('support');
 
 });
+
+
+
+
+Route::get('umer', 'SupportController@umer');

@@ -13,11 +13,11 @@ class CreateBrandmodelTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('brandmodel');
-        Schema::create('brandmodel', function (Blueprint $table) {
+        Schema::dropIfExists('carmodel');
+        Schema::create('carmodel', function (Blueprint $table) {
             $table->id();
             $table->text("model_name");
-            $table->bigInteger("vehiclebrand_id");
+            $table->bigInteger("carmanufacturer_id");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBrandmodelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brandmodel');
+        Schema::dropIfExists('carmodel');
     }
 }

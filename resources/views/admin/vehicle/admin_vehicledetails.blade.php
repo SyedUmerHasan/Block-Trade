@@ -60,7 +60,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Create Car Ad</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('portal') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('vehicle.getall') }}">Vehicle</a>
                                 </li>
@@ -114,7 +114,7 @@
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter Car Manufacturer <span>*</span></label>
                                                                 <div class='s-relative'>
-                                                                    <select class="m-select" name="vehiclebrand_id">
+                                                                    <select class="m-select" name="carmanufacturer_id">
                                                                         <option value="">Select</option>
                                                                         @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get() as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
@@ -172,19 +172,6 @@
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="display: none">
-                                                                <label>Select No. of Cylinders <span>*</span></label>
-                                                                <div class='s-relative'>
-                                                                    <select class="m-select" name="number_cylinder">
-                                                                        <option selected value="0">Select</option>
-                                                                        <option>4</option>
-                                                                        <option>6</option>
-                                                                        <option>8</option>
-
-                                                                    </select>
-                                                                    <span class="fa fa-caret-down"></span>
-                                                                </div>
-                                                            </div>
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Select Fuel Type <span>*</span></label>
                                                                 <div class='s-relative'>
@@ -205,9 +192,9 @@
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter Vehicle Model <span>*</span></label>
                                                                 <div class='s-relative'>
-                                                                    <select class="m-select" name="brandmodel_id">
+                                                                    <select class="m-select" name="carmodel_id">
                                                                         <option>Select a Model</option>
-                                                                        @foreach ( \App\BrandModel::all() as $item)
+                                                                        @foreach ( \App\CarModel::all() as $item)
                                                                         <option value="{{ $item->id }}">{{ $item->model_name }}</option>
                                                                         @endforeach
                                                                     </select>

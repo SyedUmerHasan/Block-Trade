@@ -52,16 +52,16 @@ class LoginController extends Controller
             // dd(Auth::user()->role);
             switch(auth()->user()->role){
                 case 'admin':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
                 case 'buyer':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
                 case 'seller':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
             }
-            return redirect()->route('portal');
+            return redirect()->route('dashboard');
         }else{
             return redirect()->route('login')
                 ->with('error','Email-Address And Password Are Wrong.');

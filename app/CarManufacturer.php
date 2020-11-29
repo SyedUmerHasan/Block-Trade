@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CarManufacturer extends Model
 {
-    protected $table = "vehiclebrand";
+    protected $table = "carmanufacturer";
     protected $primaryKey = "id";
 }

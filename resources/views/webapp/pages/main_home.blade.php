@@ -358,8 +358,8 @@
                             <div class="col-xs-4">
                                 <select name="brand">
                                         <option value="" selected="">Any Make</option>
-                                        @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->get() as $item)
-                                            <option value="{{ $item->brand_name }}">{{ \App\CarManufacturer::where("id", "=", $item->vehiclebrand_id)->first()->brand_name }}</option>
+                                        @foreach (\App\VehicleDetail::orderBy('carmanufacturer_id')->groupBy('carmanufacturer_id')->get() as $item)
+                                            <option value="{{ $item->brand_name }}">{{ \App\CarManufacturer::where("id", "=", $item->carmanufacturer_id)->first()->brand_name }}</option>
                                         @endforeach
                                 </select>
                                 <span class="fa fa-caret-down"></span>
@@ -368,8 +368,8 @@
                             <div class="col-xs-4">
                                 <select name="model">
                                         <option value="" selected="">Any Model</option>
-                                        @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->get() as $item)
-                                            <option value="{{ \App\BrandModel::where('id', '=', $item->brandmodel_id)->first()->model_name }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</option>
+                                        @foreach (\App\VehicleDetail::orderBy('carmodel_id')->groupBy('carmodel_id')->get() as $item)
+                                            <option value="{{ \App\CarModel::where('id', '=', $item->carmodel_id)->first()->model_name }}">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</option>
                                         @endforeach
                                     </select>
                                 <span class="fa fa-caret-down"></span>
@@ -434,14 +434,14 @@
             <div>
                 <div class="b-featured__item  ">
                     <a href="{{ route('cardetailsinportal', $item->id ) }}">
-                            <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" alt="{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}" />
+                            <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" />
                             <span class="m-premium">Premium</span>
                         </a>
                     <div class="b-featured__item-price">
                         $184,900
                     </div>
                     <div class="clearfix"></div>
-                    <h5><a href="{{ route('cardetailsinportal', $item->id ) }}">{{ \App\PublishedVehicle::where("vehicledetail_id", "=", $item->id)->first()->car_title }}</a></h5>
+                    <h5><a href="{{ route('cardetailsinportal', $item->id ) }}">sadasdsadasdsd</a></h5>
                     <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
                     <div class="b-featured__item-links">
                         <a href="#">Used</a>

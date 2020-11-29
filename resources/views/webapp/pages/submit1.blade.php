@@ -111,18 +111,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>Step 5</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-globe"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4>SUBMIT &amp; PUBLISH</h4>
-                                <p>Add images / videos of vehicle</p>
-                            </div>
-                        </div>
-                    </div>
                 </aside>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
@@ -149,7 +137,7 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>Enter vehicle brand <span>*</span></label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="vehiclebrand_id">
+                                        <select class="m-select" name="carmanufacturer_id">
                                             <option value="">Select</option>
                                             @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get() as $item)
                                             <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
@@ -208,18 +196,6 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>Select No. of Cylinders <span>*</span></label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="number_cylinder">
-                                            <option>Select</option>
-                                            <option selected>4</option>
-                                            <option>6</option>
-                                            <option>8</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>Select Fuel Type <span>*</span></label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="fuel_type">
@@ -238,9 +214,9 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>Enter Vehicle Model <span>*</span></label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="brandmodel_id">
+                                        <select class="m-select" name="carmodel_id">
                                             <option>Select a Model</option>
-                                            @foreach ( \App\BrandModel::all() as $item)
+                                            @foreach ( \App\CarModel::all() as $item)
                                             <option value="{{ $item->id }}">{{ $item->model_name }}</option>
                                             @endforeach
                                         </select>
@@ -308,7 +284,7 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>Enter VIN/Chassis Number <span>*</span></label>
                                     <input placeholder="Enter Number" type="text" name="chasis_number"  value="123456789"/>
-                                    <input type="text" name="users_id" value="0" style="display: none" />
+                                    <input type="text" name="user_id" value="0" style="display: none" />
                                 </div>
                             </div>
                         </div>

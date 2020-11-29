@@ -127,23 +127,20 @@
     </aside>
 
 
-
     <div id="main">
         <div class="row">
             <div class="pt-3 pb-1" id="breadcrumbs-wrapper">
 
                 <div class="container">
                     <div class="row">
-                        <div class="col s12 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>eCommerce Products Page</span></h5>
+                        <div class="col s12 m12 l12">
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Dashboard</span></h5>
                         </div>
-                        <div class="col s12 m6 l6 right-align-md">
+                        <div class="col s12 m12 l12">
                             <ol class="breadcrumbs mb-0">
                                 <li class="breadcrumb-item"><a href="#">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Apps</a>
-                                </li>
-                                <li class="breadcrumb-item active">eCommerce Products Page
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a>
                                 </li>
                             </ol>
                         </div>
@@ -155,13 +152,58 @@
                     <div class="section">
                         <div class="row" id="ecommerce-products">
                             <div class="col s12 m12 l12 pr-0">
+                                <div class="col s12">
+                                    
+                                    @for ($i = 0; $i < 1; $i++)
+                                    <div class="card animate fadeUp">
+                                        <div class="card-badge"><a class="white-text"> <b>On Offer</b> </a></div>
+                                        <div class="card-content">
 
+                                            <div class="row" id="product-four">
+                                                <div class="col m6 s12">
+                                                    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1778&amp;q=80"
+                                                        class="responsive-img" alt="">
+                                                </div>
+                                                <div class="col m6 s12">
+                                                    <p>Powerbank</p>
+                                                    <h5>Game Remote</h5>
+                                                    <span class="new badge left ml-0 mr-2" data-badge-caption="">4.2
+                                                        Star</span>
+                                                    <p>Availability: <span class="green-text">Available</span></p>
+                                                    <hr class="mb-5">
+                                                    <span class="vertical-align-top mr-4"><i
+                                                            class="material-icons mr-3">favorite_border</i>Wishlist</span>
+                                                    <ul class="list-bullet">
+                                                        <li class="list-item-bullet">Dual output USB interfaces</li>
+                                                        <li class="list-item-bullet">Compatible with all smartphones
+                                                        </li>
+                                                        <li class="list-item-bullet">Portable design and light weight
+                                                        </li>
+                                                        <li class="list-item-bullet">Battery type: Lithium-ion</li>
+                                                    </ul>
+                                                    <h5 class="red-text">$79.00 <span
+                                                            class="grey-text lighten-2 ml-3">$199.00</span> </h5>
+                                                    <a
+                                                        class="waves-effect waves-light btn gradient-45deg-deep-purple-blue z-depth-4 mt-2 mr-2">ADD
+                                                        TO
+                                                        CART</a>
+                                                    <a
+                                                        class="waves-effect waves-light btn gradient-45deg-purple-deep-orange z-depth-4 mt-2">BUY
+                                                        NOW</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    @endfor
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-overlay"></div>
             </div>
+            <div class="content-overlay"></div>
         </div>
     </div>
 

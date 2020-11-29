@@ -35,7 +35,7 @@
               <img src="/admin-assets/app-assets/images/gallery/error-2.png" class="bg-image-404" alt="">
               <h1 class="error-code m-0">500</h1>
               <h6 class="mb-2">Internal Server Error</h6>
-              <a class="btn waves-effect waves-light gradient-45deg-deep-purple-blue gradient-shadow mb-4" href="{{ route('portal') }}">Back To Home</a>
+              <a class="btn waves-effect waves-light gradient-45deg-deep-purple-blue gradient-shadow mb-4" href="{{ route('dashboard') }}">Back To Home</a>
             </div>
           </div>
         </div>

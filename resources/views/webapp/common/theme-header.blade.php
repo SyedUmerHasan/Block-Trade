@@ -29,7 +29,7 @@
                             @csrf
                         </form>
                         <li><a href="javascript:void(0);">Cart</a></li>
-                        <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->first_name }}</a></li>
+                        <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->user_name }}</a></li>
                         @endauth
                     </ul>
                 </nav>
@@ -44,8 +44,8 @@
         <div class="row">
             <div class="col-sm-3 col-xs-4">
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
-                    <h3><a href="{{ route('portal') }}">Block<span>Trade</span></a></h3>
-                    <h2><a href="{{ route('portal') }}">AUTOMOBILE CLASSFIED ADS</a></h2>
+                    <h3><a href="{{ route('dashboard') }}">Block<span>Trade</span></a></h3>
+                    <h2><a href="{{ route('dashboard') }}">AUTOMOBILE CLASSFIED ADS</a></h2>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-8">
@@ -61,21 +61,21 @@
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
                             <li class="dropdown">
-                                <a  href="{{ route('portal') }}">Home</a>
+                                <a  href="{{ route('dashboard') }}">Home</a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
-                                    @foreach (\App\VehicleDetail::orderBy('vehiclebrand_id')->groupBy('vehiclebrand_id')->take(10)->get() as $item)
-                                    <li><a href="{{ route('searchportal', ['brand' => \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name }}</a></li>
+                                    @foreach (\App\VehicleDetail::orderBy('carmanufacturer_id')->groupBy('carmanufacturer_id')->take(10)->get() as $item)
+                                    <li><a href="{{ route('searchportal', ['brand' => \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Car Models<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
-                                    @foreach (\App\VehicleDetail::orderBy('brandmodel_id')->groupBy('brandmodel_id')->take(10)->get() as $item)
-                                    <li><a href="{{ route('searchportal', ['model' => \App\BrandModel::find($item->brandmodel_id)->model_name ]) }}">{{ \App\BrandModel::where("id", "=", $item->brandmodel_id)->first()->model_name }}</a></li>
+                                    @foreach (\App\VehicleDetail::orderBy('carmodel_id')->groupBy('carmodel_id')->take(10)->get() as $item)
+                                    <li><a href="{{ route('searchportal', ['model' => \App\CarModel::find($item->carmodel_id)->model_name ]) }}">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

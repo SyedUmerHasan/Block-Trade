@@ -41,8 +41,6 @@ class ProfileController extends Controller
         }
         $validatedData = $request->validate([
             'username' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
             'email' => 'required',
             'experience' => 'required',
             'description' => 'required',
@@ -64,8 +62,6 @@ class ProfileController extends Controller
             if($imageName == null){
                 User::where('id',$id)->update([
                     'user_name' => $request->username,
-                    'first_name' => $request->first_name,
-                    'last_name' => $request->last_name,
                     'experience' => $request->experience,
                     'working' => $request->working,
                     'description' => $request->description
@@ -75,8 +71,6 @@ class ProfileController extends Controller
             else{
                 User::where('id',$id)->update([
                     'user_name' => $request->username,
-                    'first_name' => $request->first_name,
-                    'last_name' => $request->last_name,
                     'experience' => $request->experience,
                     'working' => $request->working,
                     'image_url' => $imageName,

@@ -48,7 +48,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>User profile</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{route('portal')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#">User profile</a>
                                 </li>
@@ -73,7 +73,7 @@
                                         </a>
                                         <div class="media-body">
                                             <h6 class="media-heading">
-                                                <span class="users-view-name"> {{$profile->first_name}} {{$profile->last_name}}  </span>
+                                                <span class="users-view-name"> {{$profile->user_name}} </span>
                                                 <span class="grey-text">@</span>
                                                 <span class="users-view-username grey-text">  {{$profile->user_name}}</span>
                                             </h6>
@@ -197,18 +197,6 @@
                                                 <td>Username:</td>
                                                 <td class="users-view-username">
                                                     {{ $profile->user_name }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>First Name:</td>
-                                                <td class="users-view-name">
-                                                    {{ $profile->first_name }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Last Name:</td>
-                                                <td class="users-view-name">
-                                                    {{ $profile->last_name }}
                                                 </td>
                                             </tr>
                                             <tr>

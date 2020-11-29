@@ -95,9 +95,9 @@
                                             $currentBrand = Request::get('brand');
                                             ?>
                                             <option value="">Search By Make</option>
-                                            @foreach (\App\VehicleDetail::groupBy('vehiclebrand_id')->take(10)->get() as $item)
+                                            @foreach (\App\VehicleDetail::groupBy('carmanufacturer_id')->take(10)->get() as $item)
                                                 <?php
-                                                    $data  =  \App\CarManufacturer::find($item->vehiclebrand_id)->brand_name;     
+                                                    $data  =  \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name;     
                                                 ?>
                                                 @if (isset($currentModel) && $currentBrand == $data)
                                                 <option value="{{ $data }}" selected>{{ $data }}</option>
@@ -117,9 +117,9 @@
                                         $currentModel = Request::get('model');
                                         ?>
                                         <option value="" selected="">Search By Model</option>
-                                        @foreach (\App\VehicleDetail::groupBy('brandmodel_id')->take(10)->get() as $item)
+                                        @foreach (\App\VehicleDetail::groupBy('carmodel_id')->take(10)->get() as $item)
                                             <?php
-                                            $data  =  \App\BrandModel::find($item->brandmodel_id)->model_name;      
+                                            $data  =  \App\CarModel::find($item->carmodel_id)->model_name;      
                                             ?>
                                             @if (isset($currentModel) && $currentModel == $data)
                                             <option value="{{ $data }}" selected>{{ $data }}</option>
@@ -189,8 +189,8 @@
                             <div class="row s-noRightMargin">
                                 <div class="col-md-9 col-xs-12">
                                     <p>
-                                    @if(isset($item->comments))
-                                    {{$item->comments}}                                    
+                                    @if(isset($item->description))
+                                    {{$item->description}}                                    
                                     @else
                                     In a pickup market gone fancy, the Silverado sticks to its basic-truck recipe. The steering is accurate, and the Silverado</p>
                                     @endif

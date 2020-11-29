@@ -19,8 +19,6 @@ class IsAdmin
         if (Auth::check() && Auth::user()->role == 'admin') {
             return $next($request);
         }
-        abort(403);
-
-        // return redirect()->route('loginpage')->with('error',"You don't have admin access.");
+        return redirect()->route('loginpage')->with('error',"You don't have admin access.");
     }
 }

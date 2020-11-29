@@ -21,13 +21,13 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             switch(Auth::user()->role){
                 case 'admin':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
                 case 'buyer':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
                 case 'seller':
-                    return redirect()->route('portal');
+                    return redirect()->route('dashboard');
                     break;
             }
         }

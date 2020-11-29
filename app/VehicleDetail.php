@@ -10,9 +10,9 @@ class VehicleDetail extends Model
     protected $primaryKey = "id";
     
     protected $fillable = [
-        'users_id', 
-        "vehiclebrand_id", 
-        "brandmodel_id", 
+        'user_id', 
+        "carmanufacturer_id", 
+        "carmodel_id", 
         "body_type", 
         "number_seat", 
         'number_door', 
@@ -20,11 +20,10 @@ class VehicleDetail extends Model
         'tranmission_type',
         'drive_type',
         "engine_type", 
-        "number_cylinder", 
         "engine_capacity", 
         'fuel_type', 
         'chasis_number',
-        'comments'
+        'description'
     ];
     public function features(){
         return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'id');
@@ -35,13 +34,10 @@ class VehicleDetail extends Model
     public function contact(){
         return $this->hasMany('App\VehicleContact', 'vehicledetail_id', 'id');
     }
-    public function brands(){
-        return $this->belongsTo('App\CarManufacturer', 'brandmodel_id', 'id');
+    public function manufacturer(){
+        return $this->belongsTo('App\CarManufacturer', 'carmanufacturer_id', 'id');
     }
     public function model(){
-        return $this->belongsTo('App\BrandModel', 'vehiclebrand_id', 'id');
-    }
-    public function car(){
-        return $this->belongsTo('App\PublishedVehicle', 'id', 'vehicledetail_id');
+        return $this->belongsTo('App\CarModel', 'carmodel_id', 'id');
     }
 }

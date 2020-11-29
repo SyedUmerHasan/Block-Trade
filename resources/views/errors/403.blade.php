@@ -31,7 +31,7 @@
               <h1 class="error-code m-0">403</h1>
               <h6 class="mb-2">Page Forbibben : Access Not Allowed</h6>
               <a class="btn waves-effect waves-light gradient-45deg-deep-purple-blue gradient-shadow mb-4"
-                href="{{ route('portal') }}">Back To Home</a>
+                href="{{ route('dashboard') }}">Back To Home</a>
             </div>
           </div>
         </div>

@@ -21,13 +21,13 @@
         
         @if (!Auth::guest() && Auth::user()->role == "admin")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -94,13 +94,13 @@
         
         @elseif (!Auth::guest() && Auth::user()->role == "buyer")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -114,13 +114,13 @@
 
         @elseif (!Auth::guest() && Auth::user()->role == "seller")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('portal') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>

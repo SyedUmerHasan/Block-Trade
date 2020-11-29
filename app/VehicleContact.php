@@ -14,8 +14,6 @@ class VehicleContact extends Model
         'price',
         'mileage',
         'exterior_color',
-        'interior_color',
-        'seat_color',
         'registered',
         'registration_plate_number',
         'registration_vehicle_number',

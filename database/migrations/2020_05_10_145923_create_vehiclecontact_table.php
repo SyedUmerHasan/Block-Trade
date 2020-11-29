@@ -20,8 +20,6 @@ class CreateVehiclecontactTable extends Migration
             $table->bigInteger("price");
             $table->bigInteger("mileage");
             $table->text("exterior_color");
-            $table->text("interior_color");
-            $table->text("seat_color");
             $table->boolean("registered");
             $table->text("registration_plate_number");
             $table->text("registration_vehicle_number");

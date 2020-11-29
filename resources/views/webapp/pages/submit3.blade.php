@@ -114,18 +114,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Step 5</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-globe"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4>SUBMIT &amp; PUBLISH</h4>
-                                <p>Add images / videos of vehicle</p>
-                            </div>
-                        </div>
-                    </div>
                 </aside>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
@@ -176,7 +164,7 @@
                                 <header class="s-headerSubmit s-lineDownLeft">
                                     <h2>Write Some Additional Description About Your Vehicle</h2>
                                 </header>
-                                <textarea name="comments"style="text-transform: none !important;"
+                                <textarea name="description"style="text-transform: none !important;"
                                 
                                 placeholder="Describe Your car: 
 Example: Alloy rim, first owner, genuine parts, maintained by authorized workshop, excellent mileage, original paint etc."></textarea>
