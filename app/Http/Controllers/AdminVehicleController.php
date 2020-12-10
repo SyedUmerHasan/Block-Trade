@@ -3,51 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\VehicleStatus;
 use App\VehicleDetail;
 use App\VehicleFeatures;
 use App\VehicleImages;
-use App\vehicleContact;
+use App\VehicleContact;
 use App\ExteriorColor;
-use App\InteriorColor;
-use App\VehicleBrand;
+use App\CarManufacturer;
 use Auth;
 use Session;
 
 class AdminVehicleController extends Controller
 {
     public function getall(){
-        $vehicle = VehicleStatus::all();
         return view('admin.vehicle.list_vehicles')->with(compact('vehicle'));
     }
     public function index(){
-        return view('admin.vehicle.admin_vehicledetails');
+        $carBrands = CarManufacturer::all();
+        return view('admin.vehicle.admin_vehicledetails')
+        ->with(compact('carBrands'));
     }
     public function getdetails(){
         // $vehicleDetail = VehicleDetail::with('features')
         // ->with('images')
         // ->find($id);
         
+        $carBrands = CarManufacturer::all();
         // $vehicleImages = $vehicleDetail->images;
-        $carBrands = VehicleBrand::all();
+        $carBrands = CarManufacturer::all();
         return view('admin.vehicle.admin_vehicledetails')
-        ->with(compact('carBrands'))
-        ->with(compact('vehicleImages'));
+        ->with(compact('carBrands'));
     }
     public function geteditdetails($id){
         $vehicleDetail = VehicleDetail::with('features')
         ->with('images')
         ->find($id);
-        
+        $carBrands = CarManufacturer::all();
         $vehicleImages = $vehicleDetail->images;
+        // dd($vehicleDetail);
         return view('admin.vehicle.admin_vehicledetails')
+        ->with(compact('carBrands'))
         ->with(compact('vehicleDetail'))
         ->with(compact('vehicleImages'));
     }
     public function createdetails(Request $request){
         $validatedData = $request->validate([
-            'vehiclebrand_id' => 'required',
-            'brandmodel_id' => 'required',
+            'carmanufacturer_id' => 'required',
+            'carmodel_id' => 'required',
             'year_manufacture' => 'required',
             'body_type' => 'required',
             'number_seat' => 'required',
@@ -56,7 +57,6 @@ class AdminVehicleController extends Controller
             'tranmission_type' => 'required',
             'drive_type' => 'required',
             'engine_type' => 'required',
-            'number_cylinder' => 'required',
             'engine_capacity' => 'required',
             'fuel_type' => 'required',
             'chasis_number' => 'required'
@@ -68,9 +68,9 @@ class AdminVehicleController extends Controller
         }
         else{
             $vehicleDetail = VehicleDetail::create([
-                'users_id' => Auth::user()->id,
-                'vehiclebrand_id' => $request->vehiclebrand_id,
-                'brandmodel_id' => $request->brandmodel_id,
+                'user_id' => Auth::user()->id,
+                'carmanufacturer_id' => $request->carmanufacturer_id,
+                'carmodel_id' => $request->carmodel_id,
                 'year_manufacture' => $request->year_manufacture,
                 'body_type' => $request->body_type,
                 'number_seat' => $request->number_seat,
@@ -79,7 +79,6 @@ class AdminVehicleController extends Controller
                 'tranmission_type' => $request->tranmission_type,
                 'drive_type' => $request->drive_type,
                 'engine_type' => $request->engine_type,
-                'number_cylinder' => $request->number_cylinder,
                 'engine_capacity' => $request->engine_capacity,
                 'fuel_type' => $request->fuel_type,
                 'chasis_number' => $request->chasis_number
@@ -100,7 +99,6 @@ class AdminVehicleController extends Controller
     }
     public function createfeatures(Request $request, $id){
         $myarray=[];
-        // dD($request->vehicledetail_id);
         foreach($request->all() as $key => $value) {
             if($key == "_token") continue;
             if($key == "vehicledetail_id") continue;
@@ -169,15 +167,13 @@ class AdminVehicleController extends Controller
 
     public function getcontacts($id){
         $vehicleDetail = VehicleDetail::find($id);
-        if($vehicleDetail == null){
+        if(!isset($vehicleDetail)){
             return redirect()->route('vehicle.details');
         }
-        $vehicleContact = vehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        $interiorcolor = InteriorColor::all();
+        $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
         $exteriorcolor = ExteriorColor::all();
         return view('admin.vehicle.admin_vehiclecontact')
         ->with(compact('vehicleDetail'))
-        ->with(compact('interiorcolor'))
         ->with(compact('exteriorcolor'))
         ->with(compact('vehicleContact'));
     }
@@ -187,8 +183,6 @@ class AdminVehicleController extends Controller
             'price' => 'required',
             'mileage' => 'required',
             'exterior_color' => 'required',
-            'interior_color' => 'required',
-            'seat_color' => 'required',
             'registered' => 'required',
             'registration_plate_number' => 'required',
             'registration_vehicle_number' => 'required',
@@ -210,8 +204,6 @@ class AdminVehicleController extends Controller
                 'price' => $request->price,
                 'mileage' => $request->mileage,
                 'exterior_color' => $request->exterior_color,
-                'interior_color' => $request->interior_color,
-                'seat_color' => $request->seat_color,
                 'registered' => $request->registered,
                 'registration_plate_number' => $request->registration_plate_number,
                 'registration_vehicle_number' => $request->registration_vehicle_number,
@@ -240,7 +232,6 @@ class AdminVehicleController extends Controller
             return redirect()->route('webapp.submit1');
         }
         $vehicleContact = VehicleContact::where('vehicledetail_id' , '=' , $vehicleDetail->id)->first();
-        $vehicleStatus = VehicleStatus::where('car_id', $id)->first();
 
         return view('admin.vehicle.admin_vehiclepublish')
         ->with(compact('vehicleDetail'))
@@ -251,34 +242,12 @@ class AdminVehicleController extends Controller
         $validatedData = $request->validate([
             'car_title' => 'required'
         ]);
-        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
-        if($vehicleStatus  == null){
-            $vehicleStatus = new VehicleStatus();
-        }
-        $vehicleStatus->car_id = $id;
-        $vehicleStatus->car_title = $request->car_title;
-        $vehicleStatus->status = false;
-        $vehicleStatus->plan = 'Basic';
-        $vehicleStatus->payment = 'false';
-        $vehicleStatus->payment_status = 'false';
-        $vehicleStatus->payment_method = 'false';
-        $vehicleStatus->save();
-        return redirect()->route('home');
+        dd("implment");
+        return redirect()->route('dashboard');
     }
 
     public function approveAdStatus($id){
-        $vehicleStatus = VehicleStatus::where('car_id', '=', $id)->first();
-        if($vehicleStatus  == null){
-            return redirect()->back()->with('error', 'Ad not found');
-        }
-        if($vehicleStatus->status == 0)
-        {
-            $vehicleStatus->status = true;
-        }
-        else{
-            $vehicleStatus->status = false;
-        }
-        $vehicleStatus->save();
+        dd("implment");
         return redirect()->back()->with('success', 'Ad approved successfully');
     }
     /***

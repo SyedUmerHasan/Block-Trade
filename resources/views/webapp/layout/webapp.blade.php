@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Auto Club</title>
+    <title>Block Trade : A Blockchain Startup for Car Buying and Selling</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('web-assets/images/favicon.png') }}" />
 

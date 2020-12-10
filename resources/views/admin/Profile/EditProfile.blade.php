@@ -47,7 +47,7 @@
                 <div class="col s10 m6 l6">
                   <h5 class="breadcrumbs-title mt-0 mb-0"><span>Account Settings</span></h5>
                   <ol class="breadcrumbs mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item"><a href="{{ route('profile.view', $profile->id) }}">Profile</a>
                     </li>
@@ -151,20 +151,6 @@
                     <label for="username" class="active">Username</label>
                     <input type="text" id="username" name="username" value="{{ $profile->user_name }}" data-error=".errorTxt1" class="valid" aria-invalid="false">
                     <small class="errorTxt1"></small>
-                  </div>
-                </div>
-                <div class="col s12">
-                  <div class="input-field">
-                    <label for="first_name" class="active">First Name</label>
-                    <input id="first_name" name="first_name" type="text" value="{{ $profile->first_name }}" data-error=".errorTxt2" class="valid" aria-invalid="false">
-                    <small class="errorTxt2"></small>
-                  </div>
-                </div>
-                <div class="col s12">
-                  <div class="input-field">
-                    <label for="last_name" class="active">Last Name</label>
-                    <input id="last_name" name="last_name" type="text" value="{{ $profile->last_name }}" data-error=".errorTxt2" class="valid" aria-invalid="false">
-                    <small class="errorTxt2"></small>
                   </div>
                 </div>
                 <div class="col s12">

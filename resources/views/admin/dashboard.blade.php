@@ -247,8 +247,6 @@
                                         <tbody>
                                             @foreach ($admins as $item)
                                             <tr>
-                                                <td>{{ $item->first_name }}</td>
-                                                <td>{{ $item->last_name }}</td>
                                                 <td>{{ $item->user_name }}</td>
                                                 <td><a href="tel:{{ $item->mobile_number }}">{{ $item->mobile_number }}</a></td>
                                                 <td><a href="mailto:{{ $item->email }}">{{ $item->email }}</a></td>

@@ -13,10 +13,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
             $table->string('user_name');
             $table->string('image_url')->default('');
             $table->string('linkedin')->default('');

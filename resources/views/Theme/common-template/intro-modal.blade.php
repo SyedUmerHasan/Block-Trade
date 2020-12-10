@@ -52,13 +52,6 @@
                             <div class="row">
                                 <div class="col s6">
                                     <div class="input-field">
-                                        <label for="first_name">Name</label>
-                                        <input placeholder="Name" id="first_name" type="text"
-                                            class="validate">
-                                    </div>
-                                </div>
-                                <div class="col s6">
-                                    <div class="input-field">
                                         <select>
                                             <option value="" disabled selected>Choose your option
                                             </option>

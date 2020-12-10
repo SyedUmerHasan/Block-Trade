@@ -15,7 +15,7 @@
                 <nav class="b-topBar__nav">
                     <ul>
                         @guest
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="javascript:void(0);">Cart</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                         <li><a href="{{ route('loginpage') }}">Sign in</a></li>
                         @endguest
@@ -28,8 +28,8 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->first_name }}</a></li>
+                        <li><a href="javascript:void(0);">Cart</a></li>
+                        <li><a href="{{ route('profile.view',Auth::user()->id) }}">Welcome {{ Auth::user()->user_name }}</a></li>
                         @endauth
                     </ul>
                 </nav>
@@ -44,8 +44,8 @@
         <div class="row">
             <div class="col-sm-3 col-xs-4">
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
-                    <h3><a href="{{ route('webapp.home') }}">Block<span>Trade</span></a></h3>
-                    <h2><a href="{{ route('webapp.home') }}">AUTOMOBILE CLASSFIED ADS</a></h2>
+                    <h3><a href="{{ route('dashboard') }}">Block<span>Trade</span></a></h3>
+                    <h2><a href="{{ route('dashboard') }}">AUTOMOBILE CLASSFIED ADS</a></h2>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-8">
@@ -61,22 +61,29 @@
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
                             <li class="dropdown">
-                                <a  href="{{ route('webapp.home') }}">Home</a>
+                                <a  href="{{ route('dashboard') }}">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a  href="#">About Us</a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu  h-nav">
+                                    @foreach (\App\VehicleDetail::orderBy('carmanufacturer_id')->groupBy('carmanufacturer_id')->take(10)->get() as $item)
+                                    <li><a href="{{ route('', ['brand' => \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name }}</a></li>
+                                    @endforeach
+                                </ul>
                             </li>
                             <li class="dropdown">
-                                <a  href="#">Contact Us</a>
-                            </li>
-                            <li class="dropdown">
-                                <a  href="#">Car List</a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Car Models<span class="fa fa-caret-down"></span></a>
+                                <ul class="dropdown-menu  h-nav">
+                                    @foreach (\App\VehicleDetail::orderBy('carmodel_id')->groupBy('carmodel_id')->take(10)->get() as $item)
+                                    <li><a href="#">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</a></li>
+                                    @endforeach
+                                </ul>
                             </li>
                             <li class="dropdown">
                                 <a  href="{{ route('webapp.submit1') }}">Create Ad</a>
                             </li>
                             {{-- <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Grid <span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="javascript:void(0);">Grid <span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu h-nav">
                                     <li><a href="listings.html">listing 1</a></li>
                                     <li><a href="listingsTwo.html">listing 2</a></li>
@@ -88,7 +95,7 @@
                             <li><a href="about.html">About</a></li>
                             <li><a href="article.html">Services</a></li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Blog <span class="fa fa-caret-down"></span></a>
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="javascript:void(0);">Blog <span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu h-nav">
                                     <li><a href="blog.html">Blog 1</a></li>
                                     <li><a href="blogTwo.html">Blog 2</a></li>

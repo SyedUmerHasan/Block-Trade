@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class IsAdmin
 {
@@ -15,22 +16,9 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if( auth()->user() !== null){
-
-            switch(auth()->user()->role){
-                case 'admin':
-                    return $next($request);
-                    break;
-                case 'buyer':
-                    return redirect()->route('buyer.home');
-                    break;
-                case 'seller':
-                    return redirect()->route('seller.home');
-                    break;
-            }
-
+        if (Auth::check() && Auth::user()->role == 'admin') {
+            return $next($request);
         }
-
         return redirect()->route('loginpage')->with('error',"You don't have admin access.");
     }
 }

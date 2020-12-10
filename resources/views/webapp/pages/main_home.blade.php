@@ -2,17 +2,22 @@
 
 
 @section('body')
-    <style>
-        .b-welcome__text p {
-            font: 300 13px 'Open Sans', sans-serif;
-            margin: 5px !important;
-        }
-        .b-welcome__text h3 {
-            font: 700 30px 'Open Sans', sans-serif;
-            text-transform: uppercase;
-            margin: 0px !important;
-        }
-    </style>
+<style>
+    .b-welcome__text p {
+        font: 300 13px 'Open Sans', sans-serif;
+        margin: 5px !important;
+    }
+    .b-welcome__text h3 {
+        font: 700 30px 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        margin: 0px !important;
+    }
+    .b-featured__item a img{
+        width: 200px !important;
+        height: 133px !important;
+    }
+</style>
+
 <section class="b-slider">
     <div id="carousel" class="slide carousel carousel-fade">
         <div class="carousel-inner">
@@ -66,7 +71,7 @@
             <span class="paw-car-ctg-660cc-cars"></span>
           660cc cars
         </a>
-        <form action="{{ route('webapp.search') }}" method="GET" class="b-search__main">
+        <form action="{{ route('searchportal') }}" method="GET" class="b-search__main">
             <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
                 <h2>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</h2>
             </div>
@@ -304,7 +309,7 @@
                             <h5><label for="type5">Sedan</label></h5>
                         </div>
                         <div class="col-xs-2">
-                            <input id="type6" type="radio" name="type" value="minicar"/>
+                            <input id="type6" type="radio" name="type" value="hatchback"/>
                             <label for="type6" class="b-search__main-type-svg">
                                     <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
@@ -341,7 +346,7 @@
                                         </g>
                                     </svg>
                                 </label>
-                            <h5><label for="type6">Minicar</label></h5>
+                            <h5><label for="type6">HatchBack</label></h5>
                         </div>
                     </div>
                 </div>
@@ -353,22 +358,18 @@
                             <div class="col-xs-4">
                                 <select name="brand">
                                         <option value="" selected="">Any Make</option>
-                                        @foreach ($carManufacturer as $item)
-                                            <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                        @foreach (\App\VehicleDetail::orderBy('carmanufacturer_id')->groupBy('carmanufacturer_id')->get() as $item)
+                                            <option value="{{ $item->brand_name }}">{{ \App\CarManufacturer::where("id", "=", $item->carmanufacturer_id)->first()->brand_name }}</option>
                                         @endforeach
-                                    </select>
+                                </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>MISSING MANUFACTURER?</p>
                             </div>
                             <div class="col-xs-4">
                                 <select name="model">
                                         <option value="" selected="">Any Model</option>
-                                        <option value="civic">Civic</option>
-                                        <option value="city">Honda City</option>
-                                        <option value="brv">Honda BRV</option>
-                                        <option value="corolla">Toyota Corolla</option>
-                                        @foreach ($carModels as $item)
-                                            <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                        @foreach (\App\VehicleDetail::orderBy('carmodel_id')->groupBy('carmodel_id')->get() as $item)
+                                            <option value="{{ \App\CarModel::where('id', '=', $item->carmodel_id)->first()->model_name }}">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</option>
                                         @endforeach
                                     </select>
                                 <span class="fa fa-caret-down"></span>
@@ -415,30 +416,34 @@
                             <input type="hidden" name="maxrange" class="j-max" />
                         </div>
                         <div class="b-search__main-form-submit">
-                            <a href="{{ route('webapp.search') }}">Advanced search</a>
+                            <a href="{{ route('searchportal') }}">Advanced search</a>
                             <button type="submit" class="btn m-btn">Search the Vehicle<span class="fa fa-angle-right"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-    </div>
+    </div>  
 </section>
+
 <section class="b-featured">
     <div class="container">
         <h2 class="s-title  zoomInUp" >Featured Vehicles</h2>
         <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="3" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="3" data-items-tablet-small="2">
+            @foreach (\App\VehicleDetail::take(10)->get() as $item)
             <div>
                 <div class="b-featured__item  ">
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/mers.jpg') }}" alt="mers" />
+                    <a href="{{ route('cardetailsinportal', $item->id ) }}">
+                            @if (\App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first())
+                            <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" />
+                            @endif
                             <span class="m-premium">Premium</span>
                         </a>
                     <div class="b-featured__item-price">
                         $184,900
                     </div>
                     <div class="clearfix"></div>
-                    <h5><a href="detail.html">MERCEDES-AMG GT / GT S</a></h5>
+                    <h5><a href="{{ route('cardetailsinportal', $item->id ) }}">sadasdsadasdsd</a></h5>
                     <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
                     <div class="b-featured__item-links">
                         <a href="#">Used</a>
@@ -449,153 +454,10 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="b-featured__item  ">
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/audi.jpg') }}" alt="audi" />
-                        </a>
-                    <div class="b-featured__item-price">
-                        $95,900
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">AUDI R8 SPYDER V-8</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2015</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/aston.jpg') }}" alt="aston" />
-                            <span class="m-leasing">LEASING AVAILABLE</span>
-                        </a>
-                    <div class="b-featured__item-price">
-                        $101,025
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">ASTON MARTIN VANTAGE</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2014</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/jaguar.jpg') }}" alt="jaguar" />
-                        </a>
-                    <div class="b-featured__item-price">
-                        $130,825
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">JAGUAR F-TYPE R</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2015</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/mers.jpg') }}" alt="mers" />
-                            <span class="m-premium">Premium</span>
-                        </a>
-                    <div class="b-featured__item-price">
-                        $184,900
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">MERCEDES-AMG GT / GT S</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2014</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/audi.jpg') }}" alt="audi" />
-                        </a>
-                    <div class="b-featured__item-price">
-                        $95,900
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">AUDI R8 SPYDER V-8</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2015</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/aston.jpg') }}" alt="aston" />
-                            <span class="m-leasing">LEASING AVAILABLE</span>
-                        </a>
-                    <div class="b-featured__item-price">
-                        $101,025
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">ASTON MARTIN VANTAGE</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2014</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item " >
-                    <a href="detail.html">
-                            <img src="{{ asset('web-assets/media/186x113/jaguar.jpg') }}" alt="jaguar" />
-                        </a>
-                    <div class="b-featured__item-price">
-                        $130,825
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a href="detail.html">JAGUAR F-TYPE R</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00</div>
-                    <div class="b-featured__item-links">
-                        <a href="#">Used</a>
-                        <a href="#">2015</a>
-                        <a href="#">Manual</a>
-                        <a href="#">Orange</a>
-                        <a href="#">Petrol</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
-
 
 <section class="b-welcome">
     <div class="container">
@@ -682,8 +544,6 @@
         </div>
     </div>
 </section>
-
-
 
 <section class="b-auto">
     <div class="container">

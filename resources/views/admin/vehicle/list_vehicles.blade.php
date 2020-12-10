@@ -50,7 +50,7 @@
                 <div class="col s10 m6 l6">
                   <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car Advertisement </span></h5>
                   <ol class="breadcrumbs mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item"><a href="{{ route('vehicle.getall') }}">Car Advertisement </a>
                     </li>
@@ -90,9 +90,9 @@
                             <td>{{ $item->plan }}</td>
                             <td>
                               @if ($item->status == 0)
-                              <a href="{{ route('vehicle.approve.status',$item->car_id) }}" class="btn red">Non Active</a>
+                              <a href="{{ route('vehicle.approve.status',$item->vehicledetail_id) }}" class="btn red">Non Active</a>
                               @else  
-                              <a href="{{ route('vehicle.approve.status',$item->car_id) }}" class="btn cyan">Active</a>
+                              <a href="{{ route('vehicle.approve.status',$item->vehicledetail_id) }}" class="btn cyan">Active</a>
                               @endif
                             </td>
                             <td>
@@ -102,10 +102,10 @@
                               <a href="#" class="btn cyan">Paid</a>
                               @endif
                             </td>
-                            <td><a href="{{ route('vehicle.details.edit',$item->car_id) }}" class="btn green">Details</a></td>
-                            <td><a href="{{ route('vehicle.images',$item->car_id) }}" class="btn purple">Images</a></td>
-                            <td><a href="{{ route('vehicle.features',$item->car_id) }}" class="btn pink">Features</a></td>
-                            <td><a href="{{ route('vehicle.contact',$item->car_id) }}" class="btn cyan">Contact</a></td>
+                            <td><a href="{{ route('vehicle.details.edit',$item->vehicledetail_id) }}" class="btn green">Details</a></td>
+                            <td><a href="{{ route('vehicle.images',$item->vehicledetail_id) }}" class="btn purple">Images</a></td>
+                            <td><a href="{{ route('vehicle.features',$item->vehicledetail_id) }}" class="btn pink">Features</a></td>
+                            <td><a href="{{ route('vehicle.contact',$item->vehicledetail_id) }}" class="btn cyan">Contact</a></td>
                             
                           </tr>
                       @endforeach

@@ -10,20 +10,25 @@ class VehicleDetail extends Model
     protected $primaryKey = "id";
     
     protected $fillable = [
-        'users_id', 
-        "vehiclebrand_id", 
-        "brandmodel_id", 
-        "body_type", 
-        "number_seat", 
-        'number_door', 
+        'user_id',
+        'carmanufacturer_id',
+        'carmodel_id',
+        'year_manufacture',
+        'body_type',
+        'number_seat',
+        'number_door',
         'number_gear',
         'tranmission_type',
         'drive_type',
-        "engine_type", 
-        "number_cylinder", 
-        "engine_capacity", 
-        'fuel_type', 
-        'chasis_number'
+        'engine_type',
+        'engine_capacity',
+        'fuel_type',
+        'chasis_number',
+        'car_title',
+        'description',
+        'price',
+        'isPublished',
+        'adType'
     ];
     public function features(){
         return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'id');
@@ -34,13 +39,10 @@ class VehicleDetail extends Model
     public function contact(){
         return $this->hasMany('App\VehicleContact', 'vehicledetail_id', 'id');
     }
-    public function brands(){
-        return $this->belongsTo('App\VehicleBrand', 'brandmodel_id', 'id');
+    public function manufacturer(){
+        return $this->belongsTo('App\CarManufacturer', 'carmanufacturer_id', 'id');
     }
     public function model(){
-        return $this->belongsTo('App\BrandModel', 'vehiclebrand_id', 'id');
-    }
-    public function car(){
-        return $this->belongsTo('App\VehicleStatus', 'id', 'car_id');
+        return $this->belongsTo('App\CarModel', 'carmodel_id', 'id');
     }
 }

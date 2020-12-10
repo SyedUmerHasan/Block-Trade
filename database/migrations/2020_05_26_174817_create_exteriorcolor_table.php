@@ -13,6 +13,7 @@ class CreateExteriorcolorTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('exteriorcolor');
         Schema::create('exteriorcolor', function (Blueprint $table) {
             $table->id();
             $table->text('color_name');

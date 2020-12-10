@@ -13,11 +13,12 @@ class CreateVehicledetailTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('vehicledetail');
         Schema::create('vehicledetail', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("users_id")->nullable();
-            $table->bigInteger("vehiclebrand_id")->nullable();
-            $table->bigInteger("brandmodel_id")->nullable();
+            $table->bigInteger("user_id")->nullable();
+            $table->bigInteger("carmanufacturer_id")->nullable();
+            $table->bigInteger("carmodel_id")->nullable();
             $table->bigInteger("year_manufacture")->nullable();
             $table->text("body_type")->nullable();
             $table->text("number_seat")->nullable();
@@ -26,11 +27,14 @@ class CreateVehicledetailTable extends Migration
             $table->text("tranmission_type")->nullable();
             $table->text("drive_type")->nullable();
             $table->text("engine_type")->nullable();
-            $table->text("number_cylinder")->nullable();
             $table->text("engine_capacity")->nullable();
             $table->text("fuel_type")->nullable();
             $table->text("chasis_number")->nullable();
-            $table->text("comments")->nullable();
+            $table->text("car_title")->nullable();
+            $table->text("description")->nullable();
+            $table->bigInteger("price")->nullable();
+            $table->boolean("isPublished")->default(false);
+            $table->text("adType")->nullable();
             $table->timestamps();
         });
     }

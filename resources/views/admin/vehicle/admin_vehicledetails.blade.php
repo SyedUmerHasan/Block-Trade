@@ -60,7 +60,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Create Car Ad</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('vehicle.getall') }}">Vehicle</a>
                                 </li>
@@ -112,16 +112,13 @@
                                                         <input type="hidden" name="vehicle_detail_id" value="" />
                                                         <div class="col s12 m6">
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                                                <label>Enter vehicle brand <span>*</span></label>
+                                                                <label>Enter Car Manufacturer <span>*</span></label>
                                                                 <div class='s-relative'>
-                                                                    <select class="m-select" name="vehiclebrand_id">
+                                                                    <select class="m-select" name="carmanufacturer_id">
                                                                         <option value="">Select</option>
-                                                                        @foreach ($carBrands as $eachCarBrand)
-                                                                        <option value="{{ $eachCarBrand->id }}" >{{ $eachCarBrand->brand_name }}</option>
+                                                                        @foreach (\App\CarManufacturer::orderBy('brand_name', 'asc')->get() as $item)
+                                                                        <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                                                         @endforeach
-                                                                        <option value="2">Toyota</option>
-                                                                        <option value="3">Suzuki</option>
-                                                                        <option value="4">Kia</option>
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
@@ -153,13 +150,11 @@
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="display: none">
                                                                 <label>Select No. of Gears <span>*</span></label>
                                                                 <div class='s-relative'>
                                                                     <select class="m-select" name="number_gear">
-                                                                        <option value="">Select</option>
-                                                                        <option>5</option>
-                                                                        <option >6</option>
+                                                                        <option value="0">Select</option>
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
@@ -173,19 +168,6 @@
                                                                         <option>Front Wheel Drive</option>
                                                                         <option>Rear Wheel Drive</option>
                                                                         <option>4WD</option>
-                                                                    </select>
-                                                                    <span class="fa fa-caret-down"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                                                <label>Select No. of Cylinders <span>*</span></label>
-                                                                <div class='s-relative'>
-                                                                    <select class="m-select" name="number_cylinder">
-                                                                        <option>Select</option>
-                                                                        <option >4</option>
-                                                                        <option>6</option>
-                                                                        <option>8</option>
-
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
@@ -210,12 +192,11 @@
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter Vehicle Model <span>*</span></label>
                                                                 <div class='s-relative'>
-                                                                    <select class="m-select" name="brandmodel_id">
+                                                                    <select class="m-select" name="carmodel_id">
                                                                         <option>Select a Model</option>
-                                                                        <option value="1" >Civic</option>
-                                                                        <option value="2">City</option>
-                                                                        <option value="3">Corolla</option>
-                                                                        <option value="4">Hummer</option>
+                                                                        @foreach ( \App\CarModel::all() as $item)
+                                                                        <option value="{{ $item->id }}">{{ $item->model_name }}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
@@ -230,8 +211,7 @@
                                                                         <option>MUV/SUV</option>
                                                                         <option>Coupe</option>
                                                                         <option>Convertible</option>
-                                                                        <option>Wagon</option>
-                                                                        <option>Van</option>
+                                                                        <option>Pickup</option>
                                                                     </select>
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
@@ -262,11 +242,11 @@
                                                                     <span class="fa fa-caret-down"></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s" style="display: none">
                                                                 <label>Select Engine Type <span>*</span></label>
                                                                 <div class='s-relative'>
                                                                     <select class="m-select" name="engine_type">
-                                                                        <option value="">Select</option>
+                                                                        <option value="0">Select</option>
                                                                         <option>Manual</option>
                                                                         <option>Automatic </option>
                                                                         <option>Hybrid</option>
@@ -276,7 +256,27 @@
                                                             </div>
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter Engine Capacity <span>*</span></label>
-                                                                <input placeholder="Enter Capacity" type="text" name="engine_capacity" value="{{ old('engine_capacity') }}"  />
+                                                                {{--  <input placeholder="Enter Capacity" type="text" name="engine_capacity" value="{{ old('engine_capacity') }}"  />  --}}
+                                                                <div class='s-relative'>
+                                                                    <select class="m-select" name="engine_capacity" value="{{ old('engine_capacity') }}">
+                                                                        <option value="">Select</option>
+                                                                        <option>650 CC</option>
+                                                                        <option>800 CC</option>
+                                                                        <option>1000 CC</option>
+                                                                        <option>1300 CC</option>
+                                                                        <option>1500 CC</option>
+                                                                        <option>1600 CC</option>
+                                                                        <option>1800 CC</option>
+                                                                        <option>2000 CC</option>
+                                                                        <option>2500 CC</option>
+                                                                        <option>2700 CC</option>
+                                                                        <option>3000 CC</option>
+                                                                        <option>3500 CC</option>
+                                                                        <option>4000 CC</option>
+                                                                        <option>4700 CC</option>
+                                                                        </select>
+                                                                    <span class="fa fa-caret-down"></span>
+                                                                </div>
                                                             </div>
                                                             <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                                                 <label>Enter VIN/Chassis Number <span>*</span></label>
@@ -285,7 +285,7 @@
                                                         </div>
                                                         <div class=" right">
                                                             <button  class="btn red">Cancel</button>
-                                                            <button type="submit" class="btn blue ">Create</button>
+                                                            <button type="submit" class="btn blue ">Next</button>
                                                         </div>
                                                     </form>
                                                 </div>

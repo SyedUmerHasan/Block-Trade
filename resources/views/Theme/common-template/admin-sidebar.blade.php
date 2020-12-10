@@ -3,11 +3,11 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="http://127.0.0.1:8000/admin/home">
+            <a class="brand-logo darken-1" href="/admin/home">
 
-                <img class="hide-on-med-and-down" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="http://127.0.0.1:8000/admin.png" alt="materialize logo">
+                <img class="hide-on-med-and-down" src="/admin.png" alt="materialize logo">
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
                 <span class="logo-text hide-on-med-and-down">Admin Panel </span>
 
             </a>
@@ -21,13 +21,13 @@
         
         @if (!Auth::guest() && Auth::user()->role == "admin")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -45,15 +45,15 @@
         </li>
         
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.getall') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.model.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Car Brand List</span>
+                <span class="menu-title" data-i18n="User Profile">Car Model List</span>
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.getall') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Interior Color List</span>
+                <span class="menu-title" data-i18n="User Profile">Car Manufacturer List</span>
             </a>
         </li>
         <li class="bold">
@@ -74,15 +74,15 @@
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehiclebrand.create') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Brand</span>
+                <span class="menu-title" data-i18n="User Profile">Add Car Manufacturer</span>
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('interiorcolor.create') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('automotive.model.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Interior Color</span>
+                <span class="menu-title" data-i18n="User Profile">Add Car Model</span>
             </a>
         </li>
         <li class="bold">
@@ -94,13 +94,13 @@
         
         @elseif (!Auth::guest() && Auth::user()->role == "buyer")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('buyer.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>
@@ -114,13 +114,13 @@
 
         @elseif (!Auth::guest() && Auth::user()->role == "seller")
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('seller.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
             </a>
         </li>
         <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('webapp.home') }}">
+            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
                 <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
             </a>

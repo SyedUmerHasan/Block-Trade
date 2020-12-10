@@ -55,7 +55,7 @@
                         <div class="col s10 m6 l6">
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Vehicle Images</span></h5>
                             <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#">Vehicle</a>
                                 </li>
@@ -90,7 +90,7 @@
                                             <div class="col m12 s12">
                                                 <div class=" right">
                                                     <button  class="btn red">Cancel</button>
-                                                    <button type="submit" class="btn blue ">Create</button>
+                                                    <button type="submit" class="btn blue ">Next</button>
                                                 </div>
                                             </div>
                                         </div>
