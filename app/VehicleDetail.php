@@ -10,20 +10,25 @@ class VehicleDetail extends Model
     protected $primaryKey = "id";
     
     protected $fillable = [
-        'user_id', 
-        "carmanufacturer_id", 
-        "carmodel_id", 
-        "body_type", 
-        "number_seat", 
-        'number_door', 
+        'user_id',
+        'carmanufacturer_id',
+        'carmodel_id',
+        'year_manufacture',
+        'body_type',
+        'number_seat',
+        'number_door',
         'number_gear',
         'tranmission_type',
         'drive_type',
-        "engine_type", 
-        "engine_capacity", 
-        'fuel_type', 
+        'engine_type',
+        'engine_capacity',
+        'fuel_type',
         'chasis_number',
-        'description'
+        'car_title',
+        'description',
+        'price',
+        'isPublished',
+        'adType'
     ];
     public function features(){
         return $this->hasMany('App\VehicleFeatures', 'vehicledetail_id', 'id');

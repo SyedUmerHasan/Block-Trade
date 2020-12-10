@@ -18,7 +18,6 @@ class AdminController extends Controller
         return view("admin.auth.forget-password");
     }
     public function home(){
-        dd("Admin");
         $buyerCount = User::where("is_active", "=", "true")->where("role", "=", "buyer")->count();
         $sellerCount = User::where("is_active", "=", "true")->where("role", "=", "seller")->count();
         $adminCount = User::where("is_active", "=", "true")->where("role", "=", "admin")->count();

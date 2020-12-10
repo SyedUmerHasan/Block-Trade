@@ -346,6 +346,7 @@
 
 
                                                     @if (\App\VehicleDetail::all()->count() > 0)
+                                                    {{ dd(\App\VehicleDetail::all()) }}
                                                         @foreach (\App\VehicleDetail::all() as $item)
                                                             <div
                                                                 class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
@@ -367,10 +368,9 @@
                                                                     <div class="listing-car-item-meta">
                                                                         <div class="car-meta-top heading-font clearfix">
                                                                             <div class="price">
-                                                                                <div class="normal-price">$78 000</div>
+                                                                                <div class="normal-price">{{ $item }}</div>
                                                                             </div>
-                                                                            <div class="car-title">
-                                                                                Ford F-150 Raptor 6,2L V8 AT </div>
+                                                                            <div class="car-title">{{ $item->car_title }}</div>
                                                                         </div>
                                                                         <div class="car-meta-bottom">
                                                                             <ul>
@@ -465,7 +465,7 @@
                                                     <div class="col-xs-12 text-center">
                                                         <div class="dp-in">
                                                             <a class="load-more-btn external"
-                                                                href="/inventory/?condition=new-cars" rel="nofollow">
+                                                                href="{{ route('search') }}" rel="nofollow">
                                                                 Show all </a>
                                                         </div>
                                                     </div>
@@ -621,7 +621,7 @@
                                                     <div class="col-xs-12 text-center">
                                                         <div class="dp-in">
                                                             <a class="load-more-btn external"
-                                                                href="/inventory/?condition=used-cars" rel="nofollow">
+                                                                href="{{ route('search') }}" rel="nofollow">
                                                                 Show all </a>
                                                         </div>
                                                     </div>
@@ -640,38 +640,19 @@
                                                 </div>
                                                 <div class="filter stm-vc-ajax-filter">
                                                     <div class="row">
-                                                        <form action="/inventory/" method="get">
+                                                        <form action="{{ route('search') }}" method="get">
                                                             <div class="col-md-3 col-sm-6">
                                                                 <div class="form-group">
-                                                                    <select name="body" class="form-control">
-                                                                        <option value="">Select Body</option>
-                                                                        <option value="limousine" data-disabled="null">
-                                                                            Compact </option>
-                                                                        <option value="convertible"
-                                                                            data-disabled="null">
-                                                                            Convertible </option>
-                                                                        <option value="coupe" data-disabled="null">
-                                                                            Coupe </option>
-                                                                        <option value="off-road" data-disabled="null">
-                                                                            Off-Road </option>
-                                                                        <option value="other" disabled="disabled"
-                                                                            data-disabled="disabled">
-                                                                            Other </option>
-                                                                        <option value="pickup" data-disabled="null">
-                                                                            Pickup </option>
-                                                                        <option value="sedan" data-disabled="null">
-                                                                            Sedan </option>
-                                                                        <option value="station-wagon"
-                                                                            data-disabled="null">
-                                                                            Station Wagon </option>
-                                                                        <option value="suv" data-disabled="null">
-                                                                            SUV </option>
-                                                                        <option value="transporter" disabled="disabled"
-                                                                            data-disabled="disabled">
-                                                                            Transporter </option>
-                                                                        <option value="van" disabled="disabled"
-                                                                            data-disabled="disabled">
-                                                                            Van </option>
+                                                                    <select name="body_type" class="form-control">                                                                        
+                                                                        <option value="" selected='selected'>Body</option>
+                                                                        <option value="limousine">Compact </option>
+                                                                        <option value="convertible">Convertible</option>
+                                                                        <option value="coupe">Coupe </option>
+                                                                        <option value="off-road">Off-Road </option>
+                                                                        <option value="pickup"> Pickup </option>
+                                                                        <option value="sedan">Sedan </option>
+                                                                        <option value="suv">SUV </option>
+                                                                        <option value="other"> Other </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -679,42 +660,29 @@
                                                                 <div class="form-group">
                                                                     <select name="make" class="form-control">
                                                                         <option value="">Select Make</option>
-                                                                        <option value="acura" data-disabled="null">
-                                                                            Acura </option>
-                                                                        <option value="audi" data-disabled="null">
-                                                                            Audi </option>
-                                                                        <option value="bmw" data-disabled="null">
-                                                                            BMW </option>
-                                                                        <option value="chevrolet" data-disabled="null">
-                                                                            Chevrolet </option>
-                                                                        <option value="dodge" data-disabled="null">
-                                                                            Dodge </option>
-                                                                        <option value="ford" data-disabled="null">
-                                                                            Ford </option>
-                                                                        <option value="honda" data-disabled="null">
-                                                                            Honda </option>
-                                                                        <option value="hyundai" data-disabled="null">
-                                                                            Hyundai </option>
-                                                                        <option value="kia" data-disabled="null">
-                                                                            Kia </option>
-                                                                        <option value="lexus" data-disabled="null">
-                                                                            Lexus </option>
-                                                                        <option value="mazda" data-disabled="null">
-                                                                            Mazda </option>
-                                                                        <option value="mercedes-benz"
-                                                                            data-disabled="null">
-                                                                            Mercedes-Benz </option>
-                                                                        <option value="nissan" data-disabled="null">
-                                                                            Nissan </option>
-                                                                        <option value="range-rover"
-                                                                            data-disabled="null">
-                                                                            Range Rover </option>
-                                                                        <option value="renault" data-disabled="null">
-                                                                            Renault </option>
-                                                                        <option value="tesla" data-disabled="null">
-                                                                            Tesla </option>
-                                                                        <option value="toyota" data-disabled="null">
-                                                                            Toyota </option>
+                                                                        @if (\App\CarManufacturer::all()->count() > 0)
+                                                                            @foreach (\App\CarManufacturer::all() as $item)
+                                                                                <option value="{{ $item->brand_name }}"> {{ $item->brand_name }} </option>
+                                                                            @endforeach
+                                                                        @else
+                                                                        <option value="acura" > Acura </option>
+                                                                        <option value="audi" > Audi </option>
+                                                                        <option value="bmw" > BMW </option>
+                                                                        <option value="chevrolet" > Chevrolet </option>
+                                                                        <option value="dodge" > Dodge </option>
+                                                                        <option value="ford" > Ford </option>
+                                                                        <option value="honda" > Honda </option>
+                                                                        <option value="hyundai" > Hyundai </option>
+                                                                        <option value="kia" > Kia </option>
+                                                                        <option value="lexus" > Lexus </option>
+                                                                        <option value="mazda" > Mazda </option>
+                                                                        <option value="mercedes-benz"> Mercedes-Benz </option>
+                                                                        <option value="nissan" > Nissan </option>
+                                                                        <option value="range-rover"> Range Rover </option>
+                                                                        <option value="renault" > Renault </option>
+                                                                        <option value="tesla" > Tesla </option>
+                                                                        <option value="toyota" > Toyota </option>
+                                                                        @endif
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -722,16 +690,11 @@
                                                                 <div class="form-group">
                                                                     <select name="mileage" class="form-control">
                                                                         <option value="">Select Mileage</option>
-                                                                        <option value="10000" data-disabled="null">
-                                                                            10000 </option>
-                                                                        <option value="15000" data-disabled="null">
-                                                                            15000 </option>
-                                                                        <option value="20000" data-disabled="null">
-                                                                            20000 </option>
-                                                                        <option value="25000" data-disabled="null">
-                                                                            25000 </option>
-                                                                        <option value="5000" data-disabled="null">
-                                                                            5000 </option>
+                                                                        <option value="10000"> 10000 </option>
+                                                                        <option value="15000"> 15000 </option>
+                                                                        <option value="20000"> 20000 </option>
+                                                                        <option value="25000"> 25000 </option>
+                                                                        <option value="5000"> 5000 </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -791,7 +754,7 @@
                         <div class="vc_column-inner vc_custom_1448967644598">
                             <div class="wpb_wrapper">
 
-                                <a class="icon-box-link external" href="/inventory/" title="Inventory" rel="nofollow">
+                                <a class="icon-box-link external" href="{{ route('search') }}" title="Inventory" rel="nofollow">
 
                                     <div class="icon-box icon_box_8482 stm-layout-box-car_dealer  "
                                         style="color:#232628">

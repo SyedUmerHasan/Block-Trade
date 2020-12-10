@@ -17,19 +17,12 @@ class CreateVehiclecontactTable extends Migration
         Schema::create('vehiclecontact', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("vehicledetail_id");
-            $table->bigInteger("price");
-            $table->bigInteger("mileage");
-            $table->text("exterior_color");
-            $table->boolean("registered");
-            $table->text("registration_plate_number");
-            $table->text("registration_vehicle_number");
-            $table->text("registration_exiry_month");
-            $table->text("registration_exiry_year");
-            $table->text("vehicle_address");
-            $table->text("vehicle_city");
-            $table->text("vehicle_country");
-            $table->text("vehicle_phone");
-            $table->text("vehicle_email");
+            $table->text("first_name");
+            $table->text("last_name");
+            $table->text("email_address");
+            $table->text("phone_number");
+            $table->text("address");
+            $table->text("city");
             $table->timestamps();
         });
     }

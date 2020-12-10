@@ -20,7 +20,7 @@ class CarManufacturerController extends Controller
     }
     public function add(Request $request){
         $validatedData = $request->validate([
-            'brand_name' => 'required|unique:vehiclebrand'
+            'brand_name' => 'required|unique:carmanufacturer'
         ]);
         $vehiclebrand = new CarManufacturer();
         $vehiclebrand->brand_name = $request->brand_name;

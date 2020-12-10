@@ -67,7 +67,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Manufacturers<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
                                     @foreach (\App\VehicleDetail::orderBy('carmanufacturer_id')->groupBy('carmanufacturer_id')->take(10)->get() as $item)
-                                    <li><a href="{{ route('searchportal', ['brand' => \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name }}</a></li>
+                                    <li><a href="{{ route('', ['brand' => \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name ]) }}">{{ \App\CarManufacturer::find($item->carmanufacturer_id)->brand_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -75,7 +75,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">Search By Car Models<span class="fa fa-caret-down"></span></a>
                                 <ul class="dropdown-menu  h-nav">
                                     @foreach (\App\VehicleDetail::orderBy('carmodel_id')->groupBy('carmodel_id')->take(10)->get() as $item)
-                                    <li><a href="{{ route('searchportal', ['model' => \App\CarModel::find($item->carmodel_id)->model_name ]) }}">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</a></li>
+                                    <li><a href="#">{{ \App\CarModel::where("id", "=", $item->carmodel_id)->first()->model_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

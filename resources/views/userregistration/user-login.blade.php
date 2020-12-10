@@ -420,15 +420,19 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form class="sign-in-form" method="POST" action="{{ route('login') }}">
+                    @csrf
                     <h2 class="title">Sign in</h2>
+                    @if(Session::has('loginerror'))
+                        <div style="color: red">{{Session::get('error')}}</div>
+                    @endif
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required />
+                        <input  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                     </div>
                     <input type="submit" value="Login" class="btn solid" />
                     <p class="social-text">Or Sign in with social platforms</p>

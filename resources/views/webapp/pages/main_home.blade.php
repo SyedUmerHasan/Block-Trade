@@ -434,7 +434,9 @@
             <div>
                 <div class="b-featured__item  ">
                     <a href="{{ route('cardetailsinportal', $item->id ) }}">
+                            @if (\App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first())
                             <img src="{{ \App\VehicleImages::where('vehicledetail_id', '=', $item->id)->first()->image_path }}" />
+                            @endif
                             <span class="m-premium">Premium</span>
                         </a>
                     <div class="b-featured__item-price">

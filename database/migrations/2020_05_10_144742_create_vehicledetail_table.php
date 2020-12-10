@@ -32,6 +32,7 @@ class CreateVehicledetailTable extends Migration
             $table->text("chasis_number")->nullable();
             $table->text("car_title")->nullable();
             $table->text("description")->nullable();
+            $table->bigInteger("price")->nullable();
             $table->boolean("isPublished")->default(false);
             $table->text("adType")->nullable();
             $table->timestamps();

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <link media="all" href="/wp-content/cache/autoptimize/1/css/autoptimize_1a91a15fba9e280e53bb69d5b19f91cc.css"
+    <link media="all" href="/wp-content/cache/autoptimize/1/css/autoptimize_de4d96a8d82240d1d6cf8a3e4451b5a8.css"
         rel="stylesheet" />
     <title>Inventory - Motors</title>
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -169,23 +169,18 @@
                                                             <div class="col-md-12 col-sm-6 stm-filter_condition">
                                                                 <div class="form-group">
                                                                     <select name="condition" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Condition </option>
-                                                                        <option value="new-cars">
-                                                                            New </option>
-                                                                        <option value="used-cars">
-                                                                            Used </option>
+                                                                        <option value="" selected='selected'> Condition </option>
+                                                                        <option value="new-cars"> New </option>
+                                                                        <option value="used-cars"> Used </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_body">
                                                                 <div class="form-group">
                                                                     <select name="body" class="form-control">
-                                                                        <option value="" selected='selected'> Body
-                                                                        </option>
+                                                                        <option value="" selected='selected'>Body</option>
                                                                         <option value="limousine">Compact </option>
-                                                                        <option value="convertible">Convertible
-                                                                        </option>
+                                                                        <option value="convertible">Convertible</option>
                                                                         <option value="coupe">Coupe </option>
                                                                         <option value="off-road">Off-Road </option>
                                                                         <option value="pickup"> Pickup </option>
@@ -198,14 +193,13 @@
                                                             <div class="col-md-12 col-sm-6 stm-filter_make">
                                                                 <div class="form-group">
                                                                     <select name="make" class="form-control">
-                                                                        <option value="bmw"> BMW </option>
                                                                         @if (\App\CarManufacturer::all()->count() > 0)
-                                                                            <option value="" selected='selected'>
-                                                                                dfuhufd </option>
+                                                                            <option value="" selected='selected'> Make </option>
+                                                                            @foreach (\App\CarManufacturer::all() as $item)
+                                                                                <option value="{{ $item->brand_name }}"> {{ $item->brand_name }} </option>
+                                                                            @endforeach
                                                                         @else
-                                                                            <option
-                                                                                value="" selected='selected'> Make
-                                                                            </option>
+                                                                            <option value="" selected='selected'> Make </option>
                                                                             <option value="acura"> Acura </option>
                                                                             <option value="audi"> Audi </option>
                                                                             <option value="bmw"> BMW </option>
@@ -234,138 +228,37 @@
                                                             <div class="col-md-12 col-sm-6 stm-filter_serie">
                                                                 <div class="form-group">
                                                                     <select name="serie" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Model </option>
-                                                                        <option value="3-serie-model">
-                                                                            3-serie </option>
-                                                                        <option value="370z">
-                                                                            370Z </option>
-                                                                        <option value="5-serie-model">
-                                                                            5-serie </option>
-                                                                        <option value="accord">
-                                                                            Accord </option>
-                                                                        <option value="altima">
-                                                                            Altima </option>
-                                                                        <option value="avalon">
-                                                                            Avalon </option>
-                                                                        <option value="c-class">
-                                                                            C-Class </option>
-                                                                        <option value="camry">
-                                                                            Camry </option>
-                                                                        <option value="charger">
-                                                                            Charger </option>
-                                                                        <option value="civic">
-                                                                            Civic </option>
-                                                                        <option value="cr-v">
-                                                                            CR-V </option>
-                                                                        <option value="cruze">
-                                                                            Cruze </option>
-                                                                        <option value="cx-5">
-                                                                            CX-5 </option>
-                                                                        <option value="elantra">
-                                                                            Elantra </option>
-                                                                        <option value="explorer">
-                                                                            Explorer </option>
-                                                                        <option value="f-150-raptor">
-                                                                            F-150 Raptor </option>
-                                                                        <option value="focus">
-                                                                            Focus </option>
-                                                                        <option value="fusion">
-                                                                            Fusion </option>
-                                                                        <option value="genesis">
-                                                                            Genesis </option>
-                                                                        <option value="gtr" disabled='disabled'>
-                                                                            GTR </option>
-                                                                        <option value="kaptur">
-                                                                            Kaptur </option>
-                                                                        <option value="malibu">
-                                                                            Malibu </option>
-                                                                        <option value="model-x">
-                                                                            Model X </option>
-                                                                        <option value="mustang">
-                                                                            Mustang </option>
-                                                                        <option value="odyssey" disabled='disabled'>
-                                                                            Odyssey </option>
-                                                                        <option value="optima">
-                                                                            Optima </option>
-                                                                        <option value="pilot">
-                                                                            Pilot </option>
-                                                                        <option value="q8">
-                                                                            Q8 </option>
-                                                                        <option value="r8">
-                                                                            R8 </option>
-                                                                        <option value="rav4">
-                                                                            RAV4 </option>
-                                                                        <option value="rdx">
-                                                                            RDX </option>
-                                                                        <option value="rio">
-                                                                            Rio </option>
-                                                                        <option value="sentra" disabled='disabled'>
-                                                                            Sentra </option>
-                                                                        <option value="sorento">
-                                                                            Sorento </option>
-                                                                        <option value="soul">
-                                                                            Soul </option>
-                                                                        <option value="tacoma">
-                                                                            Tacoma </option>
-                                                                        <option value="tuscon">
-                                                                            Tucson </option>
-                                                                        <option value="ux-250h">
-                                                                            UX 250h </option>
-                                                                        <option value="veloster">
-                                                                            Veloster </option>
-                                                                        <option value="versa">
-                                                                            Versa </option>
-                                                                        <option value="vogue">
-                                                                            Vogue </option>
-                                                                        <option value="x7-xdrive40i">
-                                                                            X7 xDrive40i </option>
+                                                                        <option value="" selected='selected'> Model </option>
+                                                                        @foreach (\App\CarModel::all() as $item)
+                                                                         <option value="{{ $item->model_name }}"> {{ $item->model_name }} </option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_mileage">
                                                                 <div class="form-group">
                                                                     <select name="mileage" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Max Mileage </option>
-                                                                        <option value="&lt;5000">
-                                                                            &lt; 5000 </option>
-                                                                        <option value="5000-10000">
-                                                                            5000-10000 </option>
-                                                                        <option value="10000-15000">
-                                                                            10000-15000 </option>
-                                                                        <option value="15000-20000">
-                                                                            15000-20000 </option>
-                                                                        <option value="20000-25000">
-                                                                            20000-25000 </option>
-                                                                        <option value="&gt;25000">
-                                                                            &gt;25000 </option>
+                                                                        <option value="" selected='selected'> Max Mileage </option>
+                                                                        <option value="5000"> < 5000 </option>
+                                                                        <option value="5000-10000"> 5000-10000 </option>
+                                                                        <option value="10000-15000"> 10000-15000 </option>
+                                                                        <option value="15000-20000"> 15000-20000 </option>
+                                                                        <option value="20000-25000"> 20000-25000 </option>
+                                                                        <option value="25000"> &gt;25000 </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_ca-year">
                                                                 <div class="form-group">
                                                                     <select name="ca-year" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Year </option>
-                                                                        <option value="1967">
-                                                                            1967 </option>
-                                                                        <option value="1980" disabled='disabled'>
-                                                                            1980 </option>
-                                                                        <option value="1990">
-                                                                            1990 </option>
-                                                                        <option value="2000">
-                                                                            2000 </option>
-                                                                        <option value="2005">
-                                                                            2005 </option>
-                                                                        <option value="2010">
-                                                                            2010 </option>
-                                                                        <option value="2015">
-                                                                            2015 </option>
-                                                                        <option value="2019">
-                                                                            2019 </option>
-                                                                        <option value="2020">
-                                                                            2020 </option>
+                                                                        <option value="" selected='selected'> Year </option>
+                                                                        <option value="1990"> 1990 </option>
+                                                                        <option value="2000"> 2000 </option>
+                                                                        <option value="2005"> 2005 </option>
+                                                                        <option value="2010"> 2010 </option>
+                                                                        <option value="2015"> 2015 </option>
+                                                                        <option value="2019"> 2019 </option>
+                                                                        <option value="2020"> 2020 </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -373,8 +266,7 @@
                                                                 <div class="filter-price stm-slider-filter-type-unit">
                                                                     <div class="clearfix">
                                                                         <h5 class="pull-left">Price</h5>
-                                                                        <div class="stm-current-slider-labels">$2 000 —
-                                                                            $200 000</div>
+                                                                        <div class="stm-current-slider-labels">$2 000 — $200 000</div>
                                                                     </div>
 
                                                                     <div class="stm-price-range-unit">
@@ -385,85 +277,33 @@
                                                                     <div class="row">
                                                                         <div
                                                                             class="col-md-6 col-sm-6 col-md-wider-right">
-                                                                            <input type="text" name="min_price"
-                                                                                id="stm_filter_min_price"
-                                                                                class="form-control" />
+                                                                            <input type="text" name="min_price" id="stm_filter_min_price" class="form-control" />
                                                                         </div>
                                                                         <div
                                                                             class="col-md-6 col-sm-6 col-md-wider-left">
-                                                                            <input type="text" name="max_price"
-                                                                                id="stm_filter_max_price"
-                                                                                class="form-control" />
+                                                                            <input type="text" name="max_price" id="stm_filter_max_price" class="form-control" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
-
-
-                                                                <script data-cfasync="false"
-                                                                    src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-                                                                </script>
-                                                                <script></script>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_transmission">
                                                                 <div class="form-group">
                                                                     <select name="transmission" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Transmission </option>
-                                                                        <option value="automatic">
-                                                                            Automatic </option>
-                                                                        <option value="6-manual">
-                                                                            Manual </option>
-                                                                        <option value="semi-manual">
-                                                                            Semi-automatic </option>
+                                                                        <option value="" selected='selected'> Transmission </option>
+                                                                        <option value="automatic"> Automatic </option>
+                                                                        <option value="6-manual"> Manual </option>
+                                                                        <option value="semi-manual"> Semi-automatic </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_exterior-color">
                                                                 <div class="form-group">
                                                                     <select name="exterior-color" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Exterior Color </option>
-                                                                        <option value="deep-blue-pearl">
-                                                                            Deep Blue Pearl </option>
-                                                                        <option value="midnight-silver-metallic">
-                                                                            Midnight Silver Metallic </option>
-                                                                        <option value="obsidian-black-metallic">
-                                                                            Obsidian Black Metallic </option>
-                                                                        <option value="orange-metallic">
-                                                                            Orange Metallic </option>
-                                                                        <option value="deep-red">
-                                                                            Pearl White </option>
-                                                                        <option value="rich-black">
-                                                                            Red Multi-Coat </option>
-                                                                        <option value="silver-metallic">
-                                                                            Silver Metallic </option>
-                                                                        <option value="solid-black">
-                                                                            Solid Black </option>
-                                                                        <option value="solid-white">
-                                                                            Solid White </option>
-                                                                        <option value="titanium-metallic">
-                                                                            Titanium Metallic </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 col-sm-6 stm-filter_interior-color">
-                                                                <div class="form-group">
-                                                                    <select name="interior-color" class="form-control">
-                                                                        <option value="" selected='selected'>
-                                                                            Interior Color </option>
-                                                                        <option value="beige">
-                                                                            Beige </option>
-                                                                        <option value="brown">
-                                                                            Brown </option>
-                                                                        <option value="grey">
-                                                                            Grey </option>
-                                                                        <option value="jet-black">
-                                                                            Jet Black </option>
-                                                                        <option value="jet-red">
-                                                                            Jet Red </option>
-                                                                        <option value="multi-pattern">
-                                                                            Multi-pattern </option>
+                                                                        <option value="" selected='selected'> Exterior Color </option>
+                                                                        @foreach (\App\ExteriorColor::all() as $item)
+                                                                            <option value="{{ $item }}"> {{ $item }} </option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -472,36 +312,19 @@
                                                                 <div class="stm-multiple-select">
                                                                     <h5>Additional features</h5>
                                                                     <select multiple="multiple" name="stm_features[]">
-                                                                        <option value="abs">
-                                                                            ABS </option>
-                                                                        <option value="auxiliary-heating">
-                                                                            Auxiliary heating </option>
-                                                                        <option value="bluetooth">
-                                                                            Bluetooth </option>
-                                                                        <option value="cd-player">
-                                                                            CD player </option>
-                                                                        <option value="central-locking">
-                                                                            Central locking </option>
-                                                                        <option
-                                                                            value="driver-and-front-passenger-advanced-airbags">
-                                                                            Driver and front-passenger advanced airbags
-                                                                        </option>
-                                                                        <option value="esp">
-                                                                            ESP </option>
-                                                                        <option value="full-led-headlights">
-                                                                            Full LED headlights </option>
-                                                                        <option
-                                                                            value="led-taillights-with-dynamic-turn-signals">
-                                                                            LED taillights with dynamic turn signals
-                                                                        </option>
-                                                                        <option value="nitro">
-                                                                            Nitro </option>
-                                                                        <option value="storage-package">
-                                                                            Storage package </option>
-                                                                        <option value="tire-pressure-monitoring-system">
-                                                                            Tire pressure monitoring system </option>
-                                                                        <option value="turbo-engine">
-                                                                            Turbo-engine </option>
+                                                                        <option value="abs"> ABS </option>
+                                                                        <option value="auxiliary-heating"> Auxiliary heating </option>
+                                                                        <option value="bluetooth"> Bluetooth </option>
+                                                                        <option value="cd-player"> CD player </option>
+                                                                        <option value="central-locking"> Central locking </option>
+                                                                        <option value="driver-and-front-passenger-advanced-airbags"> Driver and front-passenger advanced airbags </option>
+                                                                        <option value="esp"> ESP </option>
+                                                                        <option value="full-led-headlights"> Full LED headlights </option>
+                                                                        <option value="led-taillights-with-dynamic-turn-signals"> LED taillights with dynamic turn signals </option>
+                                                                        <option value="nitro">Nitro </option>
+                                                                        <option value="storage-package"> Storage package </option>
+                                                                        <option value="tire-pressure-monitoring-system"> Tire pressure monitoring system </option>
+                                                                        <option value="turbo-engine"> Turbo-engine </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -541,8 +364,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-                                                            <script></script>
 
                                                         </div>
 
@@ -909,340 +730,10 @@
     @include('newtheme.footer')
 
 
-    <div id="frontend_customizer" style="left: -276px;">
-        <div class="customizer_wrapper">
-
-            <div class="stm_customizer_element stm_visible">
-                <h3>Layout</h3>
-
-                <div class="customizer_element">
-                    <select name="stm-select-layout">
-                        <option value="http://motors.stylemixthemes.com/" selected>
-                            Car Dealership One
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/dealer-two">
-                            Car Dealership Two
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/classified">
-                            Classified Listing
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/classified-two">
-                            Classified Listing Two
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/classified-three">
-                            Classified Listing Three
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/classified-four">
-                            Classified Listing Four
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/car-repair-service">
-                            Car Repair Service
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/boats">
-                            Boats Dealership
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/motorcycles">
-                            Motorcycles
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/rent-a-car">
-                            Rent a car
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/magazine">
-                            Car Magazine
-                        </option>
-                        <option value="http://motors.stylemixthemes.com/auto-parts">
-                            Auto Parts Shop
-                        </option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="stm_customizer_element">
-                <h3>Nav Mode</h3>
-
-                <div class="customizer_element">
-                    <div class="stm_switcher active" id="navigation_type">
-                        <div class="switcher_label disable">Static</div>
-                        <div class="switcher_nav"></div>
-                        <div class="switcher_label enable">Sticky</div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="stm_customizer_element stm_visible">
-                <h3>Layout</h3>
-
-                <div class="customizer_element">
-                    <div class="stm_switcher active" id="layout_mode">
-                        <div class="switcher_label disable">Boxed</div>
-                        <div class="switcher_nav"></div>
-                        <div class="switcher_label enable">Wide</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="customizer_boxed_background">
-                <h3>Background Image</h3>
-
-                <div class="customizer_element">
-                    <div class="customizer_colors" id="background_image">
-                        <span id="boxed_fifth_bg" class="active" data-image="box_img_5"></span>
-                        <span id="boxed_first_bg" data-image="box_img_1"></span>
-                        <span id="boxed_second_bg" data-image="box_img_2"></span>
-                        <span id="boxed_third_bg" data-image="box_img_3"></span>
-                        <span id="boxed_fourth_bg" data-image="box_img_4"></span>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="stm_customizer_element">
-                <h3>Color Skin</h3>
-
-                <div class="customizer_element">
-                    <div class="customizer_colors" id="skin_color">
-                        <span id="site_style_default" class="active" data-logo=""></span>
-                        <span id="site_style_red" data-logo="_2"></span>
-                        <span id="site_style_orange" data-logo="_3"></span>
-                        <span id="site_style_light_blue" data-logo="_4"></span>
-                        <span id="site_style_blue" data-logo="_5"></span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div id="frontend_customizer_button"><i class="fa fa-cog"></i></div>
-    </div>
-
     <script></script>
     <script></script>
     <script></script>
     <script></script>
-    <div class="stm_theme_demos">
-
-        <div class="stm_theme_demos__icon" id="crypterio-demos">
-            <i class="thicon thicon-screen"></i>
-            <span>Demos</span>
-        </div>
-
-        <a id="crypterio-support" href="https://stylemixthemes.com/manuals/motors/" target="_blank"
-            class="stm_theme_demos__icon">
-            <i class="thicon thicon-support"></i>
-            <span style="width: 160px;">Documentation</span>
-        </a>
-
-        <div class="stm_theme_demos__icon" id="qr-codes">
-            <i class="thicon thicon-qr-code"></i>
-            <span style="width: 260px;">Click to show mobile version</span>
-        </div>
-
-        <a id="crypterio-buy"
-            href="https://1.envato.market/c/1240813/475676/4415?u=http%3A%2F%2Fthemeforest.net%2Fitem%2Fmotors-automotive-cars-vehicle-boat-dealership-classifieds-wordpress-theme%2F13987211%3Fref%3Dstylemixthemes%26license%3Dregular%26open_purchase_for_item_id%3D13987211%26purchasable%3Dsource"
-            target="_blank" class="stm_theme_demos__icon external" rel="nofollow">
-            <i class="thicon thicon-bag"></i>
-            <span>Buy <span class="stm_price_api">$0</span></span>
-        </a>
-        <a id="motors-mobile-app-ico-wrap" href="/app/" target="_blank" class="stm_theme_demos__icon external"
-            rel="nofollow">
-            <i class="thicon thicon-mobile"></i>
-            <span>Motors App</span>
-        </a>
-
-        <div class="stm_theme_demos__popup" id="qr_popup">
-            <div class="stm_theme_demos__close"></div>
-            <div class="stm_theme_demos__inner">
-                <div class="stm_theme_demos__inner_container">
-                    <h3>Scan QR to view mobile version</h3>
-                    <img src="/wp-content/themes/pearl-child/assets/img/qr-codes/car_dealer.png" width="300px"
-                        alt="qr code" />
-                </div>
-            </div>
-        </div>
-        <div class="stm_theme_demos__popup" id="demo_popups">
-            <div class="stm_theme_demos__close"></div>
-            <div class="stm_theme_demos__inner">
-                <div class="stm_theme_demos__inner_container">
-                    <h3>MOTORS DEMOS</h3>
-                    <p></p>
-                    <div class="demos-list">
-                        <a href="/" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-1.jpg?v=1.1"
-                                        width="350" height="280" alt="Car Dealership One" class="lazyload" />
-                                </div>
-                                <h4>Car Dealership One</h4>
-                            </div>
-                        </a>
-                        <a href="/classified" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-2.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Listing" class="lazyload" />
-                                </div>
-                                <h4>Classified Listing</h4>
-                            </div>
-                        </a>
-                        <a href="/rent-a-car" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-3.jpg?v=1.1"
-                                        width="350" height="280" alt="Rent a Car Service" class="lazyload" />
-                                </div>
-                                <h4>Rent a Car Service</h4>
-                            </div>
-                        </a>
-                        <a href="/classified-three" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-10.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Listing Three" class="lazyload" />
-                                </div>
-                                <h4>Classified Listing Three</h4>
-                            </div>
-                        </a>
-                        <a href="/dealer-two" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-8.jpg?v=1.1"
-                                        width="350" height="280" alt="Car Dealership Two" class="lazyload" />
-                                </div>
-                                <h4>Car Dealership Two</h4>
-                            </div>
-                        </a>
-                        <a href="/classified-four" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-12.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Listing Four" class="lazyload" />
-                                </div>
-                                <h4>Classified Listing Four</h4>
-                            </div>
-                        </a>
-                        <a href="/classified-five" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-16.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Ads (with different types)"
-                                        class="lazyload" />
-                                </div>
-                                <h4>Classified Ads (with different types)</h4>
-                            </div>
-                        </a>
-                        <a href="/rental-two" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-14.jpg?v=1.1"
-                                        width="350" height="280" alt="Rent a Car Service Two" class="lazyload" />
-                                </div>
-                                <h4>Rent a Car Service Two</h4>
-                            </div>
-                        </a>
-                        <a href="/motorcycles" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-4.jpg?v=1.1"
-                                        width="350" height="280" alt="Motorcycles Dealers" class="lazyload" />
-                                </div>
-                                <h4>Motorcycles Dealers</h4>
-                            </div>
-                        </a>
-                        <a href="/classified-two" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-9.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Listing Two" class="lazyload" />
-                                </div>
-                                <h4>Classified Listing Two</h4>
-                            </div>
-                        </a>
-                        <a href="/aircrafts" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-13.jpg?v=1.1"
-                                        width="350" height="280" alt="Aircrafts" class="lazyload" />
-                                </div>
-                                <h4>Aircrafts</h4>
-                            </div>
-                        </a>
-                        <a href="/auto-parts" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-11-1.jpg?v=1.1"
-                                        width="350" height="280" alt="Auto Parts Shop" class="lazyload" />
-                                </div>
-                                <h4>Auto Parts Shop</h4>
-                            </div>
-                        </a>
-                        <a href="/car-repair-service" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-6.jpg?v=1.1"
-                                        width="350" height="280" alt="Car Repair Service" class="lazyload" />
-                                </div>
-                                <h4>Car Repair Service</h4>
-                            </div>
-                        </a>
-                        <a href="/boats" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-5.jpg?v=1.1"
-                                        width="350" height="280" alt="Boats Dealership" class="lazyload" />
-                                </div>
-                                <h4>Boats Dealership</h4>
-                            </div>
-                        </a>
-                        <a href="/magazine" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-7.jpg?v=1.1"
-                                        width="350" height="280" alt="Car Magazine" class="lazyload" />
-                                </div>
-                                <h4>Car Magazine</h4>
-                            </div>
-                        </a>
-                        <a href="/equipment" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-15.jpg?v=1.1"
-                                        width="350" height="280" alt="Equipment" class="lazyload" />
-                                </div>
-                                <h4>Equipment</h4>
-                            </div>
-                        </a>
-                        <a href="/classified-six" class="external" rel="nofollow">
-                            <div class="demo">
-                                <div class="img">
-                                    <img src="https://stylemixthemes.com/envato/lazy.png"
-                                        data-src="https://stylemixthemes.com/motors/images/layout/layout-17.jpg?v=1.1"
-                                        width="350" height="280" alt="Classified Ads Two (with different types)"
-                                        class="lazyload" />
-                                </div>
-                                <h4>Classified Ads Two (with different types)</h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <script></script>
@@ -1705,160 +1196,6 @@
                 }
             }
         })();
-
-    </script>
-    <script>
-        jQuery(document).ready(function($) {
-            "use strict";
-
-            $(window).load(function() {
-                $("#frontend_customizer").animate({
-                    left: -233
-                }, 300);
-            });
-
-            $('select[name="stm-select-layout"]').select2().on('change', function() {
-                $('html').addClass('stm-site-beforeloader');
-                window.location.href = $(this).val();
-            });
-
-            $("#frontend_customizer_button").on('click', function() {
-                if ($("#frontend_customizer").hasClass('open')) {
-                    $("#frontend_customizer").animate({
-                        left: -233
-                    }, 300);
-                    $("#frontend_customizer").removeClass('open');
-                } else {
-                    $("#frontend_customizer").animate({
-                        left: 0
-                    }, 300);
-                    $("#frontend_customizer").addClass('open');
-                }
-            });
-
-            $('body').on('click', function(kik) {
-                if (!$(kik.target).is('#frontend_customizer, #frontend_customizer *') && $(
-                        '#frontend_customizer').is(':visible')) {
-                    $("#frontend_customizer").animate({
-                        left: -233
-                    }, 300);
-                    $("#frontend_customizer").removeClass('open');
-                }
-            });
-
-            var style_id = '';
-
-            $("#skin_color span").on('click', function() {
-                $('body').removeClass('stm_style_clr_' + style_id);
-                style_id = $(this).attr('id');
-                $('body').addClass('stm_style_clr_' + style_id);
-                var logo_num = $(this).data('logo');
-
-
-                var logo_url =
-                    '/wp-content/themes/motors/assets/images/tmp/logo' +
-                    logo_num + '.svg';
-                //console.log(logo_url);
-
-                $("#skin_color .active").removeClass("active");
-
-                $(this).addClass("active");
-
-                $("#custom_style").remove();
-                $("#custom_style_listing").remove();
-
-                if (style_id != 'site_style_default') {
-                    $('#custom_style').remove();
-
-                    $("head").append(
-                        '<link rel="stylesheet" id="custom_style" href="/wp-content/themes/motors/assets/css/' +
-                        style_id + '.css?v=4" type="text/css" media="all">');
-                    $("head").append(
-                        '<link rel="stylesheet" id="custom_style_listing" href="/wp-content/themes/motors/assets/css/listing/' +
-                        style_id + '.css?v=4" type="text/css" media="all">');
-
-                    $('#header .logo-main img').attr('src', logo_url);
-                    $('#header .service-logo-main img').attr('src', logo_url);
-                    $('#stm-boats-header .listing-logo-main img,.stm-boats-footer-logo').attr('src',
-                        logo_url);
-                } else {
-
-                    $('#header .logo-main img').attr('src', logo_url);
-                    $('#header .service-logo-main img').attr('src', logo_url);
-                    $('#stm-boats-header .listing-logo-main img,.stm-boats-footer-logo').attr('src',
-                        logo_url);
-                }
-            });
-
-
-            $("#navigation_type").on("click", function() {
-                if ($(this).hasClass('active')) {
-                    $(this).removeClass('active');
-
-                    $('.header-nav').removeClass('header-nav-fixed');
-
-                    $('.header-service').removeClass('header-service-sticky header-service-fixed');
-
-                    $('.header-listing').removeClass(
-                        'header-listing-fixed stm-fixed stm-fixed-invisible');
-                } else {
-                    $(this).addClass('active');
-
-                    $('.header-nav').addClass('header-nav-fixed');
-
-                    $('.header-service').addClass('header-service-fixed');
-
-                    $('.header-listing').addClass('header-listing-fixed');
-                }
-            });
-
-            $("#navigation_transparency").on("click", function() {
-                if ($(this).hasClass('active')) {
-                    $(this).removeClass('active');
-
-                    $('.header-nav').removeClass('header-nav-transparent');
-                    $('.header-nav').addClass('header-nav-default');
-                } else {
-                    $(this).addClass('active');
-
-                    $('.header-nav').addClass('header-nav-transparent');
-                    $('.header-nav').removeClass('header-nav-default');
-
-                }
-            });
-
-            $("#layout_mode").on("click", function() {
-                if ($(this).hasClass('active')) {
-                    $(this).removeClass('active');
-
-                    $('body').addClass('stm-boxed');
-                    $('.customizer_boxed_background').slideDown();
-
-                    $('body').addClass('stm-background-customizer-box_img_5');
-                } else {
-                    $(this).addClass('active');
-
-                    $('body').removeClass('stm-boxed');
-                    $('.customizer_boxed_background').slideUp();
-
-                    $('body').addClass('stm-background-customizer-box_img_5');
-                }
-            });
-
-            $('#background_image span').on('click', function() {
-                $('#background_image span').removeClass('active');
-                $(this).addClass('active');
-
-                var img_src = $(this).data('image');
-
-                $('body').removeClass(
-                    'stm-background-customizer-box_img_1 stm-background-customizer-box_img_2 stm-background-customizer-box_img_3 stm-background-customizer-box_img_4 stm-background-customizer-box_img_5 stm-background-customizer-box_img_6'
-                );
-
-                $('body').addClass('stm-background-customizer-' + img_src);
-            });
-
-        });
 
     </script>
     <script>

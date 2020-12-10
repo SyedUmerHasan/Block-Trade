@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -52,19 +53,18 @@ class LoginController extends Controller
             // dd(Auth::user()->role);
             switch(auth()->user()->role){
                 case 'admin':
-                    return redirect()->route('dashboard');
+                    return redirect()->route('dashboard')->with('success','LoggedIn successfully.');
                     break;
                 case 'buyer':
-                    return redirect()->route('dashboard');
+                    return redirect()->route('dashboard')->with('success','LoggedIn successfully.');
                     break;
                 case 'seller':
-                    return redirect()->route('dashboard');
+                    return redirect()->route('dashboard')->with('success','LoggedIn successfully.');
                     break;
             }
             return redirect()->route('dashboard');
         }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+            return redirect()->route('login')->with('loginerror','Email-Address And Password Are Wrong.');
         }
           
     }
