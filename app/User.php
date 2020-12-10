@@ -39,4 +39,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function post() {
+        return  $this->hasMany('App\Post', 'user_id', 'id');
+    }
+    
+    public function follower() {
+        return  $this->hasMany('App\Followers', 'user_id', 'id');
+    }
 }

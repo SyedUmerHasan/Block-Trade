@@ -12,8 +12,6 @@ use App\VehicleContact;
 class SellerController extends Controller
 {
     public function dashboard(){
-        dd("implment");
-
         return view('admin.buyer.buyer_dashboard')->with(compact('vehicleStatus'));
     }
 }

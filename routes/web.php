@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 /***
  * Authentication Routes
+=======
+
+/***
+ * Admin Portal Routes
+>>>>>>> 83fbfb5a6c8899ad8511c37044ec13278c12113b
  */
 Auth::routes();
 /**
@@ -35,6 +41,7 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
+<<<<<<< HEAD
 Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
     
     Route::get('', 'AdminController@home')->name('admin.home');
@@ -101,3 +108,35 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('support', 'SupportController@getList')->name('support');
 
 });
+=======
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get("newsfeed","MainSiteController@newsfeed")->name('home');
+    Route::get("home",function(){
+        return redirect()->route('home');
+    })->name('mainpage');
+    Route::get("posts/create","MainSiteController@createPost")->name('post.create');
+    Route::get("posts/all","MainSiteController@listPost")->name('post.all');
+    Route::post("posts/add","MainSiteController@addPost")->name('post.add');
+    
+
+    Route::get("feed/{slug}","MainSiteController@feed")->name('feed');
+    Route::get("{user_id}/follow/{follow_id}","FollowerController@addfollowing")->name('addfollowing');
+    Route::get("/remove/{user_id}/follow/{follow_id}","FollowerController@removefollowing")->name('removefollowing');
+    // addfollowing
+
+
+    // Home Redirect Controller
+    Route::get('', function () {return redirect()->route("home");});
+
+    Route::get('profile/view/{id}', 'ProfileController@view')->name('profile.view');
+    Route::get('profile/edit/{id}', 'ProfileController@edit')->name('profile.edit');
+    Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
+    Route::post('profile/resetPassword/{id}', 'ProfileController@resetPassword')->name('profile.resetPassword');
+
+    Route::get('support', 'SupportController@getList')->name('support');
+
+    
+});
+>>>>>>> 83fbfb5a6c8899ad8511c37044ec13278c12113b

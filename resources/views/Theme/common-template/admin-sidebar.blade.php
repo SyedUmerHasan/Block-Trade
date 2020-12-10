@@ -23,15 +23,20 @@
         <li class="active bold">
             <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
-                <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
+                <span class="menu-title" data-i18n="Dashboard">Newsfeed</span>
             </a>
         </li>
         <li class="active bold">
+<<<<<<< HEAD
             <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
+=======
+            <a class="waves-effect waves-cyan " href="{{ route('post.create') }}">
+>>>>>>> 83fbfb5a6c8899ad8511c37044ec13278c12113b
                 <i class="material-icons">settings_input_svideo</i>
-                <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
+                <span class="menu-title" data-i18n="Dashboard">Create Post</span>
             </a>
         </li>
+<<<<<<< HEAD
         <li class="navigation-header">
             <a class="navigation-header-text">Profile </a>
             <i class="navigation-header-icon material-icons">more_horiz</i>
@@ -149,6 +154,8 @@
             </a>
         </li>
 
+=======
+>>>>>>> 83fbfb5a6c8899ad8511c37044ec13278c12113b
         
         @endif
         <li class="navigation-header">
