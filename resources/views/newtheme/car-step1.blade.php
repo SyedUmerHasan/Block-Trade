@@ -286,7 +286,8 @@
                                     </form>
 
                                     <!-- STEP TWO -->
-                                    <form action="#" > 
+                                    <form action="#" method="POST"> 
+                                        @csrf
                                         <div class="form-content-unit" id="step-two">
                                             <div class="contact-details">
                                                 <div class="row">
@@ -305,19 +306,32 @@
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <div class="contact-us-label">Email Address*</div>
-                                                            <input type="text" value="" name="email">
+                                                            <input type="text" value="" name="email_address">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <div class="contact-us-label">Phone number*</div>
-                                                            <input type="text" value="" name="phone">
+                                                            <input type="text" value="" name="phone_number">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 col-sm-12">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
-                                                            <div class="contact-us-label">Comments</div>
-                                                            <textarea name="comments"></textarea>
+                                                            <div class="contact-us-label">Address*</div>
+                                                            <input type="text" value="" name="address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <div class="contact-us-label">City*</div>
+                                                            <select name="city" class="select2 select2-container select2-container--default" style="background: white !important;">
+                                                                <option value="">Select</option>
+                                                                <option value="Karachi">Karachi</option>
+                                                                <option value="Islamabad">Islamabad</option>
+                                                                <option value="Lahore">Lahore</option>
+                                                                <option value="Rawalpindi">Rawalpindi</option>
+                                                                <option value="Peshawar">Peshawar</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>

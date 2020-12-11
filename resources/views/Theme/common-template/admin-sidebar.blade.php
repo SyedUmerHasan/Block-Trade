@@ -36,13 +36,6 @@
             <a class="navigation-header-text">Profile </a>
             <i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehicle.getall') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Vehicle Ads List</span>
-            </a>
-        </li>
         
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.model.getall') }}">
@@ -66,12 +59,6 @@
         <li class="navigation-header">
             <a class="navigation-header-text">Add Products </a>
             <i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehicle.details') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Create Car Ad</span>
-            </a>
         </li>
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.create') }}">
@@ -129,12 +116,6 @@
         <li class="navigation-header">
             <a class="navigation-header-text">Products </a>
             <i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('vehicle.getall') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Vehicle Ads List</span>
-            </a>
         </li>
 
         

@@ -11,18 +11,11 @@ class VehicleContact extends Model
     
     protected $fillable = [
         'vehicledetail_id',
-        'price',
-        'mileage',
-        'exterior_color',
-        'registered',
-        'registration_plate_number',
-        'registration_vehicle_number',
-        'registration_exiry_month',
-        'registration_exiry_year',
-        'vehicle_address',
-        'vehicle_city',
-        'vehicle_country',
-        'vehicle_phone',
-        'vehicle_email'
-        ];
+        'first_name',
+        'last_name',
+        'email_address',
+        'phone_number',
+        'address',
+        'city',
+    ];
 }

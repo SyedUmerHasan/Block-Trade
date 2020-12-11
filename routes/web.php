@@ -41,8 +41,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is_admin'], function () {
 
     Route::group(['prefix' => 'automotive'], function() {
 
-        Route::get('', 'AdminVehicleController@getall')->name('vehicle.getall');
-
         Route::group(['prefix' => 'manufacturer'], function () {
             Route::get('', 'CarManufacturerController@getall')->name('automotive.manufacturer.getall');
             Route::get('/create', 'CarManufacturerController@create')->name('automotive.manufacturer.create');
@@ -77,7 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::get("home", 'UserController@dashboard')->name('dashboard');
     Route::get('add-product', 'UserController@step1')->name('add-product');
-    Route::get('add-product/:id', 'UserController@step2')->name('add-product.create');
+    Route::get('add-product/{id}', 'UserController@step2')->name('add-product.create');
 
     Route::post("info", "VehicleController@carInformation")->name('car.detail.add');
     Route::post("contact/add", "VehicleController@carContactDetails")->name('car.contact.add');

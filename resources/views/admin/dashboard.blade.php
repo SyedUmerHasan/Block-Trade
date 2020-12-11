@@ -216,7 +216,7 @@
                               <div class="card border-radius-6">
                                 <div class="card-content center-align">
                                   <i class="material-icons amber-text small-ico-bg mb-5">favorite_border</i>
-                                  <h4 class="m-0"><b>{{ $carRegistered }}</b></h4>
+                                  <h4 class="m-0"><b>{{ 0 }}</b></h4>
                                   <p>Total Registered Cars</p>
                                   {{--  <p class="green-text  mt-3"><i class="material-icons vertical-align-middle">arrow_drop_up</i>
                                     112.43%</p>  --}}

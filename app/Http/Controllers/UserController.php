@@ -23,13 +23,17 @@ class UserController extends Controller
         return view("user.buyer");
     }
     public function inventory(){
-        return view("newtheme.inventory");
+        $vehicleDetail = VehicleDetail::paginate(5);
+
+        return view("newtheme.inventory")->with(compact('vehicleDetail'));
     }
     public function step1(){
         return view("newtheme.car-step1");
     }
     public function step2($id){
-        return view("newtheme.car-step2")->with(compact('id'));
+        $vehicleDetail = VehicleDetail::find($id);
+        // dd($vehicleDetail->id);
+        return view("newtheme.car-step2")->with(compact('vehicleDetail'));
     }
     public function step3(){
         return view("newtheme.car-step3");

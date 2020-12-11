@@ -466,8 +466,7 @@
                                                     <div id="listings-result">
 
                                                         <div class="stm-isotope-sorting stm-isotope-sorting-list">
-
-                                                            @for ($i = 0; $i < 10; $i++)
+                                                            @foreach ($vehicleDetail as $item)
                                                             <div class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
 
                                                                 <div class="image">
@@ -505,7 +504,7 @@
                                                                             <a href="/listings/ford-f-150-raptor-62l-v8-at/"
                                                                                 class="rmv_txt_drctn external"
                                                                                 rel="nofollow">
-                                                                                Ford F-150 Raptor 6,2L V8 AT </a>
+                                                                                {{ $item->car_title }} </a>
                                                                         </div>
                                                                     </div>
 
@@ -522,11 +521,10 @@
                                                                                     <div class="icon"><i
                                                                                             class="stm-icon-road"></i>
                                                                                     </div>
-                                                                                    <div class="name">Mileage</div>
+                                                                                    <div class="name">Registration Number</div>
                                                                                 </div>
 
-                                                                                <div class="value h5">
-                                                                                    20 </div>
+                                                                                <div class="value h5">{{ $item->chasis_number }}</div>
                                                                             </div>
 
 
@@ -541,7 +539,7 @@
                                                                                 </div>
 
                                                                                 <div class="value h5">
-                                                                                    Gasoline </div>
+                                                                                    {{ $item->fuel_type }} </div>
                                                                             </div>
 
 
@@ -556,7 +554,7 @@
                                                                                 </div>
 
                                                                                 <div class="value h5">
-                                                                                    2019 </div>
+                                                                                    {{ $item->year_manufacture }} </div>
                                                                             </div>
 
 
@@ -570,11 +568,8 @@
                                                                                     <div class="name">Transmission</div>
                                                                                 </div>
 
-                                                                                <div class="value h5">
-                                                                                    Automatic </div>
+                                                                                <div class="value h5">{{ $item->tranmission_type }}</div>
                                                                             </div>
-
-
 
                                                                             <div
                                                                                 class="meta-middle-unit font-exists drive">
@@ -586,7 +581,7 @@
                                                                                 </div>
 
                                                                                 <div class="value h5">
-                                                                                    4WD </div>
+                                                                                    {{ $item->drive_type }} </div>
                                                                             </div>
 
 
@@ -596,15 +591,31 @@
                                                                                     <div class="icon"><i
                                                                                             class="stm-service-icon-pin_big"></i>
                                                                                     </div>
-                                                                                    <div class="name">Distance</div>
+                                                                                    <div class="name">City</div>
                                                                                 </div>
 
                                                                                 <div class="value">
                                                                                     <div class="stm-tooltip-link"
                                                                                         data-toggle="tooltip"
                                                                                         data-placement="bottom"
-                                                                                        title="Las Vegas, NV, USA">
-                                                                                        Las Vegas, NV, USA </div>
+                                                                                        title="Las Vegas, NV, USA">{{ (\App\VehicleContact::where("vehicledetail_id", "=",  $item->id)->first() ? \App\VehicleContact::where("vehicledetail_id", "=",  $item->id)->first()->city : "Las Vegas") }}</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div
+                                                                                class="meta-middle-unit font-exists location">
+                                                                                <div class="meta-middle-unit-top">
+                                                                                    <div class="icon"><i
+                                                                                            class="stm-service-icon-pin_big"></i>
+                                                                                    </div>
+                                                                                    <div class="name">Address</div>
+                                                                                </div>
+
+                                                                                <div class="value">
+                                                                                    <div class="stm-tooltip-link"
+                                                                                        data-toggle="tooltip"
+                                                                                        data-placement="bottom"
+                                                                                        title="Las Vegas, NV, USA">{{ (\App\VehicleContact::where("vehicledetail_id", "=",  $item->id)->first() ? \App\VehicleContact::where("vehicledetail_id", "=",  $item->id)->first()->address : "Las Vegas, NV, USA") }}</div>
                                                                                 </div>
                                                                             </div>
                                                                             <div
@@ -648,10 +659,12 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            @endfor
+                                                                
+                                                            @endforeach
 
                                                         </div>
-                                                        <div class="stm_ajax_pagination stm-blog-pagination">
+                                                        {{--  <div class="stm_ajax_pagination stm-blog-pagination">
+                                                            
                                                             <ul class='page-numbers'>
                                                                 <li><span aria-current="page"
                                                                         class="page-numbers current">1</span></li>
@@ -670,8 +683,10 @@
                                                                             class="fa fa-angle-right"></i></a></li>
                                                             </ul>
                                                         </div>
+                                                          --}}
                                                     </div>
                                                 </div>
+                                                {{ $vehicleDetail->withQueryString()->links() }}
 
                                             </div>
 

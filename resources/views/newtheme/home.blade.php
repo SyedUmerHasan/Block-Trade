@@ -339,14 +339,13 @@
                                                 <div class="found-cars-clone">
                                                     <div class="found-cars heading-font"><i
                                                             class="stm-icon-car"></i>available <span
-                                                            class="blue-lt">22&nbsp;cars</span>
+                                                            class="blue-lt">{{ \App\VehicleDetail::all()->count() }}&nbsp;cars</span>
                                                     </div>
                                                 </div>
                                                 <div class="row row-4 car-listing-row">
 
 
                                                     @if (\App\VehicleDetail::all()->count() > 0)
-                                                    {{ dd(\App\VehicleDetail::all()) }}
                                                         @foreach (\App\VehicleDetail::all() as $item)
                                                             <div
                                                                 class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
@@ -354,12 +353,12 @@
                                                                     class="rmv_txt_drctn xx external" rel="nofollow">
                                                                     <div class="image">
                                                                         <img width="255" height="135"
-                                                                            src="/wp-content/uploads/2020/10/raptor-02-255x135.jpg"
+                                                                            src="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
                                                                             class="attachment-stm-img-255-135 size-stm-img-255-135"
                                                                             alt="Ford F-150 Raptor 6,2L V8 AT"
                                                                             loading="lazy"
-                                                                            data-retina="/wp-content/uploads/2020/10/raptor-02-798x466.jpg"
-                                                                            srcset="/wp-content/uploads/2020/10/raptor-02-255x135.jpg 255w, /wp-content/uploads/2020/10/raptor-02-510x270.jpg 510w"
+                                                                            data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
+                                                                            srcset="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 510w"
                                                                             sizes="(max-width: 255px) 100vw, 255px" />
                                                                         <div
                                                                             class="stm-badge-directory heading-font stm-badge-dealer">
@@ -368,19 +367,27 @@
                                                                     <div class="listing-car-item-meta">
                                                                         <div class="car-meta-top heading-font clearfix">
                                                                             <div class="price">
-                                                                                <div class="normal-price">{{ $item }}</div>
+                                                                                <div class="normal-price">{{ $item->price . 'PKR' }}</div>
                                                                             </div>
-                                                                            <div class="car-title">{{ $item->car_title }}</div>
+                                                                            <div class="car-title">{{ strtoupper($item->car_title) }}</div>
                                                                         </div>
                                                                         <div class="car-meta-bottom">
                                                                             <ul>
                                                                                 <li>
                                                                                     <i class="stm-icon-road"></i>
-                                                                                    <span>20</span>
+                                                                                    <span>{{ strtoupper($item->body_type) }}</span>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i class="stm-icon-road"></i>
+                                                                                    <span>{{ strtoupper($item->fuel_type) }}</span>
                                                                                 </li>
                                                                                 <li>
                                                                                     <i class="stm-icon-transmission_fill"></i>
-                                                                                    <span>Automatic</span>
+                                                                                    <span>{{ strtoupper($item->drive_type) }}</span>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i class="stm-icon-transmission_fill"></i>
+                                                                                    <span>{{ strtoupper($item->tranmission_type) }}</span>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -475,73 +482,61 @@
                                                 <div class="found-cars-clone">
                                                     <div class="found-cars heading-font"><i
                                                             class="stm-icon-car"></i>available <span
-                                                            class="blue-lt">19&nbsp;cars</span>
+                                                            class="blue-lt">{{ \App\VehicleDetail::all()->count() }}&nbsp;cars</span>
                                                     </div>
                                                 </div>
                                                 <div class="row row-4 car-listing-row">
                                                     @if (\App\VehicleDetail::all()->count() > 0)
-                                                        @foreach (\App\VehicleDetail::all() as $item)
-
-                                                            <div
-                                                                class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
-                                                                <a href="/listings/bmw-328i-perfect-condition/"
-                                                                    class="rmv_txt_drctn xx external" rel="nofollow">
-                                                                    <div class="image">
-                                                                        <img width="255" height="135"
-                                                                            src="/wp-content/uploads/2020/10/raptor-02-255x135.jpg"
-                                                                            class="attachment-stm-img-255-135 size-stm-img-255-135"
-                                                                            alt="Ford F-150 Raptor 6,2L V8 AT"
-                                                                            loading="lazy"
-                                                                            data-retina="/wp-content/uploads/2020/10/raptor-02-798x466.jpg"
-                                                                            srcset="/wp-content/uploads/2020/10/raptor-02-255x135.jpg 255w, /wp-content/uploads/2020/10/raptor-02-510x270.jpg 510w"
-                                                                            sizes="(max-width: 255px) 100vw, 255px" />
-                                                                        <div
-                                                                            class="stm-badge-directory heading-font stm-badge-dealer">
-                                                                            Special </div>
-                                                                    </div>
-                                                                    <div class="listing-car-item-meta">
-                                                                        <div class="car-meta-top heading-font clearfix">
-                                                                            <div class="price discounted-price">
-                                                                                <div class="regular-price">$35 000</div>
-                                                                                <div class="sale-price">$28 000</div>
-                                                                            </div>
-                                                                            <div class="car-title">
-                                                                                BMW 328i, Sport Line Body Kit </div>
-                                                                        </div>
-
-                                                                        <div class="car-meta-bottom">
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <i class="stm-icon-road"></i>
-
-                                                                                    <span>18000</span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <i class="stm-icon-fuel"></i>
-
-                                                                                    <span>45/56</span>
-                                                                                </li>
-
-
-
-
-                                                                                <li>
-                                                                                    <i
-                                                                                        class="stm-icon-transmission_fill"></i>
-
-
-
-                                                                                    <span>Automatic</span>
-
-                                                                                </li>
-
-                                                                            </ul>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </a>
+                                                        @foreach (\App\VehicleDetail::all()->sortBy('car_title') as $item)
+                                                        <div
+                                                        class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
+                                                        <a href="/listings/ford-f-150-raptor-62l-v8-at/"
+                                                            class="rmv_txt_drctn xx external" rel="nofollow">
+                                                            <div class="image">
+                                                                <img width="255" height="135"
+                                                                    src="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
+                                                                    class="attachment-stm-img-255-135 size-stm-img-255-135"
+                                                                    alt="Ford F-150 Raptor 6,2L V8 AT"
+                                                                    loading="lazy"
+                                                                    data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
+                                                                    srcset="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 510w"
+                                                                    sizes="(max-width: 255px) 100vw, 255px" />
+                                                                <div
+                                                                    class="stm-badge-directory heading-font stm-badge-dealer">
+                                                                    Special </div>
                                                             </div>
-                                                        @endforeach
+                                                            <div class="listing-car-item-meta">
+                                                                <div class="car-meta-top heading-font clearfix">
+                                                                    <div class="price">
+                                                                        <div class="normal-price">{{ $item->price . 'PKR' }}</div>
+                                                                    </div>
+                                                                    <div class="car-title">{{ strtoupper($item->car_title) }}</div>
+                                                                </div>
+                                                                <div class="car-meta-bottom">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <i class="stm-icon-road"></i>
+                                                                            <span>{{ strtoupper($item->body_type) }}</span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <i class="stm-icon-road"></i>
+                                                                            <span>{{ strtoupper($item->fuel_type) }}</span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <i class="stm-icon-transmission_fill"></i>
+                                                                            <span>{{ strtoupper($item->drive_type) }}</span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <i class="stm-icon-transmission_fill"></i>
+                                                                            <span>{{ strtoupper($item->tranmission_type) }}</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
                                                     @else
                                                         @for ($i = 0; $i < 8; $i++)
 
@@ -631,7 +626,7 @@
                                             <div role="tabpanel" class="tab-pane " id="car-listing-tab-search">
                                                 <div class="found-cars-clone">
                                                     <div class="found-cars heading-font"><i
-                                                            class="stm-icon-car"></i>available <span class="blue-lt">41
+                                                            class="stm-icon-car"></i>available <span class="blue-lt">{{ \App\VehicleDetail::all()->count() }}
                                                             cars</span>
                                                     </div>
                                                 </div>

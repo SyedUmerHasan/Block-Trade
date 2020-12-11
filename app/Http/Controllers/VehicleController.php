@@ -8,6 +8,7 @@ use App\VehicleImages;
 use Illuminate\Http\Request;
 use Session;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class VehicleController extends Controller
 {
@@ -60,20 +61,20 @@ class VehicleController extends Controller
             if(count($vehicleDetail->images) > 10){
     
                 Session::flash('error', "Vehicle Images Cannot be uploaded more than 10 ");
-                return redirect()->to(route('step2.car',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Cannot upload more than 10 images")->withErrors(['images' => 'Cannot upload more than 10 images'])->withInput();
+                return redirect()->to(route('add-product.create',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Cannot upload more than 10 images")->withErrors(['images' => 'Cannot upload more than 10 images'])->withInput();
             }
             if(count($vehicleDetail->images) == 0){
                 
                 Session::flash('error', "Vehicle Images are mandatory");
-                return redirect()->to(route('step2.car',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Car images is mandatory")->withErrors(['images' => 'Car images is mandatory'])->withInput();
+                return redirect()->to(route('add-product.create',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Car images is mandatory")->withErrors(['images' => 'Car images is mandatory'])->withInput();
             }
             
             Session::flash('message', "Vehicle Images Added Successfully");
-            return redirect()->to(route('step2.car',['id'=>$vehicleDetail->id]). '#step-one')->route('vehicle.contact', $vehicleDetail->id)->withInput();
+            return redirect()->to(route('add-product.create',['id'=>$vehicleDetail->id]). '#step-one')->route('vehicle.contact', $vehicleDetail->id)->withInput();
         }
         $dbimagecount = $vehicleDetail->images;
         if(sizeof($dbimagecount) + count($files) > 10){
-            return redirect()->to(route('step2.car',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Cannot upload more than 10 images")->withInput();
+            return redirect()->to(route('add-product.create',['id'=>$vehicleDetail->id]). '#step-one')->with('error', "Cannot upload more than 10 images")->withInput();
         }
     
         // Making counting of uploaded images
@@ -95,7 +96,7 @@ class VehicleController extends Controller
         }
         Session::flash('message', "Vehicle Images Added Successfully");
 
-        return redirect()->to(route('step2.car',['id'=>$vehicleDetail->id]). '#step-two')->withInput();
+        return redirect()->to(route('add-product.create',['id'=>$vehicleDetail->id]). '#step-two')->withInput();
     }
 
     /***
@@ -109,8 +110,9 @@ class VehicleController extends Controller
         return $slug;
     }
 
-    public function carContactDetails(Request $request, $id){
+    public function carContactDetails(Request $request){
         $validatedData = $request->validate([
+            'vehicledetail_id' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'email_address' => 'required',
@@ -119,7 +121,7 @@ class VehicleController extends Controller
             'city' => 'required',
         ]);
         $vehicleContact = VehicleContact::Create([
-            'vehicledetail_id' => $id,
+            'vehicledetail_id' => $request->vehicledetail_id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email_address' => $request->email_address,
@@ -127,6 +129,7 @@ class VehicleController extends Controller
             'address' => $request->address,
             'city' => $request->city,
         ]);
+        return redirect()->route('dashboard');
         
     }
 }

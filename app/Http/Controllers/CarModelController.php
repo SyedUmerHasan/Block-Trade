@@ -49,11 +49,13 @@ class CarModelController extends Controller
         $vehiclebrand->carmanufacturer_id = $request->carmanufacturer_id;
         $vehiclebrand->save();
         Session::flash('message', "Car Model Added");
-        return redirect()->back()->with(compact('vehiclebrand'))->with('success','Car Model updated successfully!');
+        return redirect()->back()
+            ->with(compact('vehiclebrand'))
+            ->with('success','Car Model updated successfully!');
     }
 
     public function getall(){
-        $vehiclebrand = CarModel::join("vehiclebrand", "vehiclebrand.id", "carmanufacturer_id")->get();
+        $vehiclebrand = CarModel::join("vehicledetail", "carmodel.id", "carmodel_id")->get();
         return view('admin.carmodel.list_brandmodel')->with(compact('vehiclebrand'));
     }
 

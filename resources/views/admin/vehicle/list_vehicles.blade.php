@@ -84,7 +84,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                      @foreach ($vehicle as $item)
+                      @foreach (array() as $item)
                           <tr>
                             <td>{{ $item->car_title }}</td>
                             <td>{{ $item->plan }}</td>

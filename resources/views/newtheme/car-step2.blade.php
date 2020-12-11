@@ -63,29 +63,35 @@
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <!-- Load image on load preventing lags-->
-
+                            @if (\Session::has('error'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <li>{!! \Session::get('error') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (\Session::has('message'))
+                                <div class="alert alert-success">
+                                    <ul>
+                                        <li>{!! \Session::get('message') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="stm-sell-a-car-form">
                                 <div class="form-navigation">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-6 col-sm-6">
                                             <a href="#step-one" class="form-navigation-unit active" data-tab="step-one">
                                                 <div class="number heading-font">1.</div>
-                                                <div class="title heading-font">Car Information</div>
-                                                <div class="sub-title">Add your vehicle details</div>
+                                                <div class="title heading-font">Product Information</div>
+                                                <div class="sub-title">Add your product details</div>
                                             </a>
                                         </div>
-                                        <div class="col-md-4 col-sm-4">
+                                        <div class="col-md-6 col-sm-6">
                                             <a href="#step-two" class="form-navigation-unit" data-tab="step-two">
                                                 <div class="number heading-font">2.</div>
-                                                <div class="title heading-font">Vehicle Condition</div>
-                                                <div class="sub-title">Add your vehicle details</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <a href="#step-three" class="form-navigation-unit" data-tab="step-three">
-                                                <div class="number heading-font">3.</div>
-                                                <div class="title heading-font">Contact details</div>
-                                                <div class="sub-title">Your contact details</div>
+                                                <div class="title heading-font">Contact Details</div>
+                                                <div class="sub-title">Add your contact details</div>
                                             </a>
                                         </div>
                                     </div>
@@ -260,13 +266,12 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12">
 
-                                                    <div>
+                                                    <div class="form-upload-files">
                                                         <h5 class="stm-label-type-2">Upload your Product Images</h5>
                                                         <div class="upload-photos">
                                                             <div class="stm-pseudo-file-input">
                                                                 <div class="stm-filename">Choose file...</div>
-                                                                <div class="stm-plus"></div>
-                                                                <input class="stm-file-realfield"  type="file" name="vehicle_images[]">
+                                                                <input class="stm-file-realfield" type="file" name="vehicle_images[]" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -281,7 +286,9 @@
                                     </form>
 
                                     <!-- STEP TWO -->
-                                    <form action="{{ route('car.contact.add', $id) }}" action="#error-fields" > 
+                                    <form action="{{ route('car.contact.add', $vehicleDetail->id) }}" method="POST"> 
+                                        @csrf
+                                        <input type="hidden" value="{{ $vehicleDetail->id }}" name="vehicledetail_id">
                                         <div class="form-content-unit" id="step-two">
                                             <div class="contact-details">
                                                 <div class="row">
@@ -300,19 +307,32 @@
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <div class="contact-us-label">Email Address*</div>
-                                                            <input type="text" value="" name="email">
+                                                            <input type="text" value="" name="email_address">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <div class="contact-us-label">Phone number*</div>
-                                                            <input type="text" value="" name="phone">
+                                                            <input type="text" value="" name="phone_number">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12 col-sm-12">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
-                                                            <div class="contact-us-label">Comments</div>
-                                                            <textarea name="comments"></textarea>
+                                                            <div class="contact-us-label">Address*</div>
+                                                            <input type="text" value="" name="address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <div class="contact-us-label">City*</div>
+                                                            <select name="city" class="select2 select2-container select2-container--default" style="background: white !important;">
+                                                                <option value="">Select</option>
+                                                                <option value="Karachi">Karachi</option>
+                                                                <option value="Islamabad">Islamabad</option>
+                                                                <option value="Lahore">Lahore</option>
+                                                                <option value="Rawalpindi">Rawalpindi</option>
+                                                                <option value="Peshawar">Peshawar</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,65 +341,10 @@
                                         </div>
                                     </form>
 
-
                                     <!-- STEP THREE -->
                                     <form action="#" action="#error-fields" > 
                                         <div class="form-content-unit" id="step-three">
-                                            <div class="contact-details">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
-                                                            <div class="contact-us-label">First name*</div>
-                                                            <input type="text" value="" name="first_name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
-                                                            <div class="contact-us-label">Last name*</div>
-                                                            <input type="text" value="" name="last_name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
-                                                            <div class="contact-us-label">Email Address*</div>
-                                                            <input type="text" value="" name="email">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
-                                                            <div class="contact-us-label">Phone number*</div>
-                                                            <input type="text" value="" name="phone">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 col-sm-12">
-                                                        <div class="form-group">
-                                                            <div class="contact-us-label">Comments</div>
-                                                            <textarea name="comments"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="clearfix">
-                                                <div class="pull-left">
-                                                    <script></script>
-                                                    <div>
-                                                        <div class="grecaptcha-badge" data-style="bottomright"
-                                                            style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
-                                                            <div class="grecaptcha-logo"><iframe
-                                                                    src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc2l-EZAAAAAAhDQEPtkgBvAv8rBDGJe9E5YNkh&amp;co=aHR0cHM6Ly9tb3RvcnMuc3R5bGVtaXh0aGVtZXMuY29tOjQ0Mw..&amp;hl=en&amp;v=UFwvoDBMjc8LiYc1DKXiAomK&amp;size=invisible&amp;cb=2xf1tidz429d"
-                                                                    width="256" height="60" role="presentation"
-                                                                    name="a-ymhhba6sp1mv" frameborder="0" scrolling="no"
-                                                                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe>
-                                                            </div>
-                                                            <div class="grecaptcha-error"></div><textarea
-                                                                id="g-recaptcha-response" name="g-recaptcha-response"
-                                                                class="g-recaptcha-response"
-                                                                style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                                                        </div>
-                                                    </div><input class="g-recaptcha"
-                                                        data-sitekey="6Lc2l-EZAAAAAAhDQEPtkgBvAv8rBDGJe9E5YNkh"
-                                                        data-callback="onSubmit" type="submit" value="Save and finish">
-                                                </div>
                                                 <div class="disclaimer">
                                                     By submitting this form, you will be requesting trade-in value at no
                                                     obligation and
@@ -467,20 +432,6 @@ function stm_validateFirstStep() {
             }
         })
 
-        var i = 1;
-
-        $('.stm-plus').on('click', function(e){
-            e.preventDefault();
-            if(i < 5) {
-                i++;
-                $('.upload-photos').append('<div class="stm-pseudo-file-input generated"><div class="stm-filename">Choose file...</div><div class="stm-plus"></div><input class="stm-file-realfield" type="file" name="gallery_images_' + i + '"/></div>');
-            }
-        })
-
-        $('body').on('click', '.generated .stm-plus', function(){
-            i--;
-            $(this).closest('.stm-pseudo-file-input').remove();
-        })
 
         if(document.location.hash){
             // form-select
