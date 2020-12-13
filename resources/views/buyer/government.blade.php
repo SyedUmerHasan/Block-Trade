@@ -58,11 +58,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Car List</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Government Identity</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('blockchain') }}">Car List</a>
+                                <li class="breadcrumb-item"><a href="{{ route('blockchain.government') }}">Government Identity</a>
                                 </li>
                             </ol>
                         </div>
@@ -76,7 +76,7 @@
                             <div class="col s12 m12 l12">
                                 <div id="button-trigger" class="card card card-default scrollspy">
                                     <div class="card-content">
-                                        <h4 class="card-title">Car List</h4>
+                                        <h4 class="card-title">Government Identity</h4>
                                         <div class="row">
                                             <div class="col s12">
 
@@ -106,8 +106,49 @@
 
                                                 <div class="row">
                                                     <div class="col s12">
-                                                        <table class="table">
-                                                        </table>
+                                                        <div class="row">
+                                                            <div class="input-field col s6">
+                                                                <input type="text" class="form-control" id="ownerName" name="ownerName" aria-describedby="helpId">
+                                                                <label for="ownerName" class="">Enter Owner Name</label>
+                                                            </div>
+                                                            <div class="input-field col s6">
+                                                                <input type="text" class="form-control" id="cnicNumber" name="cnicNumber" aria-describedby="helpId">
+                                                                <label for="cnicNumber" class="">Enter CNIC Number</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="input-field col s6">
+                                                                <input type="text" class="form-control" id="creationYear" name="creationYear" aria-describedby="helpId">
+                                                                <label for="creationYear" class="">Enter Manufacturer Date</label>
+                                                            </div>
+                                                            <div class="input-field col s6">
+                                                                <select name="productName" id="productName" class="form-control">
+                                                                    <option value="">Select Product</option>
+                                                                    @foreach (\App\CarModel::all() as $item)
+                                                                        <option value="{{ $item->model_name }}">{{ $item->model_name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="input-field col s6">
+                                                                <select name="buyingYear" id="buyingYear" class="form-control">
+                                                                    <option value="">Select Product</option>
+                                                                    @for ($i = 0; $i < 20; $i++)
+                                                                    <option value="{{ 2020 -$i }}">{{ 2020 -$i }}</option>
+                                                                    @endfor
+                                                                </select>
+                                                                <label for="buyingYear" class="">Enter Buying year</label>
+                                                            </div>
+                                                            <div class="input-field col s6">
+                                                                <input type="text" class="form-control" id="price" name="price" aria-describedby="helpId">
+                                                                <label for="price" class="">Enter price</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class=" right">
+                                                            <button class="btn blue " id="addProducts">Submit</button>
+                                                            <button class="btn red">Cancel</button>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -187,6 +228,7 @@
                 });
         
                 $("#addProducts").click(async (event)=>{
+                    debugger
                     var networkId = await web3.eth.net.getId();
                     const networkData = Marketplace.networks[networkId];
                     const marketplace = new web3.eth.Contract(Marketplace.abi, networkData.address);

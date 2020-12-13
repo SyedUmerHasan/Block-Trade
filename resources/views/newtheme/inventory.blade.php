@@ -139,7 +139,7 @@
                 <div class="container">
                     <div class="entry-title">
                         <h2 class="h1" style="">
-                            Inventory </h2>
+                            PRODUCTS </h2>
                     </div>
                 </div>
             </div>
@@ -414,8 +414,7 @@
                                                                     <li class="stm-single-filter-link"
                                                                         data-slug="exterior-color"
                                                                         data-value="deep-blue-pearl">
-                                                                        <a href="?exterior-color=deep-blue-pearl">
-                                                                            Deep Blue Pearl <span>(6)</span> </a>
+                                                                        <a href="?exterior-color=deep-blue-pearl"><span>(6)</span> </a>
                                                                     </li>
                                                                     @endforeach
                                                                 </ul>
@@ -466,6 +465,12 @@
                                                     <div id="listings-result">
 
                                                         <div class="stm-isotope-sorting stm-isotope-sorting-list">
+
+                                                            @if (count($vehicleDetail) == 0) 
+                                                                <div style="width: 100%">
+                                                                    <span style="margin: auto">No Cars Found</span>
+                                                                </div>
+                                                            @endif
                                                             @foreach ($vehicleDetail as $item)
                                                             <div class="listing-list-loop stm-listing-directory-list-loop stm-isotope-listing-item ">
 
@@ -483,7 +488,7 @@
                                                                                 Special </div>
 
                                                                             <img width="300" height="189"
-                                                                                src="/wp-content/uploads/2020/10/raptor-02-300x189.jpg"
+                                                                                src="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                                 class="img-responsive wp-post-image"
                                                                                 alt="" loading="lazy"
                                                                                 sizes="(max-width: 300px) 100vw, 300px" />
@@ -495,8 +500,7 @@
 
                                                                         <div class="price">
                                                                             <div class="normal-price">
-                                                                                <span class="heading-font">$78
-                                                                                    000</span>
+                                                                                <span class="heading-font">{{ $item->price . ' PKR' }}</span>
                                                                             </div>
                                                                         </div>
 
@@ -875,7 +879,7 @@
                     <div class="modal-header modal-header-iconed">
                         <i class="stm-icon-steering_wheel"></i>
                         <h3 class="modal-title" id="myModalLabel">Request car price</h3>
-                        <div class="test-drive-car-name">Inventory</div>
+                        <div class="test-drive-car-name">PRODUCTS</div>
                         <div class="mobile-close-modal" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close" aria-hidden="true"></i>
                         </div>

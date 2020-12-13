@@ -86,6 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('sell', 'UserController@dashboard')->name('user.sell');
     Route::group(['prefix' => 'secure'], function () {
         Route::get('', 'BlockchainController@getall')->name('blockchain');
+        Route::get('government', 'BlockchainController@addCar')->name('blockchain.government');
     });
 
     // Home Redirect Controller

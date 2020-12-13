@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\CarManufacturer;
+use App\CarModel;
 use App\VehicleDetail;
 use App\VehicleImages;
 use Illuminate\Http\Request;
@@ -22,8 +24,47 @@ class UserController extends Controller
     {
         return view("user.buyer");
     }
-    public function inventory(){
-        $vehicleDetail = VehicleDetail::paginate(5);
+    public function inventory(Request $request){ 
+        /** Query Params */
+        $make =         isset($request->make) ? $request->make : '';
+        $body =         isset($request->body_type) ? $request->body_type : '';
+        $mileage =      isset($request->mileage) ? $request->mileage : '';
+        $location =     isset($request->location) ? $request->location : '';
+        $condition =    isset($request->condition) ? $request->condition : '';
+        $model =        isset($request->model) ? $request->model : '';
+        $title =        isset($request->title) ? $request->title : '';
+        /** Database ID Query */
+        $carmodel = CarModel::where('model_name','LIKE',"%" . $model . "%")->first();
+        $carmanufacturer = null;
+        if(isset($make)){
+            $carmanufacturer = CarManufacturer::where('brand_name','LIKE',"%" . $make . "%")->first();
+        }
+        /** Main Query */
+        $vehicleDetail = VehicleDetail::with('images')
+                ->with('contact')
+                ->with('manufacturer')
+                ->with('model')
+                ->where(function ($query) use($title) {
+                    if(isset($title)){
+                        $query->where('car_title', 'LIKE', "%".$title."%" );
+                    }
+                })
+                ->where(function ($query) use($body) { 
+                    if(isset($body)){
+                        $query->where('body_type', 'like', '%' .$body .'%' );
+                    }
+                })
+                ->where(function ($query) use($carmodel) {
+                    if(isset($carmodel)&& isset($carmodel->id)){
+                        $query->where('carmodel_id', '=', $carmodel->id );
+                    }
+                })
+                ->where(function ($query) use($carmanufacturer) {
+                    if(isset($carmanufacturer)&& isset($carmanufacturer->id)){
+                        $query->where('carmanufacturer_id', '=', $carmanufacturer->id );
+                    }
+                })
+                ->paginate(5);
 
         return view("newtheme.inventory")->with(compact('vehicleDetail'));
     }

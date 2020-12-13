@@ -353,12 +353,12 @@
                                                                     class="rmv_txt_drctn xx external" rel="nofollow">
                                                                     <div class="image">
                                                                         <img width="255" height="135"
-                                                                            src="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
+                                                                            src="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                             class="attachment-stm-img-255-135 size-stm-img-255-135"
                                                                             alt="Ford F-150 Raptor 6,2L V8 AT"
                                                                             loading="lazy"
-                                                                            data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
-                                                                            srcset="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 510w"
+                                                                            data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
+                                                                            srcset="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 510w"
                                                                             sizes="(max-width: 255px) 100vw, 255px" />
                                                                         <div
                                                                             class="stm-badge-directory heading-font stm-badge-dealer">
@@ -367,7 +367,7 @@
                                                                     <div class="listing-car-item-meta">
                                                                         <div class="car-meta-top heading-font clearfix">
                                                                             <div class="price">
-                                                                                <div class="normal-price">{{ $item->price . 'PKR' }}</div>
+                                                                                <div class="normal-price">{{ $item->price . ' PKR' }}</div>
                                                                             </div>
                                                                             <div class="car-title">{{ strtoupper($item->car_title) }}</div>
                                                                         </div>
@@ -494,12 +494,12 @@
                                                             class="rmv_txt_drctn xx external" rel="nofollow">
                                                             <div class="image">
                                                                 <img width="255" height="135"
-                                                                    src="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
+                                                                    src="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                     class="attachment-stm-img-255-135 size-stm-img-255-135"
                                                                     alt="Ford F-150 Raptor 6,2L V8 AT"
                                                                     loading="lazy"
-                                                                    data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }}"
-                                                                    srcset="{{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=','1')->first()->image_path }} 510w"
+                                                                    data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
+                                                                    srcset="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 510w"
                                                                     sizes="(max-width: 255px) 100vw, 255px" />
                                                                 <div
                                                                     class="stm-badge-directory heading-font stm-badge-dealer">
@@ -508,7 +508,7 @@
                                                             <div class="listing-car-item-meta">
                                                                 <div class="car-meta-top heading-font clearfix">
                                                                     <div class="price">
-                                                                        <div class="normal-price">{{ $item->price . 'PKR' }}</div>
+                                                                        <div class="normal-price">{{ $item->price . ' PKR' }}</div>
                                                                     </div>
                                                                     <div class="car-title">{{ strtoupper($item->car_title) }}</div>
                                                                 </div>

@@ -3,14 +3,16 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="/admin/home">
-
-                <img class="hide-on-med-and-down" src="/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="/admin.png" alt="materialize logo">
-                <span class="logo-text hide-on-med-and-down">Admin Panel </span>
-
+            @if (!Auth::guest() && Auth::user()->role == "admin")
+            <a class="brand-logo darken-1" href="{{ route('blockchain.government') }}">
+                <span class="logo-text hide-on-med-and-down">Government Panel </span>
             </a>
+            @else
+            <a class="brand-logo darken-1" href="{{ route('blockchain.government') }}">
+                <span class="logo-text hide-on-med-and-down">Admin Panel </span>
+            </a>
+            @endif
+
             <a class="navbar-toggler" href="#">
                 <i class="material-icons">radio_button_checked</i>
             </a>
@@ -40,13 +42,13 @@
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.model.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Car Model List</span>
+                <span class="menu-title" data-i18n="User Profile">Product Model List</span>
             </a>
         </li>
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.getall') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Car Manufacturer List</span>
+                <span class="menu-title" data-i18n="User Profile">Product Manufacturer List</span>
             </a>
         </li>
         <li class="bold">
@@ -63,23 +65,23 @@
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.manufacturer.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Manufacturer</span>
+                <span class="menu-title" data-i18n="User Profile">Add Product Manufacturer</span>
             </a>
         </li>
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('automotive.model.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Model</span>
+                <span class="menu-title" data-i18n="User Profile">Add Product Model</span>
             </a>
         </li>
         <li class="bold">
             <a class="waves-effect waves-cyan " href="{{ route('exteriorcolor.create') }}">
                 <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Add Car Exterior Color</span>
+                <span class="menu-title" data-i18n="User Profile">Add Product Exterior Color</span>
             </a>
         </li>
         
-        @elseif (!Auth::guest() && Auth::user()->role == "buyer")
+        @elseif (!Auth::guest() && Auth::user()->role != "admin")
         <li class="active bold">
             <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
                 <i class="material-icons">settings_input_svideo</i>
@@ -98,38 +100,6 @@
                 <span class="menu-title" data-i18n="User Profile">Change Seller Account</span>
             </a>
         </li>
-
-        @elseif (!Auth::guest() && Auth::user()->role == "seller")
-        <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
-                <i class="material-icons">settings_input_svideo</i>
-                <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
-            </a>
-        </li>
-        <li class="active bold">
-            <a class="waves-effect waves-cyan " href="{{ route('dashboard') }}">
-                <i class="material-icons">settings_input_svideo</i>
-                <span class="menu-title" data-i18n="Dashboard">Visit Store</span>
-            </a>
-        </li>
-
-        <li class="navigation-header">
-            <a class="navigation-header-text">Products </a>
-            <i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-
-        
-        <li class="navigation-header">
-            <a class="navigation-header-text">Add Products </a>
-            <i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-        <li class="bold">
-            <a class="waves-effect waves-cyan " href="{{ route('changeAccountType') }}">
-                <i class="material-icons">person_outline</i>
-                <span class="menu-title" data-i18n="User Profile">Change Buyer Account</span>
-            </a>
-        </li>
-
         
         @endif
         <li class="navigation-header">

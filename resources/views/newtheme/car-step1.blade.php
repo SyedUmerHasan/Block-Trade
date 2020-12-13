@@ -134,9 +134,9 @@
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-4">
                                                     <div>
-                                                        <div class="contact-us-label">Make</div>
+                                                        <div class="contact-us-label">Product Brand</div>
                                                         <select name="make" class="select2 select2-container select2-container--default"  required="">
-                                                            <option value="" selected='selected'> Make </option>
+                                                            <option value="" selected='selected'> Product Brand </option>
                                                             @foreach (\App\CarManufacturer::all() as $item)
                                                                 <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                                             @endforeach
@@ -164,58 +164,20 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-4 col-sm-4">
                                                     <div class="form-group">
-                                                        <div class="contact-us-label">Body Type</div>
-                                                        <select name="body_type" class="select2 select2-container select2-container--default"  required="">                                                                   
-                                                            <option value="" selected='selected'>Body</option>
-                                                            <option value="limousine">Compact </option>
-                                                            <option value="convertible">Convertible</option>
-                                                            <option value="coupe">Coupe </option>
-                                                            <option value="off-road">Off-Road </option>
-                                                            <option value="pickup"> Pickup </option>
-                                                            <option value="sedan">Sedan </option>
-                                                            <option value="suv">SUV </option>
-                                                            <option value="other"> Other </option>
-                                                        </select>
+                                                        <div class="contact-us-label">Government Registration #</div>
+                                                        <input type="text" value="" name="chasis_number" required="" placeholder="For eg 123456789">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4">
                                                     <div class="form-group">
-                                                        <div class="contact-us-label">Transmission</div>
-                                                        <select name="transmission" class="select2 select2-container select2-container--default"  required="">                                                                   
-                                                            <option value="" selected='selected'>Transmission</option>
-                                                            <option value="Automatic">Automatic </option>
-                                                            <option value="Manual">Manual</option>
-                                                            <option value="SemiAutomatic">SemiAutomatic</option>
-                                                        </select>
+                                                        <div class="contact-us-label">Product Price</div>
+                                                        <input type="text" value="" name="price" required="" placeholder="Product Price">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <div class="form-group">
-                                                        <div class="contact-us-label">Drive Type</div>
-                                                        <select name="drivetype" class="select2 select2-container select2-container--default"  required="">                                                                   
-                                                            <option value="" selected='selected'>Drive Type</option>
-                                                            <option value="4WD">Four Wheel Drive </option>
-                                                            <option value="FWD">Front Wheel Drive</option>
-                                                            <option value="RWD"> Rear Wheel Drive </option>
-                                                            <option value="AWD"> All Wheel Drive </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <div class="form-group">
-                                                        <div class="contact-us-label">Fuel Type</div>
-                                                        <select name="fueltype" class="select2 select2-container select2-container--default"  required="">                                                                   
-                                                            <option value="" selected='selected'>Fuel Type</option>
-                                                            <option value="CNG">CNG</option>
-                                                            <option value="Petrol">Petrol</option>
-                                                            <option value="Diesel">Diesel </option>
-                                                            <option value="Electric">Electric </option>
-                                                            <option value="Hybrid">Hybrid</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="col-md-4 col-sm-4">
                                                     <div class="form-group">
                                                         <div class="contact-us-label">Year Manufacture</div>
@@ -238,31 +200,81 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <br>
+                                            </div>
+                                                <hr>
+                                                <h3>For Car only</h3>
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="col-md-4 col-sm-4">
                                                             <div class="form-group">
-                                                                <div class="contact-us-label">Mileage (in KMs)</div>
-                                                                <input type="text" value="" name="mileage" required="" placeholder="For eg 2000Km">
+                                                                <div class="contact-us-label">Body Type</div>
+                                                                <select name="body_type" class="select2 select2-container select2-container--default"  >                                                                   
+                                                                    <option value="" selected='selected'>Body</option>
+                                                                    <option value="limousine">Compact </option>
+                                                                    <option value="convertible">Convertible</option>
+                                                                    <option value="coupe">Coupe </option>
+                                                                    <option value="off-road">Off-Road </option>
+                                                                    <option value="pickup"> Pickup </option>
+                                                                    <option value="sedan">Sedan </option>
+                                                                    <option value="suv">SUV </option>
+                                                                    <option value="other"> Other </option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 col-sm-4">
                                                             <div class="form-group">
-                                                                <div class="contact-us-label">Chasis Number</div>
-                                                                <input type="text" value="" name="chasis_number" required="" placeholder="For eg 123456789">
+                                                                <div class="contact-us-label">Transmission</div>
+                                                                <select name="transmission" class="select2 select2-container select2-container--default"  >                                                                   
+                                                                    <option value="" selected='selected'>Transmission</option>
+                                                                    <option value="Automatic">Automatic </option>
+                                                                    <option value="Manual">Manual</option>
+                                                                    <option value="SemiAutomatic">SemiAutomatic</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4">
+                                                            <div class="form-group">
+                                                                <div class="contact-us-label">Drive Type</div>
+                                                                <select name="drivetype" class="select2 select2-container select2-container--default"  >                                                                   
+                                                                    <option value="" selected='selected'>Drive Type</option>
+                                                                    <option value="4WD">Four Wheel Drive </option>
+                                                                    <option value="FWD">Front Wheel Drive</option>
+                                                                    <option value="RWD"> Rear Wheel Drive </option>
+                                                                    <option value="AWD"> All Wheel Drive </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4">
+                                                            <div class="form-group">
+                                                                <div class="contact-us-label">Fuel Type</div>
+                                                                <select name="fueltype" class="select2 select2-container select2-container--default"  >                                                                   
+                                                                    <option value="" selected='selected'>Fuel Type</option>
+                                                                    <option value="CNG">CNG</option>
+                                                                    <option value="Petrol">Petrol</option>
+                                                                    <option value="Diesel">Diesel </option>
+                                                                    <option value="Electric">Electric </option>
+                                                                    <option value="Hybrid">Hybrid</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>  
+                                                        <div class="col-md-4 col-sm-4">
+                                                            <div class="form-group">
+                                                                <div class="contact-us-label">Mileage (in KMs)</div>
+                                                                <input type="text" value="" name="mileage"  placeholder="For eg 2000Km">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 col-sm-4">
                                                             <div class="form-group">
                                                                 <div class="contact-us-label">Engine Capacity</div>
-                                                                <input type="text" value="" name="engine_capacity" required="" placeholder="For eg 1800CC">
+                                                                <input type="text" value="" name="engine_capacity"  placeholder="For eg 1800CC">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
+                                                <div class="row">
+                                                    <hr>
+                                                    <h3>Add your Product Images</h3>
+                                                </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12">
 
@@ -271,7 +283,7 @@
                                                         <div class="upload-photos">
                                                             <div class="stm-pseudo-file-input">
                                                                 <div class="stm-filename">Choose file...</div>
-                                                                <input class="stm-file-realfield" type="file" name="vehicle_images[]" multiple>
+                                                                <input class="stm-file-realfield" type="file" name="vehicle_images[]" multiple required="">
                                                             </div>
                                                         </div>
                                                     </div>
