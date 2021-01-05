@@ -200,38 +200,21 @@
                                                                             @endforeach
                                                                         @else
                                                                             <option value="" selected='selected'> Make </option>
-                                                                            <option value="acura"> Acura </option>
-                                                                            <option value="audi"> Audi </option>
-                                                                            <option value="bmw"> BMW </option>
-                                                                            <option value="chevrolet"> Chevrolet
-                                                                            </option>
-                                                                            <option value="dodge"> Dodge </option>
-                                                                            <option value="ford"> Ford </option>
-                                                                            <option value="honda"> Honda </option>
-                                                                            <option value="hyundai"> Hyundai </option>
-                                                                            <option value="kia"> Kia </option>
-                                                                            <option value="lexus"> Lexus </option>
-                                                                            <option value="mazda"> Mazda </option>
-                                                                            <option value="mercedes-benz"> Mercedes-Benz
-                                                                            </option>
-                                                                            <option value="nissan"> Nissan </option>
-                                                                            <option value="range-rover"> Range Rover
-                                                                            </option>
-                                                                            <option value="renault"> Renault </option>
-                                                                            <option value="tesla"> Tesla </option>
-                                                                            <option value="toyota"> Toyota </option>
-                                                                         
                                                                         @endif
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_serie">
                                                                 <div class="form-group">
-                                                                    <select name="serie" class="form-control">
-                                                                        <option value="" selected='selected'> Model </option>
-                                                                        @foreach (\App\CarModel::all() as $item)
-                                                                         <option value="{{ $item->model_name }}"> {{ $item->model_name }} </option>
-                                                                        @endforeach
+                                                                    <select name="model" class="form-control">                                                                        
+                                                                        @if (\App\CarModel::all()->count() > 0)
+                                                                            <option value="" selected='selected'> Model </option>
+                                                                            @foreach (\App\CarModel::all() as $item)
+                                                                                <option value="{{ $item->model_name }}"> {{ $item->model_name }} </option>
+                                                                            @endforeach
+                                                                        @else
+                                                                            <option value="" selected='selected'> Model </option>
+                                                                        @endif
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -239,26 +222,33 @@
                                                                 <div class="form-group">
                                                                     <select name="mileage" class="form-control">
                                                                         <option value="" selected='selected'> Max Mileage </option>
-                                                                        <option value="5000"> < 5000 </option>
-                                                                        <option value="5000-10000"> 5000-10000 </option>
-                                                                        <option value="10000-15000"> 10000-15000 </option>
-                                                                        <option value="15000-20000"> 15000-20000 </option>
-                                                                        <option value="20000-25000"> 20000-25000 </option>
-                                                                        <option value="25000"> &gt;25000 </option>
+                                                                        <option value="1000"> 1000 </option>
+                                                                        <option value="5000"> 5000-10000 </option>
+                                                                        <option value="10000"> 10000-15000 </option>
+                                                                        <option value="15000"> 15000-20000 </option>
+                                                                        <option value="20000"> 20000-25000 </option>
+                                                                        <option value="25000"> 25000 </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6 stm-filter_ca-year">
                                                                 <div class="form-group">
-                                                                    <select name="ca-year" class="form-control">
-                                                                        <option value="" selected='selected'> Year </option>
-                                                                        <option value="1990"> 1990 </option>
-                                                                        <option value="2000"> 2000 </option>
-                                                                        <option value="2005"> 2005 </option>
-                                                                        <option value="2010"> 2010 </option>
-                                                                        <option value="2015"> 2015 </option>
-                                                                        <option value="2019"> 2019 </option>
-                                                                        <option value="2020"> 2020 </option>
+                                                                    <select name="year" class="form-control">
+                                                                        <option value="" selected='selected'>Year Manufacture</option>
+                                                                        @for ($i = 0; $i < 20; $i++)
+                                                                        <option value="{{ 2020-$i }}">{{ 2020-$i }}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-12 col-sm-6 stm-filter_transmission">
+                                                                <div class="form-group">
+                                                                    <select name="transmission" class="form-control">
+                                                                        <option value="" selected='selected'> Transmission </option>
+                                                                        <option value="automatic"> Automatic </option>
+                                                                        <option value="manual"> Manual </option>
+                                                                        <option value="semi-manual"> Semi-automatic </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -277,115 +267,24 @@
                                                                     <div class="row">
                                                                         <div
                                                                             class="col-md-6 col-sm-6 col-md-wider-right">
-                                                                            <input type="text" name="min_price" id="stm_filter_min_price" class="form-control" />
+                                                                            <input type="text" name="min_price" id="min_range" class="form-control" />
                                                                         </div>
                                                                         <div
                                                                             class="col-md-6 col-sm-6 col-md-wider-left">
-                                                                            <input type="text" name="max_price" id="stm_filter_max_price" class="form-control" />
+                                                                            <input type="text" name="max_price" id="max_range" class="form-control" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
-                                                            </div>
-                                                            <div class="col-md-12 col-sm-6 stm-filter_transmission">
-                                                                <div class="form-group">
-                                                                    <select name="transmission" class="form-control">
-                                                                        <option value="" selected='selected'> Transmission </option>
-                                                                        <option value="automatic"> Automatic </option>
-                                                                        <option value="6-manual"> Manual </option>
-                                                                        <option value="semi-manual"> Semi-automatic </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 col-sm-6 stm-filter_exterior-color">
-                                                                <div class="form-group">
-                                                                    <select name="exterior-color" class="form-control">
-                                                                        <option value="" selected='selected'> Exterior Color </option>
-                                                                        @foreach (\App\ExteriorColor::all() as $item)
-                                                                            <option value="{{ $item }}"> {{ $item }} </option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <div class="stm-multiple-select">
-                                                                    <h5>Additional features</h5>
-                                                                    <select multiple="multiple" name="stm_features[]">
-                                                                        <option value="abs"> ABS </option>
-                                                                        <option value="auxiliary-heating"> Auxiliary heating </option>
-                                                                        <option value="bluetooth"> Bluetooth </option>
-                                                                        <option value="cd-player"> CD player </option>
-                                                                        <option value="central-locking"> Central locking </option>
-                                                                        <option value="driver-and-front-passenger-advanced-airbags"> Driver and front-passenger advanced airbags </option>
-                                                                        <option value="esp"> ESP </option>
-                                                                        <option value="full-led-headlights"> Full LED headlights </option>
-                                                                        <option value="led-taillights-with-dynamic-turn-signals"> LED taillights with dynamic turn signals </option>
-                                                                        <option value="nitro">Nitro </option>
-                                                                        <option value="storage-package"> Storage package </option>
-                                                                        <option value="tire-pressure-monitoring-system"> Tire pressure monitoring system </option>
-                                                                        <option value="turbo-engine"> Turbo-engine </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <div class="form-group boats-location">
-                                                                    <div class="stm-location-search-unit">
-                                                                        <input type="text"
-                                                                            id="ca_location_listing_filter"
-                                                                            class="stm_listing_search_location"
-                                                                            name="ca_location" value="" />
-                                                                        <input type="hidden" name="stm_lat" value="0">
-                                                                        <input type="hidden" name="stm_lng" value="0">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <div
-                                                                    class="filter-search_radius stm-slider-filter-type-unit">
-                                                                    <div class="clearfix">
-                                                                        <h5 class="pull-left">Search radius</h5>
-                                                                        <div class="stm-current-slider-labels">100</div>
-                                                                    </div>
-                                                                    <div class="stm-price-range-unit">
-                                                                        <div
-                                                                            class="stm-search_radius-range stm-filter-type-slider">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-12 col-sm-12">
-                                                                            <input type="text" name="max_search_radius"
-                                                                                id="stm_slide_filter_max_search_radius"
-                                                                                class="form-control" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                             </div>
 
                                                         </div>
 
 
-                                                        <input type="hidden" id="stm_view_type" name="view_type"
-                                                            value="" />
-
-                                                        <input type="hidden" id="stm-filter-links-input"
-                                                            name="stm_filter_link" value="" />
-
-                                                        <input type="hidden" name="popular" value="" />
-
-                                                        <input type="hidden" name="s" value="" />
-                                                        <input type="hidden" name="sort_order" value="" />
-
                                                         <div class="sidebar-action-units">
-                                                            <input id="stm-classic-filter-submit" class="hidden"
-                                                                type="submit" value="Show cars" />
-
-                                                            <a href="/inventory/" class="button external"
+                                                            <button type="submit" class="button external"
                                                                 rel="nofollow"><span>Reset
-                                                                    all</span></a>
+                                                                    all</span></button>
                                                         </div>
 
                                                     </div>
@@ -393,39 +292,6 @@
 
                                                 </form>
 
-
-                                                <div class="stm-filter-links">
-
-                                                    <style></style>
-
-                                                    <div class="stm-accordion-single-unit"
-                                                        id="stm-filter-link-exterior-color">
-                                                        <a class="title collapsed " data-toggle="collapse"
-                                                            href="#exterior-color" aria-expanded="false">
-                                                            <h5>Exterior Color</h5>
-                                                            <span class="minus"></span>
-                                                        </a>
-
-                                                        <div class="stm-accordion-content">
-                                                            <div class="collapsed collapse content  "
-                                                                id="exterior-color">
-                                                                <ul class="list-style-3">
-                                                                    @foreach (\App\ExteriorColor::all() as $item)
-                                                                    <li class="stm-single-filter-link"
-                                                                        data-slug="exterior-color"
-                                                                        data-value="deep-blue-pearl">
-                                                                        <a href="?exterior-color=deep-blue-pearl"><span>(6)</span> </a>
-                                                                    </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="stm-inventory-sidebar">
-                                                </div>
                                             </div>
 
                                             <div class="col-md-9 col-sm-12 ">
@@ -478,7 +344,7 @@
 
 
 
-                                                                    <a href="/listings/ford-f-150-raptor-62l-v8-at/"
+                                                                    <a href="{{ route('product.detail', $item->id) }}"
                                                                         class="rmv_txt_drctn external" rel="nofollow">
                                                                         <div class="image-inner">
 
@@ -505,7 +371,7 @@
                                                                         </div>
 
                                                                         <div class="title heading-font">
-                                                                            <a href="/listings/ford-f-150-raptor-62l-v8-at/"
+                                                                            <a href="{{ route('product.detail', $item->id) }}"
                                                                                 class="rmv_txt_drctn external"
                                                                                 rel="nofollow">
                                                                                 {{ $item->car_title }} </a>
@@ -667,30 +533,9 @@
                                                             @endforeach
 
                                                         </div>
-                                                        {{--  <div class="stm_ajax_pagination stm-blog-pagination">
-                                                            
-                                                            <ul class='page-numbers'>
-                                                                <li><span aria-current="page"
-                                                                        class="page-numbers current">1</span></li>
-                                                                <li><a class="page-numbers external"
-                                                                        href="/inventory/page/2/" rel="nofollow">2</a>
-                                                                </li>
-                                                                <li><a class="page-numbers external"
-                                                                        href="/inventory/page/3/" rel="nofollow">3</a>
-                                                                </li>
-                                                                <li><span class="page-numbers dots">&hellip;</span></li>
-                                                                <li><a class="page-numbers external"
-                                                                        href="/inventory/page/5/" rel="nofollow">5</a>
-                                                                </li>
-                                                                <li><a class="next page-numbers external"
-                                                                        href="/inventory/page/2/" rel="nofollow"><i
-                                                                            class="fa fa-angle-right"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                          --}}
+                                                        {{ $vehicleDetail->withQueryString()->links() }}
                                                     </div>
                                                 </div>
-                                                {{ $vehicleDetail->withQueryString()->links() }}
 
                                             </div>
 

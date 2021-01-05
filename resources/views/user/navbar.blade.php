@@ -24,13 +24,6 @@
     </a>
 </li>
 
-<li class="bold">
-    <a class="waves-effect waves-cyan " href="{{ route('user.wishlist') }}">
-        <i class="material-icons">mail_outline</i>
-        <span class="menu-title">Wishlist</span>
-    </a>
-</li>
-
 
 <li class="navigation-header">
     <a class="navigation-header-text">Car Lists</a>

@@ -201,7 +201,7 @@
                                             <h3>Price:</h3>
                                             <h4>${{$item->contact[0]->price}}</h4>
                                         </div>
-                                        <a href="detail.html" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+                                        <a href="{{ rout('product.detail', $item->id) }}" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
                                     </div>
                                 </div>
                             </div>

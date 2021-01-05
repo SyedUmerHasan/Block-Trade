@@ -167,16 +167,33 @@
                         console.log("productCount", productCount)
                         for (var i = 1; i <= productCount; i++) {
                             const product = await marketplace.methods.Assets(i).call()
+                            product.price = await product.price/1000000000000000000;
                             products = [...products, product]
                         }
                         $('.table').DataTable({
                             data: products,
                             columns: [
-                                { title: "Reg Number" },
-                                { title: "Product Detail" },
+                                { title: "BlockTrade #" },
+                                { title: "Product Name" },
                                 { title: "Owner Name" },
-                                { title: "Price" },
-                                { title: "CNIC Number" }
+                                { 
+                                    "title": "Price (in ETH)", 
+                                    "data": function ( row, type, val, meta ) {
+                                        return row.price;
+                                    } 
+                                },
+                                { title: "CNIC Number" },
+                                { title: "Manufacture Date" },
+                                { title: "Registration No"},
+                                {
+                                    title: "Account Number", 
+                                    "data": function ( row, type, val, meta ) {
+                                        var address =  row.ownerAddress;
+                                        var newaddress = "0x***" + address.substring(address.length-5, address.length);
+                                        return newaddress;
+                                    }  
+                                },
+                                { title: "On Sale?" }
                             ]
                         });
         
@@ -184,27 +201,6 @@
                     } else {
                         window.alert('Marketplace contract not detected in the current Network')
                     }
-                });
-        
-                $("#addProducts").click(async (event)=>{
-                    var networkId = await web3.eth.net.getId();
-                    const networkData = Marketplace.networks[networkId];
-                    const marketplace = new web3.eth.Contract(Marketplace.abi, networkData.address);
-                    const ownerName = $("#ownerName").val();
-                    const cnicNumber = $("#cnicNumber").val();
-                    const creationYear = $("#creationYear").val();
-                    const productName = $("#productName").val();
-                    const buyingYear = $("#buyingYear").val();
-                    const price = $("#price").val();
-        
-                    const accounts = await web3.eth.getAccounts()
-                    account = accounts[0]
-                    const weiprice = window.web3.utils.toWei(price, 'Ether')
-                    marketplace.methods.createAsset(ownerName,productName, cnicNumber,creationYear,buyingYear,weiprice)
-                        .send({ from: account })
-                        .once('receipt', (receipt) => {
-                            console.log("createProduct -> receipt", receipt)
-                        });
                 });
             </script>
 </body>

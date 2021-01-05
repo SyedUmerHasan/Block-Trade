@@ -44,22 +44,22 @@ class UserController extends Controller
                 ->with('contact')
                 ->with('manufacturer')
                 ->with('model')
-                ->where(function ($query) use($title) {
+                ->OrWhere(function ($query) use($title) {
                     if(isset($title)){
                         $query->where('car_title', 'LIKE', "%".$title."%" );
                     }
                 })
-                ->where(function ($query) use($body) { 
+                ->OrWhere(function ($query) use($body) { 
                     if(isset($body)){
                         $query->where('body_type', 'like', '%' .$body .'%' );
                     }
                 })
-                ->where(function ($query) use($carmodel) {
+                ->OrWhere(function ($query) use($carmodel) {
                     if(isset($carmodel)&& isset($carmodel->id)){
                         $query->where('carmodel_id', '=', $carmodel->id );
                     }
                 })
-                ->where(function ($query) use($carmanufacturer) {
+                ->OrWhere(function ($query) use($carmanufacturer) {
                     if(isset($carmanufacturer)&& isset($carmanufacturer->id)){
                         $query->where('carmanufacturer_id', '=', $carmanufacturer->id );
                     }
@@ -78,6 +78,11 @@ class UserController extends Controller
     }
     public function step3(){
         return view("newtheme.car-step3");
+    }
+
+    public function detail($id){
+        $vehicledetail = VehicleDetail::findorfail($id);
+        return view("buyer.vehicle-detail")->with(compact('vehicledetail'));
     }
 
 }

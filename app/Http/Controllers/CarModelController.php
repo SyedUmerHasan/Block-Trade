@@ -55,7 +55,7 @@ class CarModelController extends Controller
     }
 
     public function getall(){
-        $vehiclebrand = CarModel::join("vehicledetail", "carmodel.id", "carmodel_id")->get();
+        $vehiclebrand = CarModel::join("carmanufacturer", "carmanufacturer.id", "carmodel.carmanufacturer_id")->get();
         return view('admin.carmodel.list_brandmodel')->with(compact('vehiclebrand'));
     }
 

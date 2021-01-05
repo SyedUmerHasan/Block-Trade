@@ -349,13 +349,13 @@
                                                         @foreach (\App\VehicleDetail::all() as $item)
                                                             <div
                                                                 class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
-                                                                <a href="/listings/ford-f-150-raptor-62l-v8-at/"
+                                                                <a href="{{ route('product.detail', $item->id) }}"
                                                                     class="rmv_txt_drctn xx external" rel="nofollow">
                                                                     <div class="image">
                                                                         <img width="255" height="135"
                                                                             src="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                             class="attachment-stm-img-255-135 size-stm-img-255-135"
-                                                                            alt="Ford F-150 Raptor 6,2L V8 AT"
+                                                                            alt="{{ strtoupper($item->car_title) }}"
                                                                             loading="lazy"
                                                                             data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                             srcset="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 510w"
@@ -490,13 +490,13 @@
                                                         @foreach (\App\VehicleDetail::all()->sortBy('car_title') as $item)
                                                         <div
                                                         class="col-md-3 col-sm-4 col-xs-12 col-xxs-12 stm-template-front-loop">
-                                                        <a href="/listings/ford-f-150-raptor-62l-v8-at/"
+                                                        <a href="{{ route('product.detail', $item->id) }}"
                                                             class="rmv_txt_drctn xx external" rel="nofollow">
                                                             <div class="image">
                                                                 <img width="255" height="135"
                                                                     src="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                     class="attachment-stm-img-255-135 size-stm-img-255-135"
-                                                                    alt="Ford F-150 Raptor 6,2L V8 AT"
+                                                                    alt="{{ strtoupper($item->car_title) }}"
                                                                     loading="lazy"
                                                                     data-retina="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }}"
                                                                     srcset="{{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 255w, {{ \App\VehicleImages::where('vehicledetail_id','=',$item->id)->first()->image_path }} 510w"

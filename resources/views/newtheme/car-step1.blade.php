@@ -168,7 +168,9 @@
                                                 <div class="col-md-4 col-sm-4">
                                                     <div class="form-group">
                                                         <div class="contact-us-label">Government Registration #</div>
-                                                        <input type="text" value="" name="chasis_number" required="" placeholder="For eg 123456789">
+                                                        <select name="chasis_number" id="chasis_number">
+                                                            <option value="">Select</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4">
@@ -475,4 +477,69 @@ function stm_validateFirstStep() {
 
 </script>
 <script src="/wp-content/cache/autoptimize/1/js/autoptimize_9b561ac9d53efc1cb1edbb3babd46754.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js" integrity="sha512-ppuvbiAokEJLjOUQ24YmpP7tTaLRgzliuldPRZ01ul6MhRC+B8LzcVkXmUsDee7ne9chUfApa9/pWrIZ3rwTFQ==" crossorigin="anonymous"></script>
+
+<script>
+    var Marketplace = {};
+    var networkId;
+    var account;
+    window.addEventListener('load', async () => {
+        // Wait for loading completion to avoid race conditions with web3 injection timing.
+        if (window.ethereum) {
+            window.web3 = new Web3(window.ethereum)
+            await window.ethereum.enable()
+        } else if (window.web3) {
+            window.web3 = new Web3(window.web3.currentProvider)
+        } else {
+            window.alert("Non-Ethereum browser detected.")
+        }
+        const web3 = window.web3
+        const accounts = await web3.eth.getAccounts()
+        if(accounts.length > 0){
+            account = accounts[0]
+            networkId = await web3.eth.net.getId()
+            let url = 'http://127.0.0.1:8000/abis/Marketplace.json';
+            let response = await fetch(url);
+            Marketplace = await response.json(); // read response body and parse as JSON
+    
+            const networkData = Marketplace.networks[networkId]
+            if (networkData) {
+                const marketplace = new web3.eth.Contract(Marketplace.abi, networkData.address)
+                const productCount = await marketplace.methods.AssetCount().call()
+                var products = [];
+                console.log("productCount", productCount)
+                for (var i = 1; i <= productCount; i++) {
+                    const product = await marketplace.methods.Assets(i).call()
+                    product.price = await product.price/1000000000000000000;
+                    products = [...products, product]
+                }
+                console.log("window.addEventListener ~ products", products)
+                var myProducts = products.filter(function(eachProduct){
+                    return (eachProduct.ownerAddress == account) 
+                });
+                if(myProducts.length > 0 ){
+                    myProducts.map((eachProduct)=>{
+                        $('#chasis_number').append($('<option>', {
+                            value: eachProduct.id,
+                            text: eachProduct.id + " - " + eachProduct.productName
+                        }));
+                    })
+                }
+                else{
+                    $('#chasis_number').append($('<option>', {
+                        value: "",
+                        text: "No product Found"
+                    }));
+                }
+                console.log("🚀 ~ file: car-step1.blade.php ~ line 518 ~ myProducts ~ myProducts", myProducts)
+            } else {
+                window.alert('Marketplace contract not detected in the current Network')
+            }
+        }
+        else{
+            alert('Blockchain Account not connected')
+        }
+
+    });
+</script>
 @endsection

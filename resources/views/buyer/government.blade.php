@@ -108,17 +108,21 @@
                                                     <div class="col s12">
                                                         <div class="row">
                                                             <div class="input-field col s6">
-                                                                <input type="text" class="form-control" id="ownerName" name="ownerName" aria-describedby="helpId">
-                                                                <label for="ownerName" class="">Enter Owner Name</label>
+                                                                <select name="ownerName" id="ownerName" class="form-control">
+                                                                    <option value="">Select First Product Creator</option>
+                                                                    @foreach (\App\CarManufacturer::all() as $item)
+                                                                        <option value="{{ $item->brand_name }}">{{ $item->brand_name }}</option>
+                                                                    @endforeach
+                                                                </select>
                                                             </div>
                                                             <div class="input-field col s6">
-                                                                <input type="text" class="form-control" id="cnicNumber" name="cnicNumber" aria-describedby="helpId">
+                                                                <input type="text" class="form-control" id="cnicNumber" name="cnicNumber" aria-describedby="helpId" value="42101-15516-152">
                                                                 <label for="cnicNumber" class="">Enter CNIC Number</label>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s6">
-                                                                <input type="text" class="form-control" id="creationYear" name="creationYear" aria-describedby="helpId">
+                                                                <input type="text" class="form-control datepicker" id="creationYear" name="creationYear" aria-describedby="helpId">
                                                                 <label for="creationYear" class="">Enter Manufacturer Date</label>
                                                             </div>
                                                             <div class="input-field col s6">
@@ -132,17 +136,12 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s6">
-                                                                <select name="buyingYear" id="buyingYear" class="form-control">
-                                                                    <option value="">Select Product</option>
-                                                                    @for ($i = 0; $i < 20; $i++)
-                                                                    <option value="{{ 2020 -$i }}">{{ 2020 -$i }}</option>
-                                                                    @endfor
-                                                                </select>
-                                                                <label for="buyingYear" class="">Enter Buying year</label>
+                                                                <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" aria-describedby="helpId">
+                                                                <label for="registrationNumber" class="">Enter Product Registartion Number</label>
                                                             </div>
                                                             <div class="input-field col s6">
-                                                                <input type="text" class="form-control" id="price" name="price" aria-describedby="helpId">
-                                                                <label for="price" class="">Enter price</label>
+                                                                <input type="number" class="form-control" id="price" name="price" aria-describedby="helpId">
+                                                                <label for="price" class="">Enter price (in ETH)</label>
                                                             </div>
                                                         </div>
                                                         <div class=" right">
@@ -183,6 +182,15 @@
                 var networkId;
                 var account;
                 window.addEventListener('load', async () => {
+                    
+                    var options = {
+                        defaultDate: new Date(),
+                        setDefaultDate: true
+                    };
+                    var elems = document.querySelector('#creationYear');
+                    var instance = M.Datepicker.init(elems, options);
+                    var regNumElement = document.getElementById("registrationNumber");
+                    regNumElement.value = getRandomInt(99999999)
                     // Wait for loading completion to avoid race conditions with web3 injection timing.
                     if (window.ethereum) {
                         window.web3 = new Web3(window.ethereum)
@@ -228,7 +236,6 @@
                 });
         
                 $("#addProducts").click(async (event)=>{
-                    debugger
                     var networkId = await web3.eth.net.getId();
                     const networkData = Marketplace.networks[networkId];
                     const marketplace = new web3.eth.Contract(Marketplace.abi, networkData.address);
@@ -236,18 +243,22 @@
                     const cnicNumber = $("#cnicNumber").val();
                     const creationYear = $("#creationYear").val();
                     const productName = $("#productName").val();
-                    const buyingYear = $("#buyingYear").val();
+                    const registrationNumber = $("#registrationNumber").val();
                     const price = $("#price").val();
         
                     const accounts = await web3.eth.getAccounts()
                     account = accounts[0]
                     const weiprice = window.web3.utils.toWei(price, 'Ether')
-                    marketplace.methods.createAsset(ownerName,productName, cnicNumber,creationYear,buyingYear,weiprice)
+                    marketplace.methods.createAsset(ownerName,productName, cnicNumber,creationYear,registrationNumber,weiprice)
                         .send({ from: account })
                         .once('receipt', (receipt) => {
                             console.log("createProduct -> receipt", receipt)
+                            alert("Product created successfully")
                         });
                 });
+                function getRandomInt(max) {
+                    return Math.floor(Math.random() * Math.floor(max));
+                }
             </script>
 </body>
 </html>

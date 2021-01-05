@@ -76,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get("home", 'UserController@dashboard')->name('dashboard');
     Route::get('add-product', 'UserController@step1')->name('add-product');
     Route::get('add-product/{id}', 'UserController@step2')->name('add-product.create');
+    Route::get('product/{id}', 'UserController@detail')->name('product.detail');
 
     Route::post("info", "VehicleController@carInformation")->name('car.detail.add');
     Route::post("contact/add", "VehicleController@carContactDetails")->name('car.contact.add');
@@ -83,7 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('portal', 'UserController@dashboard')->name('user.home');
     Route::get('carsearch', 'UserController@inventory')->name('search');
     Route::get('buy', 'UserController@buy')->name('user.buy');
-    Route::get('sell', 'UserController@dashboard')->name('user.sell');
+    Route::get('sell', 'UserController@sell')->name('user.sell');
     Route::group(['prefix' => 'secure'], function () {
         Route::get('', 'BlockchainController@getall')->name('blockchain');
         Route::get('government', 'BlockchainController@addCar')->name('blockchain.government');
